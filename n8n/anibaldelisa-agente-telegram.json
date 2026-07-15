@@ -1,0 +1,166 @@
+{
+  "name": "Aníbal Delisa — Agente IA + Telegram",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "anibaldelisa-chat",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-web",
+      "name": "Webhook (chat web)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "anibaldelisa-chat"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.message }}",
+        "options": {
+          "systemMessage": "Sos el asistente virtual de Aníbal Delisa, un taller mecánico multimarca con más de 53 años de trayectoria en Montevideo, Uruguay. Hablás en español rioplatense, con trato cordial, cercano y profesional (de \"vos\").\n\nDATOS DEL NEGOCIO:\n- Service oficial: Peugeot, Citroën, BYD y Opel. Atendemos todas las marcas.\n- Servicios: mecánica multimarca, chapa y pintura, alineación y balanceo, revisión pre-compra de autos usados.\n- Trabajamos con todas las aseguradoras. Negocio familiar, atendido por sus dueños.\n\nUBICACIONES Y CONTACTOS:\n- Mecánica: Canelones 2308 esq. Bvar Artigas. Tel: 2408 4755 / 099 680 555. Mail: anibaldelisa@anibaldelisa.com\n- Chapa y Pintura: Charrúa 2293 esq. Dr. Mario Cassinoni. Tel: 2409 0753 / 099 657 807. Mail: delisahnos@anibaldelisa.com\n- Horario ambos locales: Lunes a Viernes 9:00–12:30 y 14:00–18:00.\n\nCÓMO RESPONDER:\n- Ayudá con consultas sobre servicios, turnos, ubicaciones y horarios.\n- NO inventes precios exactos ni fechas de turno confirmadas. Si preguntan por precios o quieren agendar, ofrecé coordinar: pediles nombre, teléfono y qué necesitan, y avisá que el equipo los contacta a la brevedad.\n- Sé breve y claro. Si no sabés algo, decilo y derivá al teléfono o a que dejen sus datos.\n- No des asesoramiento que requiera revisar el vehículo en persona sin aclarar que es orientativo."
+        }
+      },
+      "id": "agent-web",
+      "name": "Agente IA (web)",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [280, 0]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-5",
+          "cachedResultName": "Claude Sonnet 5"
+        },
+        "options": {}
+      },
+      "id": "claude-web",
+      "name": "Modelo Claude (web)",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [200, 240]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"reply\": $json.output } }}",
+        "options": {}
+      },
+      "id": "respond-web",
+      "name": "Responder al chat web",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [600, -120]
+    },
+    {
+      "parameters": {
+        "chatId": "REEMPLAZAR_CHAT_ID_DEL_NEGOCIO",
+        "text": "=🔧 Nueva consulta desde la web:\n\n❓ {{ $('Webhook (chat web)').item.json.body.message }}\n\n🤖 Respuesta del asistente:\n{{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "telegram-notify",
+      "name": "Notificar a Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [600, 120]
+    },
+    {
+      "parameters": {
+        "updates": ["message"],
+        "additionalFields": {}
+      },
+      "id": "telegram-trigger",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [0, 520]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "Sos el asistente virtual de Aníbal Delisa, taller mecánico multimarca con más de 53 años en Montevideo, Uruguay. Hablás en español rioplatense (de \"vos\"), cordial y profesional.\n\nService oficial Peugeot, Citroën, BYD y Opel; atendemos todas las marcas. Servicios: mecánica, chapa y pintura, alineación y balanceo, revisión pre-compra. Trabajamos con todas las aseguradoras.\n\nMecánica: Canelones 2308, tel 2408 4755 / 099 680 555. Chapa y Pintura: Charrúa 2293, tel 2409 0753 / 099 657 807. Horario: Lun a Vie 9:00–12:30 y 14:00–18:00.\n\nNo inventes precios ni turnos confirmados: si preguntan eso, pedí nombre, teléfono y necesidad, y avisá que el equipo los contacta. Sé breve y claro."
+        }
+      },
+      "id": "agent-telegram",
+      "name": "Agente IA (Telegram)",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [280, 520]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-5",
+          "cachedResultName": "Claude Sonnet 5"
+        },
+        "options": {}
+      },
+      "id": "claude-telegram",
+      "name": "Modelo Claude (Telegram)",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [200, 760]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "telegram-reply",
+      "name": "Responder en Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [600, 520]
+    }
+  ],
+  "connections": {
+    "Webhook (chat web)": {
+      "main": [[{ "node": "Agente IA (web)", "type": "main", "index": 0 }]]
+    },
+    "Agente IA (web)": {
+      "main": [
+        [
+          { "node": "Responder al chat web", "type": "main", "index": 0 },
+          { "node": "Notificar a Telegram", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Modelo Claude (web)": {
+      "ai_languageModel": [
+        [{ "node": "Agente IA (web)", "type": "ai_languageModel", "index": 0 }]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [[{ "node": "Agente IA (Telegram)", "type": "main", "index": 0 }]]
+    },
+    "Agente IA (Telegram)": {
+      "main": [[{ "node": "Responder en Telegram", "type": "main", "index": 0 }]]
+    },
+    "Modelo Claude (Telegram)": {
+      "ai_languageModel": [
+        [{ "node": "Agente IA (Telegram)", "type": "ai_languageModel", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false
+  }
+}

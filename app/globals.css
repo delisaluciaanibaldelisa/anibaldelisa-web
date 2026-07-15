@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colores de marca Aníbal Delisa */
+  --color-primary: #c0392b;
+  --color-primary-dark: #a5301f;
+  --color-primary-light: #e74c3c;
+  --color-dark: #1a1a1a;
+  --color-accent: #2c3e50;
+  --color-accent-light: #34495e;
+
+  /* Fuentes */
+  --font-heading: var(--font-montserrat);
+  --font-sans: var(--font-opensans);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+}
+
+/* Utilidad para el ancho de contenido consistente */
+@utility container-x {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+}
