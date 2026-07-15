@@ -34,11 +34,16 @@ export default function Navbar() {
     >
       <nav className="container-x flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <Link
-          href="/"
-          className="font-heading font-extrabold text-xl md:text-2xl text-primary tracking-tight"
-        >
-          Aníbal Delisa
+        <Link href="/" className="flex items-center gap-2.5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.png"
+            alt="Aníbal Delisa"
+            className="h-10 w-auto md:h-12"
+          />
+          <span className="font-heading font-extrabold text-xl md:text-2xl text-primary tracking-tight">
+            Aníbal Delisa
+          </span>
         </Link>
 
         {/* Links desktop */}
