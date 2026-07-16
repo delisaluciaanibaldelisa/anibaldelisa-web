@@ -15,6 +15,7 @@ import Reveal, { ZoomReveal, SlideReveal } from "@/components/Reveal";
 import HeroCarousel from "@/components/HeroCarousel";
 import AnimatedCar from "@/components/AnimatedCar";
 import StatCounter from "@/components/StatCounter";
+import AutoVideo from "@/components/AutoVideo";
 import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
 
 // Textos de la web original anibaldelisa.com — respetar tal cual.
@@ -219,11 +220,11 @@ export default function Home() {
             </SlideReveal>
 
             <SlideReveal from="right">
-              {/* Imagen del sector (Corrección 8) */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/autos/peugeot.jpg"
-                alt="Chapa y pintura con acabado de fábrica — Aníbal Delisa Montevideo"
+              {/* Video del sector (BYD Yuan Pro) */}
+              <AutoVideo
+                src="/videos/chapa-byd-yuan.mp4"
+                poster="/autos/byd.webp"
+                preload="metadata"
                 className="w-full h-[200px] lg:h-60 object-cover rounded-xl mb-5 [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)]"
               />
               <div className="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6">

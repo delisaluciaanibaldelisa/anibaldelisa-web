@@ -2,26 +2,35 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import AutoVideo from "@/components/AutoVideo";
 import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
 
 // Diapositivas del hero. Si existe la foto en public/autos/, se muestra;
 // si no, se usa un fondo degradado elegante con el nombre de la marca.
 // Para activar fotos reales: guardar p.ej. public/autos/peugeot.jpg
 const slides = [
+  { brand: "BYD Seal", video: "/videos/hero-byd-seal.mp4", img: "/autos/byd.webp", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
   { brand: "Peugeot", img: "/autos/peugeot.jpg", gradient: "from-[#0f1e46] via-[#1c3575] to-[#0b1530]" },
   { brand: "BYD", img: "/autos/byd.webp", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
   { brand: "Opel", img: "/autos/opel.webp", gradient: "from-[#3d3a06] via-[#6b6410] to-[#232105]" },
   { brand: "Citroën", img: "/autos/citroen.jpg", gradient: "from-[#5c0f0f] via-[#8f1d1d] to-[#3d0a0a]" },
-];
+] as {
+  brand: string;
+  img: string;
+  video?: string;
+  gradient: string;
+}[];
 
 export default function HeroCarousel() {
   const [index, setIndex] = useState(0);
   const [failed, setFailed] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    const t = setInterval(() => setIndex((i) => (i + 1) % slides.length), 4500);
-    return () => clearInterval(t);
-  }, []);
+    // El slide con video dura más para que se aprecie.
+    const dur = slides[index].video ? 9000 : 4500;
+    const t = setTimeout(() => setIndex((i) => (i + 1) % slides.length), dur);
+    return () => clearTimeout(t);
+  }, [index]);
 
   const slide = slides[index];
 
@@ -40,7 +49,14 @@ export default function HeroCarousel() {
           transition={{ duration: 1.4, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          {!failed[slide.brand] ? (
+          {slide.video && !failed[slide.brand] ? (
+            <AutoVideo
+              src={slide.video}
+              poster={slide.img}
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : !failed[slide.brand] ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={slide.img}
