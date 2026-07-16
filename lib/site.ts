@@ -10,8 +10,12 @@ export const site = {
   description:
     "Service oficial Peugeot, Citroën, BYD y Opel en Montevideo. Mecánica multimarca, chapa y pintura, alineación y balanceo. +53 años de trayectoria.",
   brands: ["Peugeot", "Citroën", "BYD", "Opel"],
-  // Canal de contacto directo por Telegram.
-  // Cambiá el usuario real en NEXT_PUBLIC_TELEGRAM_URL (.env.local) o acá abajo.
+  // WhatsApp por sector (wa.me abre el chat directo).
+  whatsapp: {
+    general: "https://wa.me/59899680555", // Mecánica / consultas generales
+    chapa: "https://wa.me/59899657807", // Chapa y Pintura
+  },
+  // Canal de contacto directo por Telegram (backend del chat, invisible al cliente).
   telegram: {
     username: process.env.NEXT_PUBLIC_TELEGRAM_USERNAME || "@anibaldelisa",
     link: process.env.NEXT_PUBLIC_TELEGRAM_URL || "https://t.me/anibaldelisa",
