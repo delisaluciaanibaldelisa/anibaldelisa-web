@@ -48,7 +48,7 @@ export default function Navbar() {
               alt="Aníbal Delisa"
               className="h-10 w-auto md:h-12 drop-shadow"
             />
-            <span className="font-heading font-extrabold text-xl md:text-2xl text-white tracking-tight">
+            <span className="font-logo text-xl md:text-2xl text-white tracking-wide">
               Aníbal Delisa
             </span>
           </Link>

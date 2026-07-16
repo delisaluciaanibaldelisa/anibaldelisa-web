@@ -12,6 +12,7 @@
   /* Fuentes */
   --font-heading: var(--font-montserrat);
   --font-sans: var(--font-opensans);
+  --font-logo: var(--font-serpentine); /* fuente del logo original */
 }
 
 :root {

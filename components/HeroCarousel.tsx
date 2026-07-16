@@ -9,9 +9,9 @@ import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
 // Para activar fotos reales: guardar p.ej. public/autos/peugeot.jpg
 const slides = [
   { brand: "Peugeot", img: "/autos/peugeot.jpg", gradient: "from-[#0f1e46] via-[#1c3575] to-[#0b1530]" },
+  { brand: "BYD", img: "/autos/byd.webp", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
+  { brand: "Opel", img: "/autos/opel.webp", gradient: "from-[#3d3a06] via-[#6b6410] to-[#232105]" },
   { brand: "Citroën", img: "/autos/citroen.jpg", gradient: "from-[#5c0f0f] via-[#8f1d1d] to-[#3d0a0a]" },
-  { brand: "BYD", img: "/autos/byd.jpg", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
-  { brand: "Opel", img: "/autos/opel.jpg", gradient: "from-[#3d3a06] via-[#6b6410] to-[#232105]" },
 ];
 
 export default function HeroCarousel() {

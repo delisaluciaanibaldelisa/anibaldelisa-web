@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { site } from "@/lib/site";
 import Navbar from "@/components/Navbar";
@@ -17,6 +18,13 @@ const openSans = Open_Sans({
   variable: "--font-opensans",
   subsets: ["latin"],
   weight: ["400", "600", "700"],
+  display: "swap",
+});
+
+// Fuente del logo original de Aníbal Delisa.
+const serpentine = localFont({
+  src: "./fonts/serpentine-d-bold.ttf",
+  variable: "--font-serpentine",
   display: "swap",
 });
 
@@ -112,7 +120,7 @@ export default function RootLayout({
   return (
     <html
       lang="es-UY"
-      className={`${montserrat.variable} ${openSans.variable}`}
+      className={`${montserrat.variable} ${openSans.variable} ${serpentine.variable}`}
     >
       <body className="min-h-screen flex flex-col bg-white text-dark antialiased">
         <script

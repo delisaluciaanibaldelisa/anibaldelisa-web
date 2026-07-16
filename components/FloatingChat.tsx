@@ -32,14 +32,14 @@ export default function FloatingChat() {
     return () => window.removeEventListener(OPEN_CHAT_EVENT, openHandler);
   }, []);
 
-  // Muestra un saludo llamativo unos segundos después de cargar (si no abrió aún).
+  // El rey saluda apenas carga la página y queda visible hasta que abran el chat.
   useEffect(() => {
     const t = setTimeout(() => {
       setOpen((isOpen) => {
         if (!isOpen) setGreeting(true);
         return isOpen;
       });
-    }, 3500);
+    }, 1200);
     return () => clearTimeout(t);
   }, []);
 
@@ -104,7 +104,7 @@ export default function FloatingChat() {
 
   return (
     <>
-      {/* Saludo llamativo */}
+      {/* Saludo del asistente — siempre visible hasta abrir el chat */}
       <AnimatePresence>
         {greeting && !open && (
           <motion.button
@@ -113,62 +113,50 @@ export default function FloatingChat() {
             initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="fixed bottom-24 right-5 z-50 max-w-[15rem] rounded-2xl rounded-br-sm bg-white shadow-xl border border-gray-200 px-4 py-3 text-left"
+            className="fixed bottom-28 right-5 z-50 max-w-[16rem] rounded-2xl rounded-br-sm bg-white shadow-xl border border-gray-200 px-4 py-3 text-left"
           >
-            <span className="block font-heading font-bold text-sm text-dark">
-              ¿Te damos una mano? 👋
+            <span className="block font-heading font-bold text-sm text-accent">
+              Asistente Aníbal Delisa
             </span>
             <span className="block text-xs text-gray-600 mt-0.5">
-              Escribinos y te respondemos al toque.
+              ¿Consultás por service, turnos o presupuestos? Escribime, te
+              respondo al instante.
             </span>
           </motion.button>
         )}
       </AnimatePresence>
 
-      {/* Botón flotante con el logo de la marca */}
-      <button
+      {/* El rey flotante — sin círculo, fondo transparente */}
+      <motion.button
         type="button"
         onClick={() => (open ? setOpen(false) : openPanel())}
         aria-label={open ? "Cerrar chat" : "Abrir chat"}
-        className={`fixed bottom-5 right-5 z-50 grid place-items-center w-16 h-16 rounded-full shadow-lg transition-colors ${
+        animate={open ? { y: 0 } : { y: [0, -8, 0] }}
+        transition={
           open
-            ? "bg-primary hover:bg-primary-dark text-white"
-            : "bg-white border-2 border-primary text-primary hover:bg-gray-50"
-        }`}
+            ? { duration: 0.2 }
+            : { duration: 2.4, repeat: Infinity, ease: "easeInOut" }
+        }
+        className="fixed bottom-5 right-5 z-50 grid place-items-center"
       >
-        {/* Anillo de pulso para llamar la atención */}
-        {!open && (
-          <span className="absolute inset-0 rounded-full bg-primary/30 animate-ping" />
+        {open ? (
+          <span className="grid place-items-center w-12 h-12 rounded-full bg-accent text-white shadow-lg hover:bg-accent-light transition-colors">
+            <X size={24} />
+          </span>
+        ) : logoError ? (
+          <span className="grid place-items-center w-14 h-14 rounded-full bg-primary text-white font-heading font-extrabold text-xl shadow-lg">
+            AD
+          </span>
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src="/logo.png"
+            alt="Asistente Aníbal Delisa"
+            className="w-16 h-auto md:w-20 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
+            onError={() => setLogoError(true)}
+          />
         )}
-        <span className="relative grid place-items-center">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={open ? "x" : "logo"}
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.15 }}
-              className="grid place-items-center"
-            >
-              {open ? (
-                <X size={28} />
-              ) : logoError ? (
-                <span className="font-heading font-extrabold text-xl leading-none">
-                  AD
-                </span>
-              ) : (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src="/logo.png"
-                  alt="Aníbal Delisa"
-                  className="w-10 h-10 object-contain"
-                  onError={() => setLogoError(true)}
-                />
-              )}
-            </motion.span>
-          </AnimatePresence>
-        </span>
-      </button>
+      </motion.button>
 
       {/* Panel de chat */}
       <AnimatePresence>
