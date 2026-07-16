@@ -45,27 +45,6 @@ async function slotsOcupados(fecha: string): Promise<Set<Slot>> {
 
 // GET /api/turnos?fecha=YYYY-MM-DD → disponibilidad del día
 export async function GET(req: NextRequest) {
-  // Diagnóstico temporal (solo booleanos/longitudes, nunca secretos).
-  if (req.nextUrl.searchParams.get("diag") === "1") {
-    const raw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON || "";
-    let parseOk = false;
-    let campos: string[] = [];
-    try {
-      const j = JSON.parse(raw);
-      parseOk = true;
-      campos = Object.keys(j).slice(0, 6);
-    } catch {}
-    return NextResponse.json({
-      tieneJson: raw.length > 0,
-      largoJson: raw.length,
-      empiezaCon: raw.slice(0, 12),
-      parseOk,
-      campos,
-      tieneCalendarId: Boolean(process.env.GOOGLE_CALENDAR_ID),
-      configured: calendarConfigured(),
-    });
-  }
-
   const fecha = req.nextUrl.searchParams.get("fecha") ?? "";
   if (!esFechaValida(fecha)) {
     return NextResponse.json({ error: "Fecha no disponible" }, { status: 400 });
