@@ -126,7 +126,7 @@ export async function POST(req: NextRequest) {
       }
       const { startISO, endISO } = slotToRange(datos.fecha, datos.hora);
       await createCalendarEvent({
-        summary: `Turno: ${datos.nombre} — ${datos.marca} — ${datos.trabajo}`,
+        summary: `🔴 Turno: ${datos.nombre} — ${datos.marca} — ${datos.trabajo}`,
         description: `Nombre: ${datos.nombre}\nCelular: ${datos.celular}\nEmail: ${datos.email}\nMarca: ${datos.marca}\nTrabajo: ${datos.trabajo}\n\nReservado desde la web.`,
         startISO,
         endISO,

@@ -106,6 +106,7 @@ export async function createCalendarEvent(opts: {
         description: opts.description,
         start: { dateTime: opts.startISO, timeZone: "America/Montevideo" },
         end: { dateTime: opts.endISO, timeZone: "America/Montevideo" },
+        colorId: "11", // rojo (tomate): turno ocupado
       }),
     },
   );
