@@ -26,7 +26,10 @@ export default function HeroCarousel() {
   const slide = slides[index];
 
   return (
-    <section className="relative overflow-hidden bg-dark text-white min-h-[70vh] md:min-h-[78vh] grid">
+    <section
+      className="relative overflow-hidden bg-dark text-white min-h-[70vh] md:min-h-[78vh] grid"
+      data-wa-msg="Hola! Quiero hacer una consulta sobre el taller"
+    >
       {/* Fondo con crossfade por marca */}
       <AnimatePresence mode="sync">
         <motion.div
@@ -41,8 +44,10 @@ export default function HeroCarousel() {
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={slide.img}
-              alt={`Modelo ${slide.brand}`}
+              alt={`Service oficial ${slide.brand} en Montevideo — Taller Aníbal Delisa`}
               className="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+              fetchPriority="high"
               onError={() =>
                 setFailed((f) => ({ ...f, [slide.brand]: true }))
               }

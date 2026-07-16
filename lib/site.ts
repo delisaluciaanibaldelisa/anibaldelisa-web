@@ -5,7 +5,19 @@ export const site = {
   name: "Aníbal Delisa",
   legalName: "Aníbal Delisa SRL",
   yearsExperience: 53,
-  url: "https://www.anibaldelisa.com",
+  // TODO: cambiar a https://www.anibaldelisa.com cuando el dominio apunte a Vercel.
+  url: "https://anibaldelisa-web.vercel.app",
+  // Ficha de Google Maps (Place ID derivado del link oficial de la ficha).
+  google: {
+    placeId: "ChIJKW6LU6-Bn5URR8LW7U52gyI",
+    rating: 4.8,
+    reviewCount: 459,
+    mapsUrl:
+      "https://www.google.com/maps/place/?q=place_id:ChIJKW6LU6-Bn5URR8LW7U52gyI",
+    writeReviewUrl:
+      "https://search.google.com/local/writereview?placeid=ChIJKW6LU6-Bn5URR8LW7U52gyI",
+  },
+  geo: { lat: -34.9069644, lng: -56.1647645 },
   tagline: "Taller mecánico multimarca en Montevideo",
   description:
     "Service oficial Peugeot, Citroën, BYD y Opel en Montevideo. Mecánica multimarca, chapa y pintura, alineación y balanceo. +53 años de trayectoria.",

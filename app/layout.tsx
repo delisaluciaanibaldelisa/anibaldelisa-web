@@ -6,6 +6,7 @@ import { site } from "@/lib/site";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingChat from "@/components/FloatingChat";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -46,14 +47,27 @@ export const metadata: Metadata = {
     "mecánica multimarca Uruguay",
   ],
   authors: [{ name: site.name }],
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     type: "website",
     locale: "es_UY",
     url: site.url,
     siteName: site.name,
-    title:
-      "Aníbal Delisa | Taller Mecánico Multimarca Montevideo",
+    title: "Aníbal Delisa | Taller Mecánico Multimarca Montevideo",
     description: site.description,
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aníbal Delisa — Taller mecánico multimarca en Montevideo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
   },
   robots: {
     index: true,
@@ -72,6 +86,18 @@ const jsonLd = {
   email: site.locations.mecanica.email,
   foundingDate: "1973",
   areaServed: "Montevideo, Uruguay",
+  image: `${site.url}/og.jpg`,
+  hasMap: site.google.mapsUrl,
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: site.geo.lat,
+    longitude: site.geo.lng,
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: site.google.rating,
+    reviewCount: site.google.reviewCount,
+  },
   address: {
     "@type": "PostalAddress",
     streetAddress: "Canelones 2308 esq. Bvar Artigas",
@@ -131,6 +157,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <FloatingChat />
+        <WhatsAppFloat />
       </body>
     </html>
   );

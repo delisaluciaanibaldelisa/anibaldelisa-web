@@ -95,7 +95,10 @@ export default function Home() {
       </section>
 
       {/* MECÁNICA — cubos con los textos originales */}
-      <section className="py-16 md:py-24 bg-gray-100">
+      <section
+        className="py-16 md:py-24 bg-gray-100"
+        data-wa-msg="Hola! Quiero agendar un service para mi auto"
+      >
         <div className="container-x">
           <Reveal className="mb-10">
             <p className="text-sm font-bold uppercase tracking-widest text-primary">
@@ -132,6 +135,7 @@ export default function Home() {
             <Link
               href="/seguridad-vial"
               className="group flex flex-col md:flex-row items-start md:items-center gap-5 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all p-8"
+              data-wa-msg="Hola! Quiero un turno para alineación y balanceo"
             >
               <div className="grid place-items-center w-14 h-14 shrink-0 rounded-2xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition-colors">
                 <Gauge size={28} />
@@ -165,7 +169,11 @@ export default function Home() {
       </section>
 
       {/* CHAPA Y PINTURA — texto original, con zoom y auto animado */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-accent via-[#0a2547] to-dark text-white">
+      <section
+        className="relative overflow-hidden bg-gradient-to-br from-accent via-[#0a2547] to-dark text-white"
+        data-wa-msg="Hola! Quiero un presupuesto de chapa y pintura"
+        data-wa-num="chapa"
+      >
         <div className="container-x py-20 md:py-28">
           <ZoomReveal>
             <h2 className="font-heading font-extrabold text-3xl md:text-5xl leading-tight max-w-3xl">
@@ -353,6 +361,21 @@ export default function Home() {
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-dark">
               Qué Dicen Nuestros Clientes
             </h2>
+            {/* Calificación real de la ficha de Google */}
+            <a
+              href={site.google.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white shadow-sm px-5 py-2.5 hover:shadow-md transition-shadow"
+            >
+              <Star size={20} className="text-yellow-500" fill="currentColor" />
+              <span className="font-heading font-bold text-dark text-lg">
+                {site.google.rating}
+              </span>
+              <span className="text-sm text-gray-600">
+                · {site.google.reviewCount} reseñas en Google
+              </span>
+            </a>
           </Reveal>
           <div className="grid gap-6 md:grid-cols-3">
             {testimonios.map((t, i) => (
@@ -373,6 +396,16 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+          <Reveal className="mt-10 text-center">
+            <a
+              href={site.google.writeReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-accent hover:bg-accent-light text-white font-semibold px-6 py-3 transition-all hover:scale-[1.03]"
+            >
+              ⭐ Dejanos tu reseña en Google
+            </a>
+          </Reveal>
         </div>
       </section>
 
