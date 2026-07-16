@@ -6,6 +6,7 @@ import { z } from "zod";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { servicios } from "@/lib/site";
+import { trackEvent } from "@/lib/analytics";
 
 const schema = z.object({
   nombre: z.string().min(2, "Ingresá tu nombre"),
@@ -39,6 +40,7 @@ export default function ContactForm() {
           }),
         });
       }
+      trackEvent("form_submit", { servicio: data.servicio });
       // Aun sin webhook configurado, mostramos confirmación (no perdemos el lead).
       reset();
     } catch {

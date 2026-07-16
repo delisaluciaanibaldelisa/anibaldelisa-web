@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, Send } from "lucide-react";
 import { site } from "@/lib/site";
 import { OPEN_CHAT_EVENT } from "@/lib/chat";
+import { trackEvent } from "@/lib/analytics";
 
 type Msg = { from: "bot" | "user"; text: string };
 
@@ -100,6 +101,7 @@ export default function FloatingChat() {
   const openPanel = () => {
     setGreeting(false);
     setOpen(true);
+    trackEvent("chat_open");
   };
 
   return (

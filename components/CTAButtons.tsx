@@ -3,6 +3,7 @@
 import { Phone, MessageCircle } from "lucide-react";
 import { site } from "@/lib/site";
 import { openChat } from "@/lib/chat";
+import { trackEvent } from "@/lib/analytics";
 
 // Ícono de WhatsApp inline (lucide no incluye la marca).
 function WhatsAppIcon({ size = 20 }: { size?: number }) {
@@ -33,6 +34,7 @@ export function WhatsAppButton({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackEvent("whatsapp_click", { source: "boton" })}
       className={`inline-flex items-center justify-center gap-2 rounded-md bg-[#25D366] hover:bg-[#1eb555] text-white font-semibold px-6 py-3 transition-all hover:scale-[1.03] active:scale-[0.98] ${className}`}
     >
       <WhatsAppIcon />
@@ -73,6 +75,7 @@ export function CallButton({
   return (
     <a
       href={href}
+      onClick={() => trackEvent("call_click", { source: "boton" })}
       className={`inline-flex items-center justify-center gap-2 rounded-md bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 transition-all hover:scale-[1.03] active:scale-[0.98] ${className}`}
     >
       <Phone size={18} />

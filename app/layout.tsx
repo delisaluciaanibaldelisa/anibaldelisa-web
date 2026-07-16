@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
 import localFont from "next/font/local";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import Navbar from "@/components/Navbar";
@@ -158,6 +159,7 @@ export default function RootLayout({
         <Footer />
         <FloatingChat />
         <WhatsAppFloat />
+        <GoogleAnalytics gaId={site.ga4Id} />
       </body>
     </html>
   );

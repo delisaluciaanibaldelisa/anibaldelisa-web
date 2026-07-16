@@ -18,6 +18,8 @@ export const site = {
       "https://search.google.com/local/writereview?placeid=ChIJKW6LU6-Bn5URR8LW7U52gyI",
   },
   geo: { lat: -34.9069644, lng: -56.1647645 },
+  // Google Analytics 4 (ID de medición — público, no es secreto).
+  ga4Id: "G-1FWLB868QW",
   tagline: "Taller mecánico multimarca en Montevideo",
   description:
     "Service oficial Peugeot, Citroën, BYD y Opel en Montevideo. Mecánica multimarca, chapa y pintura, alineación y balanceo. +53 años de trayectoria.",
