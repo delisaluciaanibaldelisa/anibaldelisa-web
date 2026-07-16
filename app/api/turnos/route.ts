@@ -53,13 +53,17 @@ export async function GET(req: NextRequest) {
     const ocupados = await slotsOcupados(fecha);
     return NextResponse.json({
       fecha,
+      sync: calendarConfigured(),
       slots: SLOTS.map((hora) => ({ hora, libre: !ocupados.has(hora) })),
     });
-  } catch {
+  } catch (e) {
     // Si el calendario falla, no bloqueamos la agenda: mostramos todo libre
     // y el taller recibe el email de aviso igualmente.
+    console.error("Error consultando calendario:", e);
     return NextResponse.json({
       fecha,
+      sync: calendarConfigured(),
+      calendarError: true,
       slots: SLOTS.map((hora) => ({ hora, libre: true })),
     });
   }
