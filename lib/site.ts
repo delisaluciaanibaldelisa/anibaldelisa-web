@@ -59,9 +59,10 @@ export const site = {
 export const nav = [
   { href: "/", label: "Inicio" },
   { href: "/servicios", label: "Servicios" },
-  { href: "/seguridad-vial", label: "Seguridad Vial", highlight: true },
+  { href: "/seguridad-vial", label: "Seguridad Vial" },
   { href: "/nosotros", label: "Nosotros" },
   { href: "/contacto", label: "Contacto" },
+  { href: "/turnos", label: "Agendá tu turno", highlight: true },
 ] as const;
 
 export const servicios = [

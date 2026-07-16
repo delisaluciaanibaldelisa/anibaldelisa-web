@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/seguridad-vial",
     "/nosotros",
     "/contacto",
+    "/turnos",
   ];
 
   const lastModified = new Date();
