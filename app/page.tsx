@@ -364,7 +364,7 @@ export default function Home() {
 
           {/* Stats animadas (Corrección 5) */}
           <Reveal delay={0.2} className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-            <StatCounter value={53} suffix="+" label="Años" color="#FFD700" />
+            <StatCounter value={53} suffix="+" label="Años" color="#FFE500" />
             <StatCounter value={4} label="Marcas oficiales" color="#e00000" />
             <StatCounter value={2} label="Talleres" color="#0A1628" />
             <StatCounter
@@ -372,7 +372,7 @@ export default function Home() {
               decimals={1}
               suffix=" ⭐"
               label="En Google"
-              color="#FFD700"
+              color="#FFE500"
             />
           </Reveal>
 

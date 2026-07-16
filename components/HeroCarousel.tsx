@@ -102,7 +102,7 @@ export default function HeroCarousel() {
             aria-label={`Ver ${s.brand}`}
             onClick={() => setIndex(i)}
             className={`h-2 rounded-full transition-all ${
-              i === index ? "w-8 bg-white" : "w-2 bg-white/40 hover:bg-white/70"
+              i === index ? "w-8 bg-gold" : "w-2 bg-white/40 hover:bg-white/70"
             }`}
           />
         ))}

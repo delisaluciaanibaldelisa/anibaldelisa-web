@@ -7,8 +7,8 @@
   --color-primary: #e00000; /* rojo del logo — NO cambiar */
   --color-primary-dark: #b30000;
   --color-primary-light: #f04438;
-  --color-gold: #ffd700;
-  --color-gold-dark: #e6c200;
+  --color-gold: #ffe500; /* amarillo puro */
+  --color-gold-dark: #e0c900;
   --color-dark: #0a1628; /* navy */
   --color-navy: #0a1628;
   --color-navy-mid: #162040;
@@ -30,18 +30,30 @@
   --navy: #0a1628;
   --navy-mid: #162040;
   --red: #e00000; /* rojo del logo */
-  --gold: #ffd700;
+  --gold: #ffe500;
   --charcoal: #0a1628;
   --gray: #4a4a4a;
   --gray-light: #f5f5f5;
   --navy-80: rgba(10, 22, 40, 0.8);
   --navy-20: rgba(10, 22, 40, 0.2);
-  --gold-40: rgba(255, 215, 0, 0.4);
-  --gold-10: rgba(255, 215, 0, 0.1);
+  --gold-40: rgba(255, 229, 0, 0.4);
+  --gold-10: rgba(255, 229, 0, 0.1);
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Foco visible con toque de amarillo puro (accesibilidad + marca) */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Selección de texto con la marca */
+::selection {
+  background: var(--navy);
+  color: var(--gold);
 }
 
 body {
