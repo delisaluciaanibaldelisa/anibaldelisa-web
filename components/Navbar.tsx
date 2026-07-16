@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50">
       {/* Franja superior: trayectoria */}
-      <div className="bg-primary text-white text-center text-xs md:text-sm font-semibold py-1.5 px-4">
+      <div className="bg-primary text-accent text-center text-xs md:text-sm font-semibold py-1.5 px-4">
         Más de {site.yearsExperience} años de trayectoria en Uruguay
       </div>
 
@@ -46,7 +46,7 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Aníbal Delisa"
-              className="h-12 w-auto md:h-14 drop-shadow"
+              className="h-14 w-auto md:h-16 drop-shadow"
             />
             <span className="font-logo text-xl md:text-2xl text-white tracking-wide">
               Aníbal Delisa
@@ -62,8 +62,8 @@ export default function Navbar() {
                   className={`px-3 py-2 rounded-md text-sm font-semibold transition-colors ${
                     "highlight" in item && item.highlight
                       ? isActive(item.href)
-                        ? "bg-primary text-white"
-                        : "text-white bg-primary/80 hover:bg-primary"
+                        ? "bg-primary text-accent"
+                        : "text-accent bg-primary/80 hover:bg-primary"
                       : isActive(item.href)
                         ? "text-white bg-white/15"
                         : "text-gray-200 hover:text-white hover:bg-white/10"
@@ -78,7 +78,7 @@ export default function Navbar() {
           {/* CTA desktop */}
           <a
             href={site.locations.mecanica.telHref}
-            className="hidden md:inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-4 py-2.5 rounded-md transition-colors"
+            className="hidden md:inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-accent text-sm font-semibold px-4 py-2.5 rounded-md transition-colors"
           >
             <Phone size={16} />
             Llamanos
@@ -106,7 +106,7 @@ export default function Navbar() {
                     href={item.href}
                     className={`block px-3 py-3 rounded-md font-semibold ${
                       "highlight" in item && item.highlight
-                        ? "text-white bg-primary"
+                        ? "text-accent bg-primary"
                         : isActive(item.href)
                           ? "text-white bg-white/15"
                           : "text-gray-200"
@@ -119,7 +119,7 @@ export default function Navbar() {
               <li className="pt-2">
                 <a
                   href={site.locations.mecanica.telHref}
-                  className="flex items-center justify-center gap-2 bg-primary text-white font-semibold px-4 py-3 rounded-md"
+                  className="flex items-center justify-center gap-2 bg-primary text-accent font-semibold px-4 py-3 rounded-md"
                 >
                   <Phone size={18} />
                   Llamanos: {site.locations.mecanica.phones[0]}

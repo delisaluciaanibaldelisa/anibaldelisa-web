@@ -146,7 +146,7 @@ export default function FloatingChat() {
             <X size={24} />
           </span>
         ) : logoError ? (
-          <span className="grid place-items-center w-14 h-14 rounded-full bg-primary text-white font-heading font-extrabold text-xl shadow-lg">
+          <span className="grid place-items-center w-14 h-14 rounded-full bg-primary text-accent font-heading font-extrabold text-xl shadow-lg">
             AD
           </span>
         ) : (
@@ -171,9 +171,9 @@ export default function FloatingChat() {
             className="fixed bottom-24 right-5 z-50 w-[calc(100vw-2.5rem)] max-w-sm h-[30rem] max-h-[70vh] flex flex-col rounded-xl overflow-hidden bg-white shadow-2xl border border-gray-200"
           >
             {/* Header */}
-            <div className="bg-primary text-white px-4 py-3 shrink-0">
+            <div className="bg-primary text-accent px-4 py-3 shrink-0">
               <p className="font-heading font-bold">Hablá con nosotros</p>
-              <p className="text-xs text-white/80">
+              <p className="text-xs text-accent/80">
                 Aníbal Delisa · respondemos rápido
               </p>
             </div>
@@ -191,7 +191,7 @@ export default function FloatingChat() {
                   <div
                     className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-snug ${
                       m.from === "user"
-                        ? "bg-primary text-white rounded-br-sm"
+                        ? "bg-primary text-accent rounded-br-sm"
                         : "bg-white border border-gray-200 text-dark rounded-bl-sm"
                     }`}
                   >
@@ -228,7 +228,7 @@ export default function FloatingChat() {
                   onClick={send}
                   disabled={loading || !input.trim()}
                   aria-label="Enviar"
-                  className="grid place-items-center w-10 h-10 rounded-full bg-primary text-white disabled:opacity-40 hover:bg-primary-dark transition-colors"
+                  className="grid place-items-center w-10 h-10 rounded-full bg-primary text-accent disabled:opacity-40 hover:bg-primary-dark transition-colors"
                 >
                   <Send size={18} />
                 </button>

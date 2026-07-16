@@ -153,7 +153,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center justify-center gap-2 rounded-md bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 transition-colors disabled:opacity-60"
+            className="inline-flex items-center justify-center gap-2 rounded-md bg-primary hover:bg-primary-dark text-accent font-semibold px-6 py-3 transition-colors disabled:opacity-60"
           >
             {isSubmitting && <Loader2 size={18} className="animate-spin" />}
             {isSubmitting ? "Enviando…" : "Enviar consulta"}

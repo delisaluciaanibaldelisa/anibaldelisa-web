@@ -36,7 +36,7 @@ export default function ServiciosPage() {
                 href={`/servicios/${s.slug}`}
                 className="group flex h-full flex-col rounded-2xl border border-gray-200 p-8 hover:border-primary hover:shadow-lg transition-all"
               >
-                <div className="grid place-items-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
+                <div className="grid place-items-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-5 group-hover:bg-primary group-hover:text-accent transition-colors">
                   <ServiceIcon name={s.icon} size={28} />
                 </div>
                 <h2 className="font-heading font-bold text-xl text-dark">

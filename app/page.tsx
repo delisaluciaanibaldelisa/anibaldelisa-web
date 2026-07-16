@@ -116,7 +116,7 @@ export default function Home() {
                   href={c.href}
                   className="group flex h-full flex-col bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all p-8"
                 >
-                  <div className="grid place-items-center w-14 h-14 rounded-2xl bg-primary/10 text-primary mb-5 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all">
+                  <div className="grid place-items-center w-14 h-14 rounded-2xl bg-primary/10 text-primary mb-5 group-hover:bg-primary group-hover:text-accent group-hover:scale-110 transition-all">
                     <c.icon size={28} />
                   </div>
                   <h3 className="font-heading font-bold text-xl text-dark">
@@ -252,7 +252,7 @@ export default function Home() {
         <div className="container-x grid gap-12 lg:grid-cols-2 items-start">
           <SlideReveal from="left">
             <div className="flex items-center gap-3 mb-4">
-              <div className="grid place-items-center w-12 h-12 rounded-xl bg-primary text-white">
+              <div className="grid place-items-center w-12 h-12 rounded-xl bg-primary text-accent">
                 <ShieldCheck size={26} />
               </div>
               <h2 className="font-heading font-bold text-3xl md:text-4xl text-dark">
@@ -312,7 +312,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-gray-100">
         <div className="container-x max-w-4xl text-center">
           <ZoomReveal>
-            <div className="grid place-items-center w-16 h-16 rounded-full bg-primary text-white mx-auto mb-5">
+            <div className="grid place-items-center w-16 h-16 rounded-full bg-primary text-accent mx-auto mb-5">
               <Users size={30} />
             </div>
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-dark">
@@ -346,7 +346,7 @@ export default function Home() {
           <Reveal delay={0.25} className="mt-8">
             <Link
               href="/contacto"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-3 transition-all hover:scale-[1.03]"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-primary hover:bg-primary-dark text-accent font-semibold px-8 py-3 transition-all hover:scale-[1.03]"
             >
               Visitanos
             </Link>
@@ -410,13 +410,13 @@ export default function Home() {
       </section>
 
       {/* ESCRIBINOS — cierre como en la original */}
-      <section className="py-16 md:py-24 bg-primary text-white">
+      <section className="py-16 md:py-24 bg-primary text-accent">
         <div className="container-x text-center">
           <ZoomReveal>
             <h2 className="font-heading font-extrabold text-3xl md:text-4xl">
               Escribinos
             </h2>
-            <p className="mt-3 text-white/90 max-w-xl mx-auto">
+            <p className="mt-3 text-accent/80 max-w-xl mx-auto">
               Para consultas, comunícate con nosotros por WhatsApp o llámanos.
               Nuestro equipo está listo para brindarte una atención
               excepcional.
@@ -426,7 +426,7 @@ export default function Home() {
                 label="Escribinos por WhatsApp"
                 className="!bg-white !text-[#1eb555] hover:!bg-gray-100"
               />
-              <CallButton className="!bg-dark hover:!bg-black" />
+              <CallButton className="!bg-accent hover:!bg-accent-light !text-white" />
             </div>
           </ZoomReveal>
         </div>
