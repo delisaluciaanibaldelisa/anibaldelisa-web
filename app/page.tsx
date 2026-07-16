@@ -14,48 +14,40 @@ import { site } from "@/lib/site";
 import Reveal, { ZoomReveal, SlideReveal } from "@/components/Reveal";
 import HeroCarousel from "@/components/HeroCarousel";
 import AnimatedCar from "@/components/AnimatedCar";
-import {
-  WhatsAppButton,
-  CallButton,
-  ChatButton,
-} from "@/components/CTAButtons";
+import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
 
+// Textos de la web original anibaldelisa.com — respetar tal cual.
 const cubos = [
   {
     icon: BadgeCheck,
     title: "Servicio Oficial",
-    text: "Peugeot – Citroën – BYD – Opel",
+    text: "Formamos un equipo con años de experiencia y tecnología única en el país. Contamos con sistema de diagnóstico en línea conectado directamente con Francia para el seguimiento técnico de PEUGEOT, CITROËN, BYD y OPEL. Esto nos permite realizar servicios y reparaciones con precisión durante y después de la garantía. Garantizamos el mejor servicio con respaldo técnico internacional.",
     href: "/servicios/mecanica",
   },
   {
     icon: Wrench,
     title: "Mecánica Multimarca",
-    text: "Diagnóstico computarizado y reparación integral de todas las marcas, con garantía.",
+    text: "Para todas las marcas del mercado, desde service hasta reparaciones generales. Diagnóstico computarizado, motor, transmisión, frenos, suspensión, sistema eléctrico y más. Repuestos de calidad y asesoramiento transparente en cada trabajo.",
     href: "/servicios/mecanica",
   },
   {
     icon: ClipboardCheck,
-    title: "Revisión Precompra",
-    text: "Inspección técnica completa antes de comprar un usado. Comprá seguro.",
+    title: "Revisión Pre-Compra de Autos Usados",
+    text: "Antes de comprar un auto usado, asegurate de conocer su estado real. En Aníbal Delisa realizamos una inspección técnica completa de: mecánica, chapa y pintura, sistema eléctrico y más. Evitá sorpresas. Comprá seguro.",
     href: "/servicios/revision-precompra",
   },
 ];
 
+// Lista de servicios de la web original.
 const serviciosGarantia = [
-  "Service oficial Peugeot · Citroën · BYD · Opel",
-  "Mecánica multimarca",
+  "Aire Acondicionado",
   "Frenos",
+  "Alineación y Balanceo",
+  "Dirección",
+  "Revisión de Autos Usados",
   "Embrague",
-  "Suspensión y tren delantero",
-  "Correa y kit de distribución",
-  "Motor y puesta a punto",
-  "Caja y transmisión",
-  "Sistema eléctrico y electrónica",
-  "Aire acondicionado",
-  "Diagnóstico computarizado",
-  "Alineación y balanceo",
-  "Chapa y pintura",
-  "Revisión pre-compra",
+  "Suspensión y Amortiguación",
+  "Distribución",
 ];
 
 const aseguradoras = ["BSE", "Sura", "Mapfre", "Porto Seguro", "SBI", "HDI"];
@@ -78,26 +70,56 @@ const testimonios = [
 export default function Home() {
   return (
     <>
-      {/* HERO: carrusel de marcas */}
+      {/* HERO — carrusel de marcas */}
       <HeroCarousel />
 
-      {/* CUBOS DE SERVICIOS + ALINEACIÓN */}
+      {/* FRANJA ASEGURADORAS (como en la original, justo bajo el hero) */}
+      <section className="py-10 md:py-12 bg-white overflow-hidden border-b border-gray-100">
+        <Reveal className="container-x text-center mb-6">
+          <h2 className="font-heading font-bold text-xl md:text-2xl text-accent tracking-wide uppercase">
+            Trabajamos con todas las aseguradoras
+          </h2>
+        </Reveal>
+        <div className="relative">
+          <div className="flex w-max animate-marquee gap-6 pr-6">
+            {[...aseguradoras, ...aseguradoras].map((a, i) => (
+              <div
+                key={`${a}-${i}`}
+                className="px-8 py-3 rounded-xl bg-gray-100 text-accent font-heading font-bold text-lg whitespace-nowrap"
+              >
+                {a}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MECÁNICA — cubos con los textos originales */}
       <section className="py-16 md:py-24 bg-gray-100">
         <div className="container-x">
+          <Reveal className="mb-10">
+            <p className="text-sm font-bold uppercase tracking-widest text-primary">
+              Nuestros servicios
+            </p>
+            <h2 className="mt-1 font-heading font-bold text-3xl md:text-4xl text-dark">
+              Mecánica
+            </h2>
+          </Reveal>
+
           <div className="grid gap-6 md:grid-cols-3">
             {cubos.map((c, i) => (
               <Reveal key={c.title} delay={i * 0.1}>
                 <Link
                   href={c.href}
-                  className="group flex h-full flex-col items-center text-center bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all p-8"
+                  className="group flex h-full flex-col bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all p-8"
                 >
-                  <div className="grid place-items-center w-16 h-16 rounded-2xl bg-primary/10 text-primary mb-5 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all">
-                    <c.icon size={30} />
+                  <div className="grid place-items-center w-14 h-14 rounded-2xl bg-primary/10 text-primary mb-5 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all">
+                    <c.icon size={28} />
                   </div>
-                  <h2 className="font-heading font-bold text-xl text-dark">
+                  <h3 className="font-heading font-bold text-xl text-dark">
                     {c.title}
-                  </h2>
-                  <p className="mt-2 text-gray-600 text-sm leading-relaxed">
+                  </h3>
+                  <p className="mt-3 text-gray-600 text-sm leading-relaxed">
                     {c.text}
                   </p>
                 </Link>
@@ -105,24 +127,23 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Rectángulo largo: Alineación y Balanceo */}
+          {/* Rectángulo largo: Alineación y Balanceo (texto original) */}
           <ZoomReveal className="mt-6">
             <Link
               href="/seguridad-vial"
               className="group flex flex-col md:flex-row items-start md:items-center gap-5 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all p-8"
             >
-              <div className="grid place-items-center w-16 h-16 shrink-0 rounded-2xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition-colors">
-                <Gauge size={30} />
+              <div className="grid place-items-center w-14 h-14 shrink-0 rounded-2xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition-colors">
+                <Gauge size={28} />
               </div>
               <div className="flex-1">
-                <h2 className="font-heading font-bold text-xl text-dark">
+                <h3 className="font-heading font-bold text-xl text-dark">
                   Alineación y Balanceo
-                </h2>
+                </h3>
                 <p className="mt-1.5 text-gray-600 text-sm leading-relaxed">
-                  Alinear y balancear a tiempo prolonga la vida de tus
-                  neumáticos hasta un 30%, mejora la estabilidad en curvas y
-                  reduce el consumo de combustible. Si el volante vibra o el
-                  auto se va hacia un lado, es momento de revisarlo.
+                  Equipos de última generación y precisión milimétrica. Tus
+                  neumáticos duran más, tu auto maneja mejor y viajás más
+                  seguro.
                 </p>
               </div>
               <span className="inline-flex items-center gap-1.5 font-semibold text-primary whitespace-nowrap">
@@ -134,23 +155,29 @@ export default function Home() {
               </span>
             </Link>
           </ZoomReveal>
+
+          {/* Botones de la sección (como en la original) */}
+          <Reveal className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <WhatsAppButton label="Escribinos por WhatsApp" />
+            <CallButton label="Llamanos" />
+          </Reveal>
         </div>
       </section>
 
-      {/* CHAPA Y PINTURA — sección destacada con zoom */}
+      {/* CHAPA Y PINTURA — texto original, con zoom y auto animado */}
       <section className="relative overflow-hidden bg-gradient-to-br from-accent via-[#0a2547] to-dark text-white">
         <div className="container-x py-20 md:py-28">
           <ZoomReveal>
-            <p className="text-sm font-bold uppercase tracking-widest text-primary-light mb-3">
-              Nuestro sector de carrocería
-            </p>
             <h2 className="font-heading font-extrabold text-3xl md:text-5xl leading-tight max-w-3xl">
               CHAPA Y PINTURA CON ACABADO DE FÁBRICA
             </h2>
           </ZoomReveal>
 
           <div className="mt-8 grid gap-10 lg:grid-cols-2 items-start">
-            <SlideReveal from="left" className="space-y-4 text-gray-200 leading-relaxed">
+            <SlideReveal
+              from="left"
+              className="space-y-4 text-gray-200 leading-relaxed"
+            >
               <p>
                 En nuestro taller realizamos reparaciones de chapa y pintura
                 para aseguradoras privadas y clientes particulares, cuidando
@@ -194,12 +221,12 @@ export default function Home() {
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <WhatsAppButton
                     href={site.whatsapp.chapa}
-                    label="WhatsApp Chapa y Pintura"
+                    label="Escribinos por WhatsApp"
                     className="flex-1"
                   />
                   <CallButton
                     href={site.locations.chapa.telHref}
-                    label="Llamar 2409 0753"
+                    label="Llamanos"
                     className="flex-1"
                   />
                 </div>
@@ -212,7 +239,7 @@ export default function Home() {
         <AnimatedCar className="mb-4" />
       </section>
 
-      {/* GARANTÍA TOTAL */}
+      {/* GARANTÍA TOTAL — texto y lista de servicios originales */}
       <section className="py-16 md:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-2 items-start">
           <SlideReveal from="left">
@@ -240,15 +267,22 @@ export default function Home() {
                 hacen.
               </p>
             </div>
-            <div className="mt-7">
-              <ChatButton label="Consultanos por tu auto" />
+            <div className="mt-7 flex flex-col sm:flex-row gap-4">
+              <WhatsAppButton label="Consultanos por WhatsApp" />
+              <Link
+                href="/servicios/chapa-pintura"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-accent hover:bg-accent-light text-white font-semibold px-6 py-3 transition-all hover:scale-[1.03]"
+              >
+                Chapa y Pintura
+                <ArrowRight size={18} />
+              </Link>
             </div>
           </SlideReveal>
 
           <SlideReveal from="right">
             <div className="rounded-2xl border border-gray-200 p-6 md:p-8 bg-gray-50">
               <h3 className="font-heading font-bold text-lg text-dark mb-5">
-                Todo lo que hacemos por tu vehículo
+                Servicios
               </h3>
               <ul className="grid gap-2.5 sm:grid-cols-2">
                 {serviciosGarantia.map((s) => (
@@ -266,7 +300,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ATENDIDO POR SUS PROPIOS DUEÑOS */}
+      {/* ATENDIDO POR SUS PROPIOS DUEÑOS — texto original */}
       <section className="py-16 md:py-24 bg-gray-100">
         <div className="container-x max-w-4xl text-center">
           <ZoomReveal>
@@ -277,10 +311,13 @@ export default function Home() {
               Atendido Por Sus Propios Dueños
             </h2>
           </ZoomReveal>
-          <Reveal delay={0.15} className="mt-6 space-y-4 text-gray-700 leading-relaxed text-left md:text-center">
+          <Reveal
+            delay={0.15}
+            className="mt-6 space-y-4 text-gray-700 leading-relaxed text-left md:text-center"
+          >
             <p>
               Con más de {site.yearsExperience} años de trayectoria en Uruguay,
-              especializada en Mecánica – Chapa y Pintura.
+              especializada en Mecánica - Chapa y Pintura.
             </p>
             <p>
               Nuestro equipo está formado por profesionales capacitados que
@@ -300,49 +337,27 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.25} className="mt-8">
             <Link
-              href="/nosotros"
-              className="inline-flex items-center gap-2 font-semibold text-primary hover:underline"
+              href="/contacto"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-3 transition-all hover:scale-[1.03]"
             >
-              Conocé nuestra historia
-              <ArrowRight size={18} />
+              Visitanos
             </Link>
           </Reveal>
         </div>
       </section>
 
-      {/* ASEGURADORAS — marquee continuo */}
-      <section className="py-12 md:py-16 overflow-hidden">
-        <Reveal className="container-x text-center mb-8">
-          <h2 className="font-heading font-bold text-2xl md:text-3xl text-dark">
-            Trabajamos con todas las aseguradoras
-          </h2>
-        </Reveal>
-        <div className="relative">
-          <div className="flex w-max animate-marquee gap-6 pr-6">
-            {[...aseguradoras, ...aseguradoras].map((a, i) => (
-              <div
-                key={`${a}-${i}`}
-                className="px-8 py-4 rounded-xl bg-gray-100 text-accent font-heading font-bold text-lg whitespace-nowrap"
-              >
-                {a}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIOS */}
-      <section className="py-16 md:py-24 bg-gray-100">
+      {/* QUÉ DICEN NUESTROS CLIENTES */}
+      <section className="py-16 md:py-24">
         <div className="container-x">
           <Reveal className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-dark">
-              Lo que dicen nuestros clientes
+              Qué Dicen Nuestros Clientes
             </h2>
           </Reveal>
           <div className="grid gap-6 md:grid-cols-3">
             {testimonios.map((t, i) => (
               <Reveal key={t.name} delay={i * 0.1}>
-                <figure className="h-full rounded-2xl bg-white shadow-sm hover:shadow-lg transition-shadow p-6 flex flex-col">
+                <figure className="h-full rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-shadow p-6 flex flex-col">
                   <div className="flex gap-0.5 text-primary mb-3">
                     {Array.from({ length: 5 }).map((_, j) => (
                       <Star key={j} size={18} fill="currentColor" />
@@ -361,18 +376,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA FINAL */}
+      {/* ESCRIBINOS — cierre como en la original */}
       <section className="py-16 md:py-24 bg-primary text-white">
         <div className="container-x text-center">
           <ZoomReveal>
             <h2 className="font-heading font-extrabold text-3xl md:text-4xl">
-              ¿Necesitás service o reparación?
+              Escribinos
             </h2>
             <p className="mt-3 text-white/90 max-w-xl mx-auto">
-              Escribinos y coordinamos tu turno. Te respondemos a la brevedad.
+              Para consultas, comunícate con nosotros por WhatsApp o llámanos.
+              Nuestro equipo está listo para brindarte una atención
+              excepcional.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <WhatsAppButton label="Escribinos por WhatsApp" />
+              <WhatsAppButton
+                label="Escribinos por WhatsApp"
+                className="!bg-white !text-[#1eb555] hover:!bg-gray-100"
+              />
               <CallButton className="!bg-dark hover:!bg-black" />
             </div>
           </ZoomReveal>

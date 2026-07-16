@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { site } from "@/lib/site";
 import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
 
 // Diapositivas del hero. Si existe la foto en public/autos/, se muestra;
@@ -72,14 +71,13 @@ export default function HeroCarousel() {
           className="max-w-3xl"
         >
           <p className="inline-block rounded-full bg-white/10 backdrop-blur border border-white/25 px-4 py-1 text-sm font-semibold mb-6">
-            Service Oficial Peugeot · Citroën · BYD · Opel
+            Servicio oficial Peugeot · Citroën · BYD
           </p>
           <h1 className="font-heading font-extrabold text-4xl md:text-6xl leading-tight text-white drop-shadow-lg">
-            Tu Auto en las Mejores Manos
+            Tu auto en las mejores manos
           </h1>
           <p className="mt-5 text-lg md:text-xl text-gray-100 max-w-2xl drop-shadow">
-            Más de {site.yearsExperience} años de experiencia en Uruguay.
-            Mecánica multimarca, chapa y pintura, alineación y balanceo.
+            Mecánica · Chapa y Pintura · Revisiones
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <WhatsAppButton label="Escribinos por WhatsApp" />

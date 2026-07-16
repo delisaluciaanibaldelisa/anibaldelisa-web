@@ -75,7 +75,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-x py-5 text-center text-xs text-gray-500">
-          © 2026 {site.name}. Todos los derechos reservados.
+          Copyright © 2026, {site.name}, Todos los derechos reservados.
         </div>
       </div>
     </footer>
