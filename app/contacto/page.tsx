@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { site } from "@/lib/site";
 import Reveal from "@/components/Reveal";
+import Breadcrumb from "@/components/Breadcrumb";
 import MapEmbed from "@/components/MapEmbed";
 import ContactForm from "@/components/ContactForm";
 import { ChatButton } from "@/components/CTAButtons";
@@ -55,6 +56,7 @@ export default function ContactoPage() {
       <section className="bg-dark text-white">
         <div className="container-x py-16 md:py-20">
           <Reveal className="max-w-3xl">
+            <Breadcrumb />
             <h1 className="font-heading font-extrabold text-3xl md:text-5xl">
               Contacto
             </h1>

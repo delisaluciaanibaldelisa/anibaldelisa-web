@@ -62,8 +62,8 @@ export default function HeroCarousel() {
               </span>
             </div>
           )}
-          {/* Oscurecido para legibilidad del texto */}
-          <div className="absolute inset-0 bg-black/45" />
+          {/* Oscurecido para legibilidad del texto (navy, deja ver el auto) */}
+          <div className="absolute inset-0 bg-[rgba(10,22,40,0.62)]" />
         </motion.div>
       </AnimatePresence>
 
@@ -75,11 +75,13 @@ export default function HeroCarousel() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="max-w-3xl"
         >
-          <p className="inline-block rounded-full bg-white/10 backdrop-blur border border-white/25 px-4 py-1 text-sm font-semibold mb-6">
+          <p className="inline-block rounded-full bg-white/10 backdrop-blur border border-white/25 px-4 py-1 text-[13px] text-white/85 font-semibold mb-6">
             Servicio oficial Peugeot · Citroën · BYD
           </p>
-          <h1 className="font-heading font-extrabold text-4xl md:text-6xl leading-tight text-white drop-shadow-lg">
-            Tu auto en las mejores manos
+          <h1 className="font-heading font-extrabold text-[clamp(36px,5vw,64px)] leading-tight max-w-[680px] text-white drop-shadow-lg">
+            Tu auto en{" "}
+            <br className="hidden sm:block" />
+            las mejores manos
           </h1>
           <p className="mt-5 text-lg md:text-xl text-gray-100 max-w-2xl drop-shadow">
             Mecánica · Chapa y Pintura · Revisiones

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { CircleCheck, ArrowLeft } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import Breadcrumb from "@/components/Breadcrumb";
 import { ChatButton, CallButton } from "@/components/CTAButtons";
 
 export default function ServiceLayout({
@@ -20,6 +21,7 @@ export default function ServiceLayout({
       <section className="bg-dark text-white">
         <div className="container-x py-16 md:py-20">
           <Reveal className="max-w-3xl">
+            <Breadcrumb />
             <Link
               href="/servicios"
               className="inline-flex items-center gap-1.5 text-sm text-gray-300 hover:text-white mb-5"

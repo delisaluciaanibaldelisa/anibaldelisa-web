@@ -76,7 +76,7 @@ export function CallButton({
     <a
       href={href}
       onClick={() => trackEvent("call_click", { source: "boton" })}
-      className={`inline-flex items-center justify-center gap-2 rounded-md bg-primary hover:bg-primary-dark text-accent font-semibold px-6 py-3 transition-all hover:scale-[1.03] active:scale-[0.98] ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-md bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 transition-all hover:scale-[1.03] active:scale-[0.98] ${className}`}
     >
       <Phone size={18} />
       {label}

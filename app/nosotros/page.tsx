@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GraduationCap, Cpu, Handshake, MapPin } from "lucide-react";
 import { site } from "@/lib/site";
 import Reveal from "@/components/Reveal";
+import Breadcrumb from "@/components/Breadcrumb";
 import MapEmbed from "@/components/MapEmbed";
 import { ChatButton } from "@/components/CTAButtons";
 
@@ -36,7 +37,8 @@ export default function NosotrosPage() {
       <section className="bg-dark text-white">
         <div className="container-x py-16 md:py-24">
           <Reveal className="max-w-3xl">
-            <p className="inline-block rounded-full bg-primary px-4 py-1 text-sm font-semibold text-accent mb-5">
+            <Breadcrumb />
+            <p className="inline-block rounded-full bg-primary px-4 py-1 text-sm font-semibold text-white mb-5">
               Desde 1973
             </p>
             <h1 className="font-heading font-extrabold text-3xl md:text-5xl">
@@ -84,7 +86,7 @@ export default function NosotrosPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {valores.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.08} className="text-center">
-                <div className="grid place-items-center w-16 h-16 rounded-full bg-primary text-accent mx-auto mb-4">
+                <div className="grid place-items-center w-16 h-16 rounded-full bg-primary text-white mx-auto mb-4">
                   <v.icon size={28} />
                 </div>
                 <h3 className="font-heading font-bold text-lg text-dark">
@@ -147,7 +149,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-20 bg-primary text-accent">
+      <section className="py-16 md:py-20 bg-primary text-white">
         <div className="container-x text-center">
           <Reveal>
             <h2 className="font-heading font-extrabold text-2xl md:text-3xl">

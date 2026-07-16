@@ -10,6 +10,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import Breadcrumb from "@/components/Breadcrumb";
 import ChecklistViaje from "@/components/ChecklistViaje";
 import { ChatButton } from "@/components/CTAButtons";
 
@@ -111,7 +112,8 @@ export default function SeguridadVialPage() {
       <section className="bg-dark text-white">
         <div className="container-x py-16 md:py-20">
           <Reveal className="max-w-3xl">
-            <p className="inline-block rounded-full bg-primary px-4 py-1 text-sm font-semibold text-accent mb-5">
+            <Breadcrumb />
+            <p className="inline-block rounded-full bg-primary px-4 py-1 text-sm font-semibold text-white mb-5">
               Sección de seguridad
             </p>
             <h1 className="font-heading font-extrabold text-3xl md:text-5xl">
@@ -221,7 +223,7 @@ export default function SeguridadVialPage() {
           </Reveal>
           <div className="grid gap-5 md:grid-cols-3">
             <Reveal className="rounded-2xl border border-gray-200 p-6">
-              <span className="inline-block rounded bg-primary px-2.5 py-0.5 text-xs font-bold text-accent mb-3">
+              <span className="inline-block rounded bg-primary px-2.5 py-0.5 text-xs font-bold text-white mb-3">
                 OBLIGATORIO
               </span>
               <Flame className="text-primary mb-2" size={26} />
@@ -237,7 +239,7 @@ export default function SeguridadVialPage() {
             </Reveal>
 
             <Reveal delay={0.08} className="rounded-2xl border border-gray-200 p-6">
-              <span className="inline-block rounded bg-primary px-2.5 py-0.5 text-xs font-bold text-accent mb-3">
+              <span className="inline-block rounded bg-primary px-2.5 py-0.5 text-xs font-bold text-white mb-3">
                 OBLIGATORIO
               </span>
               <Triangle className="text-primary mb-2" size={26} />
@@ -251,7 +253,7 @@ export default function SeguridadVialPage() {
             </Reveal>
 
             <Reveal delay={0.16} className="rounded-2xl border border-gray-200 p-6">
-              <span className="inline-block rounded bg-primary px-2.5 py-0.5 text-xs font-bold text-accent mb-3">
+              <span className="inline-block rounded bg-primary px-2.5 py-0.5 text-xs font-bold text-white mb-3">
                 OBLIGATORIO
               </span>
               <BriefcaseMedical className="text-primary mb-2" size={26} />

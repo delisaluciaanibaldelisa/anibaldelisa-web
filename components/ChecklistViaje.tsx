@@ -102,7 +102,7 @@ export default function ChecklistViaje() {
                 <span
                   className={`mt-0.5 grid place-items-center w-6 h-6 shrink-0 rounded-md border-2 transition-colors ${
                     checked
-                      ? "bg-primary border-primary text-accent"
+                      ? "bg-primary border-primary text-white"
                       : "border-gray-300 text-transparent"
                   }`}
                 >

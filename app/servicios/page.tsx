@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { servicios } from "@/lib/site";
 import Reveal from "@/components/Reveal";
+import Breadcrumb from "@/components/Breadcrumb";
 import ServiceIcon from "@/components/ServiceIcon";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function ServiciosPage() {
       <section className="bg-dark text-white">
         <div className="container-x py-16 md:py-20">
           <Reveal className="max-w-3xl">
+            <Breadcrumb />
             <h1 className="font-heading font-extrabold text-3xl md:text-5xl">
               Nuestros Servicios
             </h1>
@@ -36,7 +38,7 @@ export default function ServiciosPage() {
                 href={`/servicios/${s.slug}`}
                 className="group flex h-full flex-col rounded-2xl border border-gray-200 p-8 hover:border-primary hover:shadow-lg transition-all"
               >
-                <div className="grid place-items-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-5 group-hover:bg-primary group-hover:text-accent transition-colors">
+                <div className="grid place-items-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
                   <ServiceIcon name={s.icon} size={28} />
                 </div>
                 <h2 className="font-heading font-bold text-xl text-dark">
