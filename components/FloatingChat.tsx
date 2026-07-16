@@ -115,14 +115,13 @@ export default function FloatingChat() {
             initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="fixed bottom-28 right-5 z-50 max-w-[16rem] rounded-2xl rounded-br-sm bg-white shadow-xl border border-gray-200 px-4 py-3 text-left"
+            className="fixed bottom-[10.5rem] lg:bottom-28 right-5 z-50 max-w-[16rem] rounded-2xl rounded-br-sm bg-white shadow-xl border border-gray-200 px-4 py-3 text-left"
           >
-            <span className="block font-heading font-bold text-sm text-accent">
-              Asistente Aníbal Delisa
+            <span className="block font-heading font-bold text-base text-accent">
+              ¿Necesitás ayuda? 👋
             </span>
             <span className="block text-xs text-gray-600 mt-0.5">
-              ¿Consultás por service, turnos o presupuestos? Escribime, te
-              respondo al instante.
+              Escribime, te respondo al instante.
             </span>
           </motion.button>
         )}
@@ -139,7 +138,7 @@ export default function FloatingChat() {
             ? { duration: 0.2 }
             : { duration: 2.4, repeat: Infinity, ease: "easeInOut" }
         }
-        className="fixed bottom-5 right-5 z-50 grid place-items-center"
+        className="fixed bottom-20 lg:bottom-5 right-5 z-50 grid place-items-center"
       >
         {open ? (
           <span className="grid place-items-center w-12 h-12 rounded-full bg-accent text-white shadow-lg hover:bg-accent-light transition-colors">
@@ -168,7 +167,7 @@ export default function FloatingChat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.96 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-5 z-50 w-[calc(100vw-2.5rem)] max-w-sm h-[30rem] max-h-[70vh] flex flex-col rounded-xl overflow-hidden bg-white shadow-2xl border border-gray-200"
+            className="fixed bottom-36 lg:bottom-24 right-5 z-50 w-[calc(100vw-2.5rem)] max-w-sm h-[30rem] max-h-[70vh] flex flex-col rounded-xl overflow-hidden bg-white shadow-2xl border border-gray-200"
           >
             {/* Header */}
             <div className="bg-primary text-white px-4 py-3 shrink-0">

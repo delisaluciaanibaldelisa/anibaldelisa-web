@@ -74,7 +74,7 @@ export default function WhatsAppFloat() {
       rel="noopener noreferrer"
       aria-label="Escribinos por WhatsApp"
       onClick={() => trackEvent("whatsapp_click", { source: "flotante" })}
-      className="fixed bottom-5 left-5 z-50 grid place-items-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1eb555] text-white shadow-lg transition-all hover:scale-105"
+      className="fixed bottom-20 lg:bottom-5 left-5 z-50 grid place-items-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1eb555] text-white shadow-lg transition-all hover:scale-105"
     >
       <WhatsAppIcon />
     </a>

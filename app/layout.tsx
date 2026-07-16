@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingChat from "@/components/FloatingChat";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import MobileBottomBar from "@/components/MobileBottomBar";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -157,10 +158,11 @@ export default function RootLayout({
         />
         <TopBar />
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pb-16 lg:pb-0">{children}</main>
         <Footer />
         <FloatingChat />
         <WhatsAppFloat />
+        <MobileBottomBar />
         <GoogleAnalytics gaId={site.ga4Id} />
       </body>
     </html>
