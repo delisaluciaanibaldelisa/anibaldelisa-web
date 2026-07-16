@@ -181,7 +181,7 @@ export default function Home() {
 
       {/* CHAPA Y PINTURA — texto original, con zoom y auto animado */}
       <section
-        className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-mid to-[#050b16] text-white"
+        className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-mid to-navy text-white"
         data-wa-msg="Hola! Quiero un presupuesto de chapa y pintura"
         data-wa-num="chapa"
       >
