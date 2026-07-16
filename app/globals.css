@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colores de marca Aníbal Delisa */
-  --color-primary: #c0392b;
-  --color-primary-dark: #a5301f;
-  --color-primary-light: #e74c3c;
+  /* Colores de marca Aníbal Delisa — paleta de la web original anibaldelisa.com */
+  --color-primary: #ea3f25; /* rojo original */
+  --color-primary-dark: #c42f17;
+  --color-primary-light: #f0684f;
   --color-dark: #1a1a1a;
-  --color-accent: #2c3e50;
-  --color-accent-light: #34495e;
+  --color-accent: #003366; /* azul marino original */
+  --color-accent-light: #0a4a8f;
 
   /* Fuentes */
   --font-heading: var(--font-montserrat);

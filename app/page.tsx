@@ -138,7 +138,7 @@ export default function Home() {
       </section>
 
       {/* CHAPA Y PINTURA — sección destacada con zoom */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-accent via-[#243447] to-dark text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-accent via-[#0a2547] to-dark text-white">
         <div className="container-x py-20 md:py-28">
           <ZoomReveal>
             <p className="text-sm font-bold uppercase tracking-widest text-primary-light mb-3">
