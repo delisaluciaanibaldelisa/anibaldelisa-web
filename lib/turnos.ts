@@ -1,7 +1,7 @@
 // Definición compartida del sistema de turnos.
-// Horarios fijos de lunes a viernes, cada 15 minutos (bloques de 10 minutos).
+// Horarios fijos de lunes a viernes, cada 30 minutos (bloques de 20 minutos).
 
-export const SLOTS = ["09:00", "09:15", "09:30", "09:45", "10:00"] as const;
+export const SLOTS = ["09:00", "09:30", "10:00", "10:30", "11:00"] as const;
 export type Slot = (typeof SLOTS)[number];
 
 export const TZ_OFFSET = "-03:00"; // America/Montevideo (sin horario de verano)
@@ -29,7 +29,7 @@ export function esFechaValida(fecha: string): boolean {
 
 export function slotToRange(fecha: string, hora: Slot) {
   const startISO = `${fecha}T${hora}:00${TZ_OFFSET}`;
-  const end = new Date(new Date(startISO).getTime() + 10 * 60 * 1000);
+  const end = new Date(new Date(startISO).getTime() + 20 * 60 * 1000);
   return { startISO, endISO: end.toISOString() };
 }
 
