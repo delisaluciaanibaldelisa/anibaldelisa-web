@@ -154,7 +154,7 @@ export default function FloatingChat() {
           <img
             src="/logo.png"
             alt="Asistente Aníbal Delisa"
-            className="w-16 h-auto md:w-20 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
+            className="w-20 h-auto md:w-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
             onError={() => setLogoError(true)}
           />
         )}

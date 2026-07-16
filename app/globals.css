@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colores de marca Aníbal Delisa — paleta de la web original anibaldelisa.com */
-  --color-primary: #ea3f25; /* rojo original */
-  --color-primary-dark: #c42f17;
-  --color-primary-light: #f0684f;
+  /* Colores de marca Aníbal Delisa — rojo exacto del logo del rey */
+  --color-primary: #e00000; /* rojo del logo */
+  --color-primary-dark: #b30000;
+  --color-primary-light: #f04438;
   --color-dark: #1a1a1a;
   --color-accent: #003366; /* azul marino original */
   --color-accent-light: #0a4a8f;

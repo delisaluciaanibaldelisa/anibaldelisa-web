@@ -46,7 +46,7 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Aníbal Delisa"
-              className="h-10 w-auto md:h-12 drop-shadow"
+              className="h-12 w-auto md:h-14 drop-shadow"
             />
             <span className="font-logo text-xl md:text-2xl text-white tracking-wide">
               Aníbal Delisa
