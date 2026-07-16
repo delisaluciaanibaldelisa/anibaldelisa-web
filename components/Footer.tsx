@@ -42,7 +42,7 @@ export default function Footer() {
       <div className="container-x py-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         {/* Marca */}
         <div className="lg:col-span-1">
-          <p className="font-logo text-2xl text-primary-light tracking-wide">
+          <p className="font-logo text-2xl text-white tracking-wide">
             Aníbal Delisa
           </p>
           <p className="mt-3 text-sm text-gray-400 leading-relaxed">
