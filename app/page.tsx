@@ -156,7 +156,8 @@ export default function Home() {
                         <img
                           key={l.alt}
                           src={l.src}
-                          alt={`Logo ${l.alt}`}
+                          alt={`Servicio oficial ${l.alt} — Aníbal Delisa Montevideo`}
+                          title={`Servicio oficial ${l.alt}`}
                           className="h-7 w-auto object-contain opacity-80"
                           loading="lazy"
                         />

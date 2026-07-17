@@ -36,15 +36,21 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default:
-      "Aníbal Delisa | Taller Mecánico Multimarca Montevideo | 53 años de experiencia",
+      "Aníbal Delisa | Servicio Oficial Peugeot, Citroën, BYD y Opel en Montevideo",
     template: "%s | Aníbal Delisa",
   },
   description: site.description,
   keywords: [
-    "taller mecánico Montevideo",
+    "servicio oficial Peugeot Uruguay",
+    "servicio oficial Citroën Uruguay",
+    "servicio oficial BYD Uruguay",
+    "servicio oficial Opel Uruguay",
     "service Peugeot Montevideo",
-    "service Citroën Uruguay",
+    "service Citroën Montevideo",
     "service BYD Montevideo",
+    "service Opel Montevideo",
+    "concesionario oficial BYD Montevideo",
+    "taller mecánico Montevideo",
     "chapa y pintura Montevideo",
     "alineación y balanceo Montevideo",
     "mecánica multimarca Uruguay",
@@ -100,6 +106,55 @@ const jsonLd = {
     "@type": "AggregateRating",
     ratingValue: site.google.rating,
     reviewCount: site.google.reviewCount,
+  },
+  // Marcas para las que somos servicio oficial (SEO: "servicio oficial Peugeot/Citroën/BYD/Opel").
+  brand: [
+    { "@type": "Brand", name: "Peugeot" },
+    { "@type": "Brand", name: "Citroën" },
+    { "@type": "Brand", name: "BYD" },
+    { "@type": "Brand", name: "Opel" },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Servicio Oficial",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Servicio Oficial Peugeot",
+          brand: { "@type": "Brand", name: "Peugeot" },
+          areaServed: "Montevideo, Uruguay",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Servicio Oficial Citroën",
+          brand: { "@type": "Brand", name: "Citroën" },
+          areaServed: "Montevideo, Uruguay",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Servicio Oficial BYD",
+          brand: { "@type": "Brand", name: "BYD" },
+          areaServed: "Montevideo, Uruguay",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Servicio Oficial Opel",
+          brand: { "@type": "Brand", name: "Opel" },
+          areaServed: "Montevideo, Uruguay",
+        },
+      },
+    ],
   },
   address: {
     "@type": "PostalAddress",

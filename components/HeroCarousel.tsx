@@ -120,8 +120,10 @@ export default function HeroCarousel() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={m.src}
-                    alt={m.name}
+                    alt={`Servicio oficial ${m.name} — Aníbal Delisa Montevideo`}
+                    title={`Servicio oficial ${m.name}`}
                     className="h-6 w-auto object-contain"
+                    loading={i < marcas.length ? "eager" : "lazy"}
                   />
                 </div>
               ))}
@@ -132,6 +134,11 @@ export default function HeroCarousel() {
             Tu auto en{" "}
             <br className="hidden sm:block" />
             las mejores manos
+            <span className="sr-only">
+              {" "}
+              — Aníbal Delisa, servicio oficial Peugeot, Citroën, BYD y Opel en
+              Montevideo, Uruguay
+            </span>
           </h1>
           <p className="mt-5 text-lg md:text-xl text-gray-100 max-w-2xl drop-shadow">
             Mecánica · Chapa y Pintura · Revisiones
