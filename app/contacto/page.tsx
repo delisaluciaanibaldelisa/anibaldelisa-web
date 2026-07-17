@@ -52,8 +52,16 @@ function ContactCard({
 export default function ContactoPage() {
   return (
     <>
-      <section className="bg-dark text-white">
-        <div className="container-x py-16 md:py-20">
+      <section className="relative overflow-hidden bg-dark text-white">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/autos/turnos-taller.jpg"
+          alt="Atención al cliente — Taller Aníbal Delisa Montevideo"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-[rgba(10,22,40,0.78)]" />
+        <div className="relative container-x py-16 md:py-20">
           <Reveal className="max-w-3xl">
             <Breadcrumb />
             <h1 className="font-heading font-extrabold text-3xl md:text-5xl">

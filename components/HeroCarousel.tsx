@@ -17,8 +17,8 @@ const marcas = [
 // Diapositivas del hero. Si existe la foto en public/autos/, se muestra;
 // si no, se usa un fondo degradado elegante con el nombre de la marca.
 const slides = [
-  { id: "byd-tang", brand: "BYD Tang", video: "/videos/chapa-byd-tang.mp4", img: "/autos/byd.webp", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
   { id: "c3-aircross", brand: "Citroën C3 Aircross", img: "/autos/hero-c3aircross.jpg", gradient: "from-[#5c0f0f] via-[#8f1d1d] to-[#3d0a0a]" },
+  { id: "byd-tang", brand: "BYD Tang", video: "/videos/chapa-byd-tang.mp4", img: "/autos/byd.webp", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
   { id: "peugeot-208", brand: "Peugeot 208", img: "/autos/hero-208.jpg", gradient: "from-[#0f1e46] via-[#1c3575] to-[#0b1530]" },
   { id: "byd-e2x", brand: "BYD e2X", img: "/autos/hero-byd-e2x.jpg", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
   { id: "opel", brand: "Opel", img: "/autos/opel.webp", gradient: "from-[#3d3a06] via-[#6b6410] to-[#232105]" },

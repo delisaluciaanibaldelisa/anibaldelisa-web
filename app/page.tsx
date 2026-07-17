@@ -251,7 +251,7 @@ export default function Home() {
             <SlideReveal from="right">
               <AutoVideo
                 src="/videos/hero-byd-seal.mp4"
-                poster="/autos/chapa-508sw.jpg"
+                poster="/autos/chapa-citroen-screen.jpg"
                 preload="metadata"
                 className="w-full h-[220px] lg:h-72 object-cover rounded-xl [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)]"
               />
@@ -260,7 +260,7 @@ export default function Home() {
             <SlideReveal from="left">
               <AutoVideo
                 src="/videos/chapa-byd-yuan.mp4"
-                poster="/autos/chapa-concept.jpg"
+                poster="/autos/chapa-brandvision.jpg"
                 preload="metadata"
                 className="w-full h-[220px] lg:h-72 object-cover rounded-xl [clip-path:polygon(0%_0%,92%_0%,100%_100%,0%_100%)]"
               />

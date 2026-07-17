@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Reduce el bundle de JS importando solo los íconos/componentes usados
+  // en vez de la librería completa (mejora tiempo de carga y de interacción).
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion"],
+  },
   // Cache largo para assets estáticos (fotos/videos de public/) — mejora
   // velocidad de carga en visitas repetidas sin afectar el deploy (el
   // hash de build invalida el cache cuando cambian los archivos JS/CSS).
