@@ -220,12 +220,18 @@ export default function Home() {
             </SlideReveal>
 
             <SlideReveal from="right">
-              {/* Video del sector (BYD Yuan Pro) */}
+              {/* Videos del sector (BYD Yuan Pro + BYD Tang), diagonales espejadas */}
               <AutoVideo
                 src="/videos/chapa-byd-yuan.mp4"
                 poster="/autos/byd.webp"
                 preload="metadata"
                 className="w-full h-[200px] lg:h-60 object-cover rounded-xl mb-5 [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)]"
+              />
+              <AutoVideo
+                src="/videos/chapa-byd-tang.mp4"
+                poster="/autos/byd.webp"
+                preload="metadata"
+                className="w-full h-[200px] lg:h-60 object-cover rounded-xl mb-5 [clip-path:polygon(0%_0%,92%_0%,100%_100%,0%_100%)]"
               />
               <div className="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6">
                 <ul className="space-y-3">
