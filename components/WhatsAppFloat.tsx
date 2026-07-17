@@ -67,6 +67,9 @@ export default function WhatsAppFloat() {
 
   const href = `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
 
+  // En Contacto ya están los datos directos de cada sede: se oculta el flotante.
+  if (pathname === "/contacto") return null;
+
   return (
     <a
       href={href}

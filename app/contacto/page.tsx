@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import Link from "next/link";
+import { MapPin, Phone, Mail, Clock, CalendarCheck } from "lucide-react";
 import { site } from "@/lib/site";
-import Reveal from "@/components/Reveal";
+import Reveal, { ZoomReveal } from "@/components/Reveal";
 import Breadcrumb from "@/components/Breadcrumb";
 import MapEmbed from "@/components/MapEmbed";
-import ContactForm from "@/components/ContactForm";
-import { ChatButton } from "@/components/CTAButtons";
 
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Contactá a Aníbal Delisa en Montevideo. Mecánica: Canelones 2308. Chapa y pintura: Charrúa 2293. Teléfonos, email, chat en línea y horarios de atención.",
+    "Contactá a Aníbal Delisa en Montevideo. Mecánica: Canelones 2308. Chapa y pintura: Charrúa 2293. Teléfonos, email y horarios de atención.",
 };
 
 function ContactCard({
@@ -61,40 +60,41 @@ export default function ContactoPage() {
               Contacto
             </h1>
             <p className="mt-4 text-lg text-gray-300">
-              Escribinos, llamanos o pasá por el taller. Estamos para ayudarte.
+              Encontranos en nuestras dos ubicaciones en Montevideo.
             </p>
           </Reveal>
         </div>
       </section>
 
       <section className="py-16 md:py-24">
-        <div className="container-x grid gap-12 lg:grid-cols-2">
-          {/* Formulario */}
+        <div className="container-x grid gap-8 md:grid-cols-2">
           <Reveal>
-            <h2 className="font-heading font-bold text-2xl text-dark mb-2">
-              Dejanos tu consulta
-            </h2>
-            <p className="text-gray-600 mb-6">
-              Completá el formulario y te respondemos a la brevedad.
-            </p>
-            <ContactForm />
-            <div className="mt-8 rounded-2xl bg-gray-50 p-6 text-center">
-              <p className="font-semibold text-dark mb-3">
-                ¿Preferís un canal más directo?
-              </p>
-              <ChatButton label="Chateá con nosotros" />
-            </div>
+            <ContactCard data={site.locations.mecanica} />
           </Reveal>
+          <Reveal delay={0.1}>
+            <ContactCard data={site.locations.chapa} />
+          </Reveal>
+        </div>
+      </section>
 
-          {/* Datos y mapas */}
-          <div className="space-y-8">
-            <Reveal>
-              <ContactCard data={site.locations.mecanica} />
-            </Reveal>
-            <Reveal delay={0.1}>
-              <ContactCard data={site.locations.chapa} />
-            </Reveal>
-          </div>
+      {/* Agendá tu turno */}
+      <section className="py-16 md:py-20 bg-navy text-white">
+        <div className="container-x text-center">
+          <ZoomReveal>
+            <h2 className="font-heading font-extrabold text-2xl md:text-3xl">
+              ¿Listo para tu próximo service?
+            </h2>
+            <p className="mt-3 text-white/70 max-w-xl mx-auto">
+              Elegí día y hora online en segundos.
+            </p>
+            <Link
+              href="/turnos"
+              className="mt-7 inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-charcoal font-bold px-7 py-3.5 rounded-md transition-all hover:scale-[1.03]"
+            >
+              <CalendarCheck size={18} />
+              Agendá tu turno
+            </Link>
+          </ZoomReveal>
         </div>
       </section>
     </>

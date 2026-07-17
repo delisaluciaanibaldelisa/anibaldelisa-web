@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Send } from "lucide-react";
 import { site } from "@/lib/site";
@@ -13,6 +14,7 @@ const WELCOME =
   "¡Hola! Soy el asistente de Aníbal Delisa 🔧 ¿En qué te puedo ayudar? Podés preguntarme sobre precios, turnos, servicios o dejame tu consulta y te respondemos a la brevedad.";
 
 export default function FloatingChat() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [greeting, setGreeting] = useState(false);
   const [logoError, setLogoError] = useState(false);
@@ -103,6 +105,9 @@ export default function FloatingChat() {
     setOpen(true);
     trackEvent("chat_open");
   };
+
+  // En Contacto ya están los datos directos de cada sede: se oculta el asistente.
+  if (pathname === "/contacto") return null;
 
   return (
     <>
