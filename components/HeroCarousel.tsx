@@ -14,7 +14,6 @@ const slides = [
   { id: "peugeot-308sw", brand: "Peugeot 308 SW", img: "/autos/hero-308sw.jpg", gradient: "from-[#0f1e46] via-[#1c3575] to-[#0b1530]" },
   { id: "byd-e2x", brand: "BYD e2X", img: "/autos/hero-byd-e2x.jpg", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
   { id: "citroen", brand: "Citroën", img: "/autos/citroen.jpg", gradient: "from-[#5c0f0f] via-[#8f1d1d] to-[#3d0a0a]" },
-  { id: "peugeot-308", brand: "Peugeot 308", img: "/autos/hero-308.jpg", gradient: "from-[#0f1e46] via-[#1c3575] to-[#0b1530]" },
   { id: "peugeot-leasing", brand: "Peugeot", img: "/autos/hero-leasing.jpg", gradient: "from-[#0f1e46] via-[#1c3575] to-[#0b1530]" },
 ] as {
   id: string;
