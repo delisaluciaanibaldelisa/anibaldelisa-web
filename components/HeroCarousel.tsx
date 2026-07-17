@@ -1,9 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import { CalendarCheck } from "lucide-react";
 import AutoVideo from "@/components/AutoVideo";
-import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
+
+// Logos de marca para la franja "Servicio Oficial" (en movimiento continuo).
+const marcas = [
+  { name: "Peugeot", src: "/logos/peugeot.png" },
+  { name: "Citroën", src: "/logos/citroen.png" },
+  { name: "BYD", src: "/logos/byd.svg" },
+  { name: "Opel", src: "/logos/opel.png" },
+];
 
 // Diapositivas del hero. Si existe la foto en public/autos/, se muestra;
 // si no, se usa un fondo degradado elegante con el nombre de la marca.
@@ -96,9 +105,29 @@ export default function HeroCarousel() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="max-w-3xl"
         >
-          <p className="inline-block rounded-full bg-white/10 backdrop-blur border border-white/25 px-4 py-1 text-[13px] text-white/85 font-semibold mb-6">
-            Servicio oficial Peugeot · Citroën · BYD
+          <p className="inline-block rounded-full bg-white/10 backdrop-blur border border-white/25 px-5 py-1.5 text-[17px] text-white/90 font-bold mb-4">
+            Servicio Oficial
           </p>
+
+          {/* Logos de marca en movimiento continuo */}
+          <div className="relative w-full max-w-md overflow-hidden mb-6 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex w-max animate-marquee items-center gap-10 py-1">
+              {[...marcas, ...marcas].map((m, i) => (
+                <div
+                  key={`${m.name}-${i}`}
+                  className="shrink-0 grid place-items-center bg-white rounded-lg px-4 py-2 shadow-md"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={m.src}
+                    alt={m.name}
+                    className="h-6 w-auto object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
           <h1 className="font-heading font-extrabold text-[clamp(36px,5vw,64px)] leading-tight max-w-[680px] text-white drop-shadow-lg">
             Tu auto en{" "}
             <br className="hidden sm:block" />
@@ -107,9 +136,15 @@ export default function HeroCarousel() {
           <p className="mt-5 text-lg md:text-xl text-gray-100 max-w-2xl drop-shadow">
             Mecánica · Chapa y Pintura · Revisiones
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <WhatsAppButton label="Escribinos por WhatsApp" />
-            <CallButton />
+          <div className="mt-8">
+            <Link
+              href="/turnos"
+              className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-gold px-8 py-4 font-heading font-bold text-charcoal shadow-[0_8px_24px_rgba(255,229,0,0.35)] transition-all hover:scale-[1.04] hover:shadow-[0_10px_30px_rgba(255,229,0,0.5)]"
+            >
+              <span className="absolute inset-0 -translate-x-full bg-white/30 skew-x-[-20deg] transition-transform duration-700 group-hover:translate-x-full" />
+              <CalendarCheck size={20} className="relative" />
+              <span className="relative">Agendá tu turno</span>
+            </Link>
           </div>
         </motion.div>
       </div>
