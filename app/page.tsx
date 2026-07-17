@@ -193,10 +193,11 @@ export default function Home() {
             </h2>
           </ZoomReveal>
 
-          <div className="mt-8 grid gap-10 lg:grid-cols-2 items-start">
+          {/* Damero 2x2: texto/video arriba, video/texto abajo — videos en diagonal */}
+          <div className="mt-8 grid gap-8 lg:grid-cols-2 items-stretch">
             <SlideReveal
               from="left"
-              className="space-y-4 text-gray-200 leading-relaxed"
+              className="space-y-4 text-gray-200 leading-relaxed self-center"
             >
               <p>
                 En nuestro taller realizamos reparaciones de chapa y pintura
@@ -220,19 +221,24 @@ export default function Home() {
             </SlideReveal>
 
             <SlideReveal from="right">
-              {/* Videos del sector (BYD Yuan Pro + BYD Tang), diagonales espejadas */}
               <AutoVideo
                 src="/videos/chapa-byd-yuan.mp4"
                 poster="/autos/byd.webp"
                 preload="metadata"
-                className="w-full h-[200px] lg:h-60 object-cover rounded-xl mb-5 [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)]"
+                className="w-full h-[220px] lg:h-72 object-cover rounded-xl [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)]"
               />
+            </SlideReveal>
+
+            <SlideReveal from="left">
               <AutoVideo
-                src="/videos/chapa-byd-tang.mp4"
+                src="/videos/hero-byd-seal.mp4"
                 poster="/autos/byd.webp"
                 preload="metadata"
-                className="w-full h-[200px] lg:h-60 object-cover rounded-xl mb-5 [clip-path:polygon(0%_0%,92%_0%,100%_100%,0%_100%)]"
+                className="w-full h-[220px] lg:h-72 object-cover rounded-xl [clip-path:polygon(0%_0%,92%_0%,100%_100%,0%_100%)]"
               />
+            </SlideReveal>
+
+            <SlideReveal from="right" className="self-center">
               <div className="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6">
                 <ul className="space-y-3">
                   {[

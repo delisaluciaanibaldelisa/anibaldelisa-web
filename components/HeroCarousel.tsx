@@ -9,7 +9,7 @@ import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
 // si no, se usa un fondo degradado elegante con el nombre de la marca.
 // Para activar fotos reales: guardar p.ej. public/autos/peugeot.jpg
 const slides = [
-  { brand: "BYD Seal", video: "/videos/hero-byd-seal.mp4", img: "/autos/byd.webp", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
+  { brand: "BYD Tang", video: "/videos/chapa-byd-tang.mp4", img: "/autos/byd.webp", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
   { brand: "Peugeot", img: "/autos/peugeot.jpg", gradient: "from-[#0f1e46] via-[#1c3575] to-[#0b1530]" },
   { brand: "BYD", img: "/autos/byd.webp", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
   { brand: "Opel", img: "/autos/opel.webp", gradient: "from-[#3d3a06] via-[#6b6410] to-[#232105]" },
