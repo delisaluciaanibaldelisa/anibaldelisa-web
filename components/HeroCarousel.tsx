@@ -115,14 +115,14 @@ export default function HeroCarousel() {
               {[...marcas, ...marcas].map((m, i) => (
                 <div
                   key={`${m.name}-${i}`}
-                  className="shrink-0 grid place-items-center bg-white rounded-lg px-4 py-2 shadow-md"
+                  className="shrink-0 grid place-items-center px-2 py-2"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={m.src}
                     alt={`Servicio oficial ${m.name} — Aníbal Delisa Montevideo`}
                     title={`Servicio oficial ${m.name}`}
-                    className="h-6 w-auto object-contain"
+                    className="h-7 w-auto object-contain drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
                     loading={i < marcas.length ? "eager" : "lazy"}
                   />
                 </div>
@@ -141,7 +141,7 @@ export default function HeroCarousel() {
             </span>
           </h1>
           <p className="mt-5 text-lg md:text-xl text-gray-100 max-w-2xl drop-shadow">
-            Mecánica · Chapa y Pintura · Revisiones
+            Mecánica Multimarca · Chapa y Pintura
           </p>
           <div className="mt-8">
             <Link
