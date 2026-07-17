@@ -20,8 +20,11 @@ const slides = [
   { id: "c3-aircross", brand: "Citroën C3 Aircross", img: "/autos/hero-c3aircross.jpg", gradient: "from-[#5c0f0f] via-[#8f1d1d] to-[#3d0a0a]" },
   { id: "byd-tang", brand: "BYD Tang", video: "/videos/chapa-byd-tang.mp4", img: "/autos/byd.webp", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
   { id: "peugeot-208", brand: "Peugeot 208", img: "/autos/hero-208.jpg", gradient: "from-[#0f1e46] via-[#1c3575] to-[#0b1530]" },
+  { id: "opel-crossland", brand: "Opel Crossland", img: "/autos/hero-opel-crossland.jpg", gradient: "from-[#3d3a06] via-[#6b6410] to-[#232105]" },
   { id: "byd-e2x", brand: "BYD e2X", img: "/autos/hero-byd-e2x.jpg", gradient: "from-[#0c3b3b] via-[#14605c] to-[#072222]" },
-  { id: "opel", brand: "Opel", img: "/autos/opel.webp", gradient: "from-[#3d3a06] via-[#6b6410] to-[#232105]" },
+  { id: "c5-motor", brand: "Citroën C5 Aircross", img: "/autos/hero-c5-motor.jpg", gradient: "from-[#5c0f0f] via-[#8f1d1d] to-[#3d0a0a]" },
+  { id: "peugeot-allure", brand: "Peugeot Allure", img: "/autos/hero-allure.jpg", gradient: "from-[#0f1e46] via-[#1c3575] to-[#0b1530]" },
+  { id: "opel-corsa", brand: "Opel Corsa", img: "/autos/hero-corsa.jpg", gradient: "from-[#3d3a06] via-[#6b6410] to-[#232105]" },
   { id: "c5-aircross", brand: "Citroën C5 Aircross", img: "/autos/hero-c5aircross.jpg", gradient: "from-[#5c0f0f] via-[#8f1d1d] to-[#3d0a0a]" },
   { id: "peugeot-308sw", brand: "Peugeot 308 SW", img: "/autos/hero-308sw.jpg", gradient: "from-[#0f1e46] via-[#1c3575] to-[#0b1530]" },
   { id: "c4", brand: "Citroën C4", img: "/autos/hero-c4.jpg", gradient: "from-[#5c0f0f] via-[#8f1d1d] to-[#3d0a0a]" },
@@ -50,7 +53,7 @@ export default function HeroCarousel() {
 
   return (
     <section
-      className="relative overflow-hidden bg-dark text-white min-h-[70vh] md:min-h-[78vh] grid"
+      className="relative overflow-hidden bg-dark text-white min-h-[82vh] md:min-h-[94vh] grid"
       data-wa-msg="Hola! Quiero hacer una consulta sobre el taller"
     >
       {/* Fondo con crossfade por marca */}
