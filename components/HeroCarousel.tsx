@@ -40,8 +40,8 @@ export default function HeroCarousel() {
   const [failed, setFailed] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    // El slide con video dura más para que se aprecie (2s más rápido que antes).
-    const dur = slides[index].video ? 7000 : 2500;
+    // El slide con video dura más para que se aprecie (2s más rápido de nuevo).
+    const dur = slides[index].video ? 5000 : 800;
     const t = setTimeout(() => setIndex((i) => (i + 1) % slides.length), dur);
     return () => clearTimeout(t);
   }, [index]);
@@ -60,7 +60,7 @@ export default function HeroCarousel() {
           initial={{ opacity: 0, scale: 1.06 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.4, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           className="absolute inset-0"
         >
           {slide.video && !failed[slide.id] ? (
@@ -109,20 +109,22 @@ export default function HeroCarousel() {
             Servicio Oficial
           </p>
 
-          {/* Logos de marca en movimiento continuo */}
+          {/* Logos de marca en movimiento continuo — cajas uniformes para
+              que las 4 marcas guarden la misma relación de tamaño visual,
+              sin importar la proporción original de cada archivo. */}
           <div className="relative w-full max-w-md overflow-hidden mb-6 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div className="flex w-max animate-marquee items-center gap-10 py-1">
+            <div className="flex w-max animate-marquee items-center gap-4 py-1">
               {[...marcas, ...marcas].map((m, i) => (
                 <div
                   key={`${m.name}-${i}`}
-                  className="shrink-0 grid place-items-center px-2 py-2"
+                  className="shrink-0 grid place-items-center w-20 h-11 rounded-lg bg-white/10 border border-white/20 backdrop-blur-sm px-3 py-2"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={m.src}
                     alt={`Servicio oficial ${m.name} — Aníbal Delisa Montevideo`}
                     title={`Servicio oficial ${m.name}`}
-                    className="h-7 w-auto object-contain drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
+                    className="max-h-6 max-w-full w-auto h-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]"
                     loading={i < marcas.length ? "eager" : "lazy"}
                   />
                 </div>
