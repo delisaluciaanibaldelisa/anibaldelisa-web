@@ -13,7 +13,6 @@ import {
 import { site } from "@/lib/site";
 import Reveal, { ZoomReveal, SlideReveal } from "@/components/Reveal";
 import HeroCarousel from "@/components/HeroCarousel";
-import AnimatedCar from "@/components/AnimatedCar";
 import StatCounter from "@/components/StatCounter";
 import AutoVideo from "@/components/AutoVideo";
 import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
@@ -222,8 +221,8 @@ export default function Home() {
 
             <SlideReveal from="right">
               <AutoVideo
-                src="/videos/chapa-byd-yuan.mp4"
-                poster="/autos/chapa-508.jpg"
+                src="/videos/hero-byd-seal.mp4"
+                poster="/autos/chapa-partner.jpg"
                 preload="metadata"
                 className="w-full h-[220px] lg:h-72 object-cover rounded-xl [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)]"
               />
@@ -231,8 +230,8 @@ export default function Home() {
 
             <SlideReveal from="left">
               <AutoVideo
-                src="/videos/hero-byd-seal.mp4"
-                poster="/autos/chapa-partner.jpg"
+                src="/videos/chapa-byd-yuan.mp4"
+                poster="/autos/chapa-508.jpg"
                 preload="metadata"
                 className="w-full h-[220px] lg:h-72 object-cover rounded-xl [clip-path:polygon(0%_0%,92%_0%,100%_100%,0%_100%)]"
               />
@@ -273,9 +272,6 @@ export default function Home() {
             </SlideReveal>
           </div>
         </div>
-
-        {/* Auto animado cruzando la sección */}
-        <AnimatedCar className="mb-4" />
       </section>
 
       {/* GARANTÍA TOTAL — texto y lista de servicios originales */}
