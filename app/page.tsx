@@ -38,7 +38,7 @@ const cubos: {
     logos: [
       { src: "/logos/peugeot.png", alt: "Peugeot" },
       { src: "/logos/citroen.png", alt: "Citroën" },
-      { src: "/logos/byd.svg", alt: "BYD" },
+      { src: "/logos/byd.png", alt: "BYD" },
       { src: "/logos/opel.png", alt: "Opel" },
     ],
   },

@@ -13,7 +13,7 @@ import AutoVideo from "@/components/AutoVideo";
 const marcas = [
   { name: "Peugeot", src: "/logos/peugeot.png", dark: true },
   { name: "Citroën", src: "/logos/citroen.png", dark: true },
-  { name: "BYD", src: "/logos/byd.svg", dark: false },
+  { name: "BYD", src: "/logos/byd.png", dark: false },
   { name: "Opel", src: "/logos/opel.png", dark: true },
 ];
 
