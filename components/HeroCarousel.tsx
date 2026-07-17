@@ -7,11 +7,14 @@ import { CalendarCheck } from "lucide-react";
 import AutoVideo from "@/components/AutoVideo";
 
 // Logos de marca para la franja "Servicio Oficial" (en movimiento continuo).
+// dark: los logos oficiales tienen detalle en negro sobre blanco — se
+// muestran en un chip blanco sólido para conservar la nitidez del diseño
+// original (invertir a blanco plano perdía el detalle interno del escudo).
 const marcas = [
-  { name: "Peugeot", src: "/logos/peugeot.png" },
-  { name: "Citroën", src: "/logos/citroen.png" },
-  { name: "BYD", src: "/logos/byd.svg" },
-  { name: "Opel", src: "/logos/opel.png" },
+  { name: "Peugeot", src: "/logos/peugeot.png", dark: true },
+  { name: "Citroën", src: "/logos/citroen.png", dark: true },
+  { name: "BYD", src: "/logos/byd.svg", dark: false },
+  { name: "Opel", src: "/logos/opel.png", dark: true },
 ];
 
 // Diapositivas del hero. Si existe la foto en public/autos/, se muestra;
@@ -120,14 +123,18 @@ export default function HeroCarousel() {
               {[...marcas, ...marcas].map((m, i) => (
                 <div
                   key={`${m.name}-${i}`}
-                  className="shrink-0 grid place-items-center w-20 h-11 rounded-lg bg-white/10 border border-white/20 backdrop-blur-sm px-3 py-2"
+                  className={`shrink-0 grid place-items-center w-24 h-14 rounded-lg px-3 py-2.5 shadow-md ${
+                    m.dark
+                      ? "bg-white"
+                      : "bg-white/15 border border-white/25 backdrop-blur-sm"
+                  }`}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={m.src}
                     alt={`Servicio oficial ${m.name} — Aníbal Delisa Montevideo`}
                     title={`Servicio oficial ${m.name}`}
-                    className="max-h-6 max-w-full w-auto h-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]"
+                    className="max-h-9 max-w-full w-auto h-auto object-contain"
                     loading={i < marcas.length ? "eager" : "lazy"}
                   />
                 </div>
