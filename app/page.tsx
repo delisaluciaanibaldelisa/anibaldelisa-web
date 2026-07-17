@@ -19,7 +19,15 @@ import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
 
 // Textos de la web original anibaldelisa.com — respetar tal cual.
 // Colores por card según el sistema de diseño (Correcciones 3 y 6).
-const cubos = [
+const cubos: {
+  icon: typeof BadgeCheck;
+  title: string;
+  text: string;
+  href: string;
+  iconClass: string;
+  hoverBorder: string;
+  logos?: { src: string; alt: string }[];
+}[] = [
   {
     icon: BadgeCheck,
     title: "Servicio Oficial",
@@ -27,6 +35,12 @@ const cubos = [
     href: "/servicios/mecanica",
     iconClass: "bg-primary/8 text-primary",
     hoverBorder: "hover:border-t-primary",
+    logos: [
+      { src: "/logos/peugeot.png", alt: "Peugeot" },
+      { src: "/logos/citroen.png", alt: "Citroën" },
+      { src: "/logos/byd.svg", alt: "BYD" },
+      { src: "/logos/opel.png", alt: "Opel" },
+    ],
   },
   {
     icon: Wrench,
@@ -135,6 +149,20 @@ export default function Home() {
                   <p className="mt-3 text-gray-600 text-[15px] leading-[1.7]">
                     {c.text}
                   </p>
+                  {c.logos && (
+                    <div className="mt-5 flex items-center gap-4 flex-wrap">
+                      {c.logos.map((l) => (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          key={l.alt}
+                          src={l.src}
+                          alt={`Logo ${l.alt}`}
+                          className="h-7 w-auto object-contain opacity-80"
+                          loading="lazy"
+                        />
+                      ))}
+                    </div>
+                  )}
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
                     Ver más
                     <ArrowRight size={16} />
@@ -222,7 +250,7 @@ export default function Home() {
             <SlideReveal from="right">
               <AutoVideo
                 src="/videos/hero-byd-seal.mp4"
-                poster="/autos/chapa-partner.jpg"
+                poster="/autos/chapa-508sw.jpg"
                 preload="metadata"
                 className="w-full h-[220px] lg:h-72 object-cover rounded-xl [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)]"
               />
@@ -231,7 +259,7 @@ export default function Home() {
             <SlideReveal from="left">
               <AutoVideo
                 src="/videos/chapa-byd-yuan.mp4"
-                poster="/autos/chapa-508.jpg"
+                poster="/autos/chapa-concept.jpg"
                 preload="metadata"
                 className="w-full h-[220px] lg:h-72 object-cover rounded-xl [clip-path:polygon(0%_0%,92%_0%,100%_100%,0%_100%)]"
               />
@@ -256,16 +284,14 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <div className="mt-6 flex items-center gap-3">
                   <WhatsAppButton
                     href={site.whatsapp.chapa}
                     label="Escribinos por WhatsApp"
-                    className="flex-1"
                   />
                   <CallButton
                     href={site.locations.chapa.telHref}
                     label="Llamanos"
-                    className="flex-1"
                   />
                 </div>
               </div>

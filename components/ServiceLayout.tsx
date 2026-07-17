@@ -75,7 +75,9 @@ export default function ServiceLayout({
               </p>
               <div className="mt-5 flex flex-col gap-3">
                 <ChatButton label="Escribinos por chat" className="w-full" />
-                <CallButton className="w-full" />
+                <div className="flex justify-center">
+                  <CallButton />
+                </div>
               </div>
             </div>
           </Reveal>

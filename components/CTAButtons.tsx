@@ -20,6 +20,7 @@ function WhatsAppIcon({ size = 20 }: { size?: number }) {
   );
 }
 
+// Solo ícono (sin texto) — diseño consistente en toda la web.
 export function WhatsAppButton({
   label = "WhatsApp",
   href = site.whatsapp.general,
@@ -34,11 +35,12 @@ export function WhatsAppButton({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={label}
+      title={label}
       onClick={() => trackEvent("whatsapp_click", { source: "boton" })}
-      className={`inline-flex items-center justify-center gap-2 rounded-md bg-[#25D366] hover:bg-[#1eb555] text-white font-semibold px-6 py-3 transition-all hover:scale-[1.03] active:scale-[0.98] ${className}`}
+      className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#25D366] hover:bg-[#1eb555] text-white transition-all hover:scale-[1.06] active:scale-[0.98] ${className}`}
     >
       <WhatsAppIcon />
-      {label}
     </a>
   );
 }
@@ -63,6 +65,7 @@ export function ChatButton({
   );
 }
 
+// Solo ícono (sin texto) — diseño consistente en toda la web.
 export function CallButton({
   label = "Llamanos",
   href = site.locations.mecanica.telHref,
@@ -75,11 +78,12 @@ export function CallButton({
   return (
     <a
       href={href}
+      aria-label={label}
+      title={label}
       onClick={() => trackEvent("call_click", { source: "boton" })}
-      className={`inline-flex items-center justify-center gap-2 rounded-md bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 transition-all hover:scale-[1.03] active:scale-[0.98] ${className}`}
+      className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary hover:bg-primary-dark text-white transition-all hover:scale-[1.06] active:scale-[0.98] ${className}`}
     >
-      <Phone size={18} />
-      {label}
+      <Phone size={20} />
     </a>
   );
 }
