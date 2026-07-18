@@ -12,7 +12,7 @@ const NUM_GENERAL = "59899680555";
 const NUM_CHAPA = "59899657807";
 
 const porRuta: [string, string][] = [
-  ["/servicios/chapa-pintura", "Hola! Quiero un presupuesto de chapa y pintura"],
+  ["/servicios/chapa-pintura", "Hola! Quiero un presupuesto de Chapa y Pintura"],
   ["/servicios/revision-precompra", "Hola! Quiero coordinar una revisión pre-compra de un usado"],
   ["/servicios/alineacion-balanceo", "Hola! Quiero un turno para alineación y balanceo"],
   ["/servicios", "Hola! Quiero agendar un service para mi auto"],

@@ -8,7 +8,7 @@ import TurnosBooking from "@/components/TurnosBooking";
 export const metadata: Metadata = {
   title: "Agendá tu turno",
   description:
-    "Reservá tu turno online en el taller Aníbal Delisa de Montevideo: service, mecánica, chapa y pintura, alineación y balanceo. Elegí día y hora en segundos.",
+    "Reservá tu turno online en el taller Aníbal Delisa de Montevideo: service, mecánica, Chapa y Pintura, alineación y balanceo. Elegí día y hora en segundos.",
 };
 
 export default function TurnosPage() {

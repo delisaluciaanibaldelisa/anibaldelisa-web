@@ -34,13 +34,13 @@ const pilares = [
   {
     icon: BadgeCheck,
     title: "Servicio Oficial",
-    text: "Service oficial Peugeot, Citroën, BYD y Opel. Diagnóstico computarizado conectado con la central técnica en Francia, repuestos legítimos y procedimientos originales que mantienen vigente la garantía oficial de tu auto.",
+    text: "Servicio Oficial Peugeot, Citroën, BYD y Opel. Diagnóstico computarizado conectado con la central técnica en Francia, repuestos legítimos y procedimientos originales que mantienen vigente la garantía oficial de tu auto.",
     href: "/servicios/servicio-oficial",
     logos: [
-      { src: "/logos/peugeot.png?v=3", alt: "Peugeot" },
-      { src: "/logos/citroen.png?v=3", alt: "Citroën" },
-      { src: "/logos/byd.png?v=3", alt: "BYD" },
-      { src: "/logos/opel.png?v=3", alt: "Opel" },
+      { src: "/logos/peugeot.png?v=4", alt: "Peugeot" },
+      { src: "/logos/citroen.png?v=4", alt: "Citroën" },
+      { src: "/logos/byd.png?v=4", alt: "BYD" },
+      { src: "/logos/opel.png?v=4", alt: "Opel" },
     ],
   },
   {
@@ -208,7 +208,7 @@ export default function Home() {
               <span className="text-primary"> en un solo lugar</span>
             </h2>
             <p className="mt-4 text-gray-600 text-[15px] leading-[1.7]">
-              Más de 53 años cuidando cada detalle. Desde el service oficial de
+              Más de 53 años cuidando cada detalle. Desde el Servicio Oficial de
               tu marca hasta la reparación más compleja, con la confianza de una
               empresa familiar.
             </p>
@@ -240,8 +240,8 @@ export default function Home() {
                         <img
                           key={l.alt}
                           src={l.src}
-                          alt={`Servicio oficial ${l.alt} — Aníbal Delisa Montevideo`}
-                          title={`Servicio oficial ${l.alt}`}
+                          alt={`Servicio Oficial ${l.alt} — Aníbal Delisa Montevideo`}
+                          title={`Servicio Oficial ${l.alt}`}
                           className="h-9 w-9 object-cover rounded-md ring-1 ring-white/15"
                           loading="lazy"
                         />
@@ -323,7 +323,7 @@ export default function Home() {
       {/* CHAPA Y PINTURA — texto original, con zoom y auto animado */}
       <section
         className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-mid to-navy text-white"
-        data-wa-msg="Hola! Quiero un presupuesto de chapa y pintura"
+        data-wa-msg="Hola! Quiero un presupuesto de Chapa y Pintura"
         data-wa-num="chapa"
       >
         <div className="container-x py-20 md:py-28">
@@ -367,7 +367,7 @@ export default function Home() {
                 videoMs={3500}
                 items={[
                   { type: "video", src: "/videos/hero-byd-seal.mp4", poster: "/autos/chapa-citroen-screen.jpg" },
-                  { type: "img", src: "/autos/chapa-508.jpg", alt: "Reparación de chapa y pintura — Aníbal Delisa Montevideo" },
+                  { type: "img", src: "/autos/chapa-508.jpg", alt: "Reparación de Chapa y Pintura — Aníbal Delisa Montevideo" },
                   { type: "video", src: "/videos/chapa-byd-tang.mp4", poster: "/autos/chapa-brandvision.jpg" },
                   { type: "img", src: "/autos/chapa-partner.jpg", alt: "Cabina de pintura climatizada — Aníbal Delisa" },
                 ]}
@@ -444,7 +444,7 @@ export default function Home() {
                 vehículo con excelencia.
               </p>
               <p>
-                Ofrecemos servicio completo de mecánica, chapa y pintura para
+                Ofrecemos servicio completo de mecánica, Chapa y Pintura para
                 todas las marcas, con garantía en cada trabajo realizado.
               </p>
               <p className="font-semibold text-dark">

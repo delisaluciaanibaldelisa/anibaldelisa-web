@@ -9,10 +9,10 @@ import AutoVideo from "@/components/AutoVideo";
 // Logos de marca para la franja "Servicio Oficial" (en movimiento continuo).
 // Se usan las imágenes originales con su fondo negro, sin recorte.
 const marcas = [
-  { name: "Peugeot", src: "/logos/peugeot.png?v=3" },
-  { name: "Citroën", src: "/logos/citroen.png?v=3" },
-  { name: "BYD", src: "/logos/byd.png?v=3" },
-  { name: "Opel", src: "/logos/opel.png?v=3" },
+  { name: "Peugeot", src: "/logos/peugeot.png?v=4" },
+  { name: "Citroën", src: "/logos/citroen.png?v=4" },
+  { name: "BYD", src: "/logos/byd.png?v=4" },
+  { name: "Opel", src: "/logos/opel.png?v=4" },
 ];
 
 // Diapositivas del hero. Si existe la foto en public/autos/, se muestra;
@@ -78,7 +78,7 @@ export default function HeroCarousel() {
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={slide.img}
-              alt={`Service oficial ${slide.brand} en Montevideo — Taller Aníbal Delisa`}
+              alt={`Servicio Oficial ${slide.brand} en Montevideo — Taller Aníbal Delisa`}
               className="absolute inset-0 w-full h-full object-cover"
               loading="eager"
               fetchPriority="high"
@@ -126,8 +126,8 @@ export default function HeroCarousel() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={m.src}
-                    alt={`Servicio oficial ${m.name} — Aníbal Delisa Montevideo`}
-                    title={`Servicio oficial ${m.name}`}
+                    alt={`Servicio Oficial ${m.name} — Aníbal Delisa Montevideo`}
+                    title={`Servicio Oficial ${m.name}`}
                     className="w-full h-full object-cover"
                     loading={i < marcas.length ? "eager" : "lazy"}
                   />
@@ -157,7 +157,7 @@ export default function HeroCarousel() {
             las mejores manos
             <span className="sr-only">
               {" "}
-              — Aníbal Delisa, servicio oficial Peugeot, Citroën, BYD y Opel en
+              — Aníbal Delisa, Servicio Oficial Peugeot, Citroën, BYD y Opel en
               Montevideo, Uruguay
             </span>
           </h1>

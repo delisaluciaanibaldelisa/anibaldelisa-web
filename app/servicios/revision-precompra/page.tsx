@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const features = [
   "Inspección técnica completa antes de comprar",
   "Estado de motor y mecánica general",
-  "Revisión de chapa y pintura (detección de choques)",
+  "Revisión de Chapa y Pintura (detección de choques)",
   "Sistema eléctrico y electrónica",
   "Suspensión, frenos y tren delantero",
   "Informe claro con nuestra recomendación",

@@ -22,7 +22,7 @@ export const site = {
   ga4Id: "G-1FWLB868QW",
   tagline: "Taller mecánico multimarca en Montevideo",
   description:
-    "Service oficial Peugeot, Citroën, BYD y Opel en Montevideo. Mecánica multimarca, chapa y pintura, alineación y balanceo. +53 años de trayectoria.",
+    "Servicio Oficial Peugeot, Citroën, BYD y Opel en Montevideo. Mecánica multimarca, Chapa y Pintura, alineación y balanceo. +53 años de trayectoria.",
   brands: ["Peugeot", "Citroën", "BYD", "Opel"],
   // WhatsApp por sector (wa.me abre el chat directo).
   whatsapp: {

@@ -41,17 +41,17 @@ export const metadata: Metadata = {
   },
   description: site.description,
   keywords: [
-    "servicio oficial Peugeot Uruguay",
-    "servicio oficial Citroën Uruguay",
-    "servicio oficial BYD Uruguay",
-    "servicio oficial Opel Uruguay",
+    "Servicio Oficial Peugeot Uruguay",
+    "Servicio Oficial Citroën Uruguay",
+    "Servicio Oficial BYD Uruguay",
+    "Servicio Oficial Opel Uruguay",
     "service Peugeot Montevideo",
     "service Citroën Montevideo",
     "service BYD Montevideo",
     "service Opel Montevideo",
     "concesionario oficial BYD Montevideo",
     "taller mecánico Montevideo",
-    "chapa y pintura Montevideo",
+    "Chapa y Pintura Montevideo",
     "alineación y balanceo Montevideo",
     "mecánica multimarca Uruguay",
   ],
@@ -107,7 +107,7 @@ const jsonLd = {
     ratingValue: site.google.rating,
     reviewCount: site.google.reviewCount,
   },
-  // Marcas para las que somos servicio oficial (SEO: "servicio oficial Peugeot/Citroën/BYD/Opel").
+  // Marcas para las que somos Servicio Oficial (SEO: "Servicio Oficial Peugeot/Citroën/BYD/Opel").
   brand: [
     { "@type": "Brand", name: "Peugeot" },
     { "@type": "Brand", name: "Citroën" },

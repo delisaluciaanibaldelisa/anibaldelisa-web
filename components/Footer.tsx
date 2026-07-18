@@ -46,9 +46,9 @@ export default function Footer() {
             Aníbal Delisa
           </p>
           <p className="mt-3 text-sm text-gray-400 leading-relaxed">
-            Taller mecánico multimarca con más de {site.yearsExperience} años de
-            trayectoria en Uruguay. Service oficial {site.brands.join(", ")}.
-            Trabajamos con todas las aseguradoras.
+            Servicio Oficial Peugeot · Citroën · BYD · Opel · Chapa y Pintura ·
+            Mecánica Multimarca. Más de {site.yearsExperience} años de
+            trayectoria en Uruguay. Trabajamos con todas las aseguradoras.
           </p>
         </div>
 

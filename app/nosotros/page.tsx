@@ -4,12 +4,13 @@ import { site } from "@/lib/site";
 import Reveal, { SlideReveal } from "@/components/Reveal";
 import Breadcrumb from "@/components/Breadcrumb";
 import MapEmbed from "@/components/MapEmbed";
+import VideoFeature from "@/components/VideoFeature";
 import { ChatButton } from "@/components/CTAButtons";
 
 export const metadata: Metadata = {
   title: "Nuestra Historia",
   description:
-    "La historia de Aníbal Delisa: más de 53 años de trayectoria, una familia y dos generaciones cuidando los autos de los uruguayos. Empresa familiar, service oficial Peugeot, Citroën, BYD y Opel.",
+    "La historia de Aníbal Delisa: más de 53 años de trayectoria, una familia y dos generaciones cuidando los autos de los uruguayos. Empresa familiar, Servicio Oficial Peugeot, Citroën, BYD y Opel.",
 };
 
 // Capítulos de la historia de Aníbal Delisa (storytelling con fotos de archivo).
@@ -168,6 +169,34 @@ export default function NosotrosPage() {
         </div>
       </section>
 
+      {/* En los medios — entrevista en Vértigo con Nando Parrado */}
+      <section className="py-16 md:py-24 bg-dark text-white">
+        <div className="container-x">
+          <Reveal className="text-center max-w-2xl mx-auto mb-10">
+            <p className="text-xs font-bold uppercase tracking-[3px] text-gold">
+              En los medios
+            </p>
+            <h2 className="mt-3 font-heading font-extrabold text-3xl md:text-4xl">
+              Aníbal Delisa, en Vértigo
+            </h2>
+            <p className="mt-4 text-white/75 leading-relaxed">
+              Hace más de diez años, Nando Parrado confió su Porsche a Aníbal
+              Delisa para el cambio de neumáticos. Una nota del programa Vértigo
+              que resume lo que somos: pasión por los fierros y la confianza de
+              siempre.
+            </p>
+          </Reveal>
+          <Reveal className="max-w-3xl mx-auto">
+            <VideoFeature
+              src="/videos/entrevista-vertigo.mp4"
+              poster="/historia/historia-oficio.jpg"
+              subtitle="Programa Vértigo · con Nando Parrado"
+              title="Mirá la entrevista"
+            />
+          </Reveal>
+        </div>
+      </section>
+
       {/* Valores */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container-x">
@@ -197,10 +226,10 @@ export default function NosotrosPage() {
         <div className="container-x text-center">
           <Reveal>
             <h2 className="font-heading font-bold text-2xl md:text-3xl text-dark">
-              Service oficial
+              Servicio Oficial
             </h2>
             <p className="mt-3 text-gray-600 max-w-xl mx-auto">
-              Somos service oficial de las marcas:
+              Somos Servicio Oficial de las marcas:
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               {site.brands.map((b) => (

@@ -234,7 +234,7 @@ export default function TurnosBooking() {
             </label>
             <input
               id="t-trabajo"
-              placeholder="Ej: service, frenos, chapa y pintura…"
+              placeholder="Ej: service, frenos, Chapa y Pintura…"
               className={inputClass}
               {...register("trabajo")}
             />
