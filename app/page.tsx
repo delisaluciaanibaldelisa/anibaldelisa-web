@@ -36,10 +36,10 @@ const cubos: {
     iconClass: "bg-primary/8 text-primary",
     hoverBorder: "hover:border-t-primary",
     logos: [
-      { src: "/logos/peugeot.png?v=2", alt: "Peugeot" },
-      { src: "/logos/citroen.png?v=2", alt: "Citroën" },
-      { src: "/logos/byd.png?v=2", alt: "BYD" },
-      { src: "/logos/opel.png?v=2", alt: "Opel" },
+      { src: "/logos/peugeot.png?v=3", alt: "Peugeot" },
+      { src: "/logos/citroen.png?v=3", alt: "Citroën" },
+      { src: "/logos/byd.png?v=3", alt: "BYD" },
+      { src: "/logos/opel.png?v=3", alt: "Opel" },
     ],
   },
   {

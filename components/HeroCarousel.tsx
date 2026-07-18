@@ -9,10 +9,10 @@ import AutoVideo from "@/components/AutoVideo";
 // Logos de marca para la franja "Servicio Oficial" (en movimiento continuo).
 // Se usan las imágenes originales con su fondo negro, sin recorte.
 const marcas = [
-  { name: "Peugeot", src: "/logos/peugeot.png?v=2" },
-  { name: "Citroën", src: "/logos/citroen.png?v=2" },
-  { name: "BYD", src: "/logos/byd.png?v=2" },
-  { name: "Opel", src: "/logos/opel.png?v=2" },
+  { name: "Peugeot", src: "/logos/peugeot.png?v=3" },
+  { name: "Citroën", src: "/logos/citroen.png?v=3" },
+  { name: "BYD", src: "/logos/byd.png?v=3" },
+  { name: "Opel", src: "/logos/opel.png?v=3" },
 ];
 
 // Diapositivas del hero. Si existe la foto en public/autos/, se muestra;
