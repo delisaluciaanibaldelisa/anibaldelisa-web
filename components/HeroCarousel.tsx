@@ -9,10 +9,10 @@ import AutoVideo from "@/components/AutoVideo";
 // Logos de marca para la franja "Servicio Oficial" (en movimiento continuo).
 // Se usan las imágenes originales con su fondo negro, sin recorte.
 const marcas = [
-  { name: "Peugeot", src: "/logos/peugeot.png?v=5" },
-  { name: "Citroën", src: "/logos/citroen.png?v=5" },
-  { name: "BYD", src: "/logos/byd.png?v=5" },
-  { name: "Opel", src: "/logos/opel.png?v=5" },
+  { name: "Peugeot", src: "/logos/peugeot.png?v=6" },
+  { name: "Citroën", src: "/logos/citroen.png?v=6" },
+  { name: "BYD", src: "/logos/byd.png?v=6" },
+  { name: "Opel", src: "/logos/opel.png?v=6" },
 ];
 
 // Diapositivas del hero. Si existe la foto en public/autos/, se muestra;
@@ -97,7 +97,7 @@ export default function HeroCarousel() {
             </div>
           )}
           {/* Oscurecido para legibilidad del texto (navy, deja ver el auto) */}
-          <div className="absolute inset-0 bg-[rgba(14,42,94,0.62)]" />
+          <div className="absolute inset-0 bg-[rgba(10,22,40,0.62)]" />
         </motion.div>
       </AnimatePresence>
 

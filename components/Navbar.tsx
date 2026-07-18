@@ -77,7 +77,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50">
       <nav
-        className={`relative bg-navy-mid text-white border-b border-gold/12 transition-all duration-300 ${
+        className={`relative bg-navy text-white border-b border-gold/12 transition-all duration-300 ${
           scrolled ? "shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur" : ""
         }`}
         onMouseLeave={() => setMegaOpen(false)}
@@ -238,7 +238,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden fixed inset-0 top-14 z-[200] bg-[rgba(14,42,94,0.97)] overflow-y-auto"
+            className="lg:hidden fixed inset-0 top-14 z-[200] bg-[rgba(10,22,40,0.97)] overflow-y-auto"
           >
             <motion.ul
               initial="hidden"
