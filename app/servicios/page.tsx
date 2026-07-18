@@ -24,7 +24,7 @@ export default function ServiciosPage() {
             </h1>
             <p className="mt-4 text-lg text-gray-300">
               Todo lo que tu vehículo necesita, con más de 53 años de
-              experiencia y la confianza de un taller familiar.
+              experiencia y la confianza de una empresa familiar.
             </p>
           </Reveal>
         </div>

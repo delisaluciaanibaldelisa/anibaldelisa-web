@@ -206,8 +206,8 @@ export default function Home() {
             </h2>
             <p className="mt-4 text-gray-600 text-[15px] leading-[1.7]">
               Más de 53 años cuidando cada detalle. Desde el service oficial de
-              tu marca hasta la reparación más compleja, con la confianza de un
-              taller familiar.
+              tu marca hasta la reparación más compleja, con la confianza de una
+              empresa familiar.
             </p>
           </Reveal>
 
@@ -504,7 +504,7 @@ export default function Home() {
               Nuestro equipo está formado por profesionales capacitados que
               trabajan con dedicación y compromiso en cada servicio. Nos
               respaldan la experiencia, la ética de trabajo y la
-              responsabilidad que caracterizan a un negocio familiar.
+              responsabilidad que caracterizan a una empresa familiar.
             </p>
             <p>
               Contamos con instalaciones equipadas y utilizamos repuestos

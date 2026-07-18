@@ -9,7 +9,7 @@ import { ChatButton } from "@/components/CTAButtons";
 export const metadata: Metadata = {
   title: "Nosotros",
   description:
-    "Más de 53 años de trayectoria en Montevideo. Aníbal Delisa es un taller familiar, atendido por sus propios dueños. Service oficial Peugeot, Citroën, BYD y Opel.",
+    "Más de 53 años de trayectoria en Montevideo. Aníbal Delisa es una empresa familiar, atendida por sus propios dueños. Service oficial Peugeot, Citroën, BYD y Opel.",
 };
 
 const valores = [
@@ -45,8 +45,8 @@ export default function NosotrosPage() {
               Más de {site.yearsExperience} años de trayectoria en Uruguay
             </h1>
             <p className="mt-5 text-lg text-gray-300 leading-relaxed">
-              Aníbal Delisa es un taller mecánico multimarca familiar, atendido
-              por sus propios dueños. A lo largo de más de cinco décadas nos
+              Aníbal Delisa es una empresa familiar de mecánica multimarca,
+              atendida por sus propios dueños. A lo largo de más de cinco décadas nos
               ganamos la confianza de miles de clientes en Montevideo, cuidando
               cada auto como si fuera propio.
             </p>
