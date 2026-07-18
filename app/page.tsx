@@ -160,7 +160,7 @@ export default function Home() {
       <HeroCarousel />
 
       {/* FRANJA ASEGURADORAS — siniestros + carrusel de logos */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-navy-deep via-navy to-navy-deep overflow-hidden">
+      <section className="py-12 md:py-16 bg-navy overflow-hidden">
         <Reveal className="container-x text-center mb-8">
           <p className="text-sm font-bold uppercase tracking-[3px] text-gold mb-2">
             Siniestros · Chapa y Pintura
@@ -193,7 +193,7 @@ export default function Home() {
 
       {/* NUESTROS SERVICIOS — bento grid moderno */}
       <section
-        className="py-16 md:py-24 bg-blue-tint"
+        className="py-16 md:py-24 bg-gray-50"
         data-wa-msg="Hola! Quiero agendar un service para mi auto"
       >
         <div className="container-x">
@@ -220,7 +220,7 @@ export default function Home() {
               <Reveal key={p.title} delay={i * 0.1}>
                 <Link
                   href={p.href}
-                  className="group relative flex h-full flex-col overflow-hidden bg-gradient-to-br from-navy-mid to-navy-deep text-white rounded-3xl p-8 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
+                  className="group relative flex h-full flex-col overflow-hidden bg-navy text-white rounded-3xl p-8 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
                 >
                   {/* Halo decorativo */}
                   <span className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-primary/20 blur-2xl transition-opacity group-hover:opacity-70" />
@@ -322,7 +322,7 @@ export default function Home() {
 
       {/* CHAPA Y PINTURA — texto original, con zoom y auto animado */}
       <section
-        className="relative overflow-hidden bg-gradient-to-br from-navy-deep via-navy to-navy-bright text-white"
+        className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-mid to-navy text-white"
         data-wa-msg="Hola! Quiero un presupuesto de Chapa y Pintura"
         data-wa-num="chapa"
       >
@@ -487,7 +487,7 @@ export default function Home() {
       </section>
 
       {/* ATENDIDO POR SUS PROPIOS DUEÑOS — texto original */}
-      <section className="py-16 md:py-24 bg-blue-tint">
+      <section className="py-16 md:py-24 bg-gray-100">
         <div className="container-x max-w-4xl text-center">
           <ZoomReveal>
             <div className="grid place-items-center w-16 h-16 rounded-full bg-primary text-white mx-auto mb-5">
@@ -610,7 +610,7 @@ export default function Home() {
       </section>
 
       {/* QUÉ DICEN NUESTROS CLIENTES — protagonismo navy (Corrección 7) */}
-      <section className="py-16 md:py-24 bg-navy-deep text-white">
+      <section className="py-16 md:py-24 bg-navy text-white">
         <div className="container-x">
           <Reveal className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="font-heading font-bold text-[clamp(22px,3vw,38px)] text-white">
@@ -673,7 +673,7 @@ export default function Home() {
       <div className="h-3 bg-white" aria-hidden="true" />
 
       {/* ESCRIBINOS — cierre navy (Corrección 1) */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-navy via-navy-bright to-navy-mid text-white">
+      <section className="py-16 md:py-24 bg-navy text-white">
         <div className="container-x text-center">
           <ZoomReveal>
             {/* Línea decorativa roja */}
