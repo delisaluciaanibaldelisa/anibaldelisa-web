@@ -49,7 +49,7 @@ const pilares = [
   {
     icon: SprayCan,
     title: "Chapa y Pintura",
-    text: "Siniestros con todas las compañías de seguros. Cabina climatizada e igualación exacta de color: tu auto vuelve a lucir como de fábrica.",
+    text: "Siniestros con todas las aseguradoras. Enderezado en bancada, colorimetría computarizada y cabina con horno de secado: terminación de fábrica, imperceptible.",
     href: "/servicios/chapa-pintura",
   },
 ];
@@ -337,23 +337,25 @@ export default function Home() {
               className="space-y-4 text-gray-200 leading-relaxed self-center"
             >
               <p>
-                ¿Tu auto sufrió un choque o un rayón? Nos ocupamos de todo:
-                gestionamos el siniestro directamente con tu aseguradora para
-                que vos no tengas que preocuparte por nada.
+                Reparamos tu vehículo con un protocolo profesional de
+                carrocería: diagnóstico del daño, enderezado en bancada con
+                control dimensional y sustitución de paneles mediante soldadura
+                cuando el impacto lo requiere.
               </p>
               <p>
-                Desde un rayón superficial hasta una reparación estructural
-                compleja, más de 53 años reparando carrocerías nos dan el ojo
-                para igualar cualquier color y la mano para que la reparación
-                simplemente no se note.
+                En pintura igualamos el color exacto de fábrica por colorimetría
+                computarizada y aplicamos en cabina presurizada y climatizada,
+                con secado controlado por horno. La terminación bicapa queda
+                uniforme, sin diferencias de tono ni marcas de reparación.
               </p>
               <p>
-                Te explicamos el proceso antes de empezar y cumplimos los
-                plazos acordados. Nada de sorpresas.
+                Gestionamos el siniestro de principio a fin con tu compañía de
+                seguros y entregamos en el plazo acordado, con garantía escrita
+                sobre el trabajo realizado.
               </p>
               <p className="font-semibold text-white">
-                Precisión, calidad y confianza para que tu auto vuelva a lucir
-                impecable.
+                Precisión técnica y terminación de fábrica: tu auto vuelve a
+                lucir como el primer día.
               </p>
             </SlideReveal>
 
@@ -389,11 +391,12 @@ export default function Home() {
               <div className="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6">
                 <ul className="space-y-3">
                   {[
-                    "Aseguradoras privadas y particulares",
-                    "Cabina de pintura climatizada",
-                    "Igualación exacta de color",
-                    "Reparaciones estructurales complejas",
-                    "Garantía en cada trabajo",
+                    "Enderezado en bancada con control dimensional",
+                    "Soldadura y sustitución de paneles",
+                    "Cabina de pintura climatizada con horno de secado",
+                    "Colorimetría computarizada para igualación exacta",
+                    "Tratamiento anticorrosión",
+                    "Gestión integral con tu aseguradora y garantía escrita",
                   ].map((f) => (
                     <li key={f} className="flex items-start gap-3">
                       <CircleCheck

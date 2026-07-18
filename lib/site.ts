@@ -85,7 +85,7 @@ export const servicios = [
     title: "Chapa y Pintura",
     icon: "SprayCan",
     short:
-      "Reparaciones para aseguradoras y particulares, con cabina de pintura climatizada.",
+      "Enderezado en bancada, colorimetría computarizada y cabina con horno de secado.",
   },
   {
     slug: "frenos",
