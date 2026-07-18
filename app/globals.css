@@ -34,8 +34,8 @@
   --charcoal: #0a1628;
   --gray: #4a4a4a;
   --gray-light: #f5f5f5;
-  --navy-80: rgba(14, 42, 94, 0.8);
-  --navy-20: rgba(14, 42, 94, 0.2);
+  --navy-80: rgba(10, 22, 40, 0.8);
+  --navy-20: rgba(10, 22, 40, 0.2);
   --gold-40: rgba(255, 229, 0, 0.4);
   --gold-10: rgba(255, 229, 0, 0.1);
 }
