@@ -7,7 +7,7 @@ import MapEmbed from "@/components/MapEmbed";
 import { ChatButton } from "@/components/CTAButtons";
 
 export const metadata: Metadata = {
-  title: "Aníbal Delisa",
+  title: "Nuestra Historia",
   description:
     "La historia de Aníbal Delisa: más de 53 años de trayectoria, una familia y dos generaciones cuidando los autos de los uruguayos. Empresa familiar, service oficial Peugeot, Citroën, BYD y Opel.",
 };
@@ -163,22 +163,6 @@ export default function NosotrosPage() {
             <p className="font-heading font-semibold text-xl md:text-2xl">
               Mejoramos cada día para ustedes, con un trato{" "}
               <span className="text-gold">cercano y profesional.</span>
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Equipo */}
-      <section className="py-16 md:py-24">
-        <div className="container-x text-center max-w-2xl mx-auto">
-          <Reveal>
-            <h2 className="font-heading font-bold text-3xl text-dark">
-              Atendido por sus propios dueños
-            </h2>
-            <p className="mt-4 text-gray-600 leading-relaxed">
-              Cuando venís a Aníbal Delisa, te atienden las mismas personas que
-              conocen cada detalle del taller. Ese trato cercano y directo es lo
-              que nos distingue: sos parte de la familia.
             </p>
           </Reveal>
         </div>
