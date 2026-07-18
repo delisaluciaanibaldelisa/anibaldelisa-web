@@ -38,7 +38,7 @@ export default function TurnosPage() {
 
       <section className="py-16 md:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-3">
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 min-w-0">
             <Reveal>
               <TurnosBooking />
             </Reveal>

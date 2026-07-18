@@ -102,7 +102,7 @@ export default function HeroCarousel() {
       </AnimatePresence>
 
       {/* Contenido fijo sobre el carrusel */}
-      <div className="relative container-x self-center py-20 md:py-28">
+      <div className="relative container-x self-center py-20 md:py-28 min-w-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

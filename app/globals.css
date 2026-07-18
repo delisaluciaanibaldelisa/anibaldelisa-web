@@ -42,6 +42,13 @@
 
 html {
   scroll-behavior: smooth;
+  /* Evita scroll horizontal por transforms de animación (SlideReveal).
+     'clip' no crea contenedor de scroll, por lo que no rompe position: sticky. */
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
 }
 
 /* Foco visible con toque de amarillo puro (accesibilidad + marca) */
