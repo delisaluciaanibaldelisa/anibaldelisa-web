@@ -162,7 +162,7 @@ export default function HeroCarousel() {
             </span>
           </h1>
           <p className="mt-5 text-lg md:text-xl text-gray-100 max-w-2xl drop-shadow">
-            Mecánica Multimarca · Chapa y Pintura
+            Mecánica · Chapa y Pintura
           </p>
           <div className="mt-8">
             <Link
