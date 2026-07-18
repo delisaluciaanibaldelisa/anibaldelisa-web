@@ -4,7 +4,7 @@ import ServiceLayout from "@/components/ServiceLayout";
 export const metadata: Metadata = {
   title: "Mecánica Multimarca",
   description:
-    "Mecánica multimarca en Montevideo con diagnóstico computarizado conectado con Francia para Peugeot, Citroën, BYD y Opel. Garantía en todos los trabajos.",
+    "Mecánica multimarca en Montevideo: reparación y mantenimiento para todas las marcas con diagnóstico computarizado y más de 53 años de experiencia. Garantía en todos los trabajos.",
 };
 
 const features = [
@@ -26,15 +26,15 @@ export default function MecanicaPage() {
       features={features}
     >
       <p>
-        Somos service oficial Peugeot, Citroën, BYD y Opel, con diagnóstico
-        computarizado conectado directamente con la central técnica en Francia.
-        Esto nos permite detectar fallas con precisión y resolverlas con
-        procedimientos y repuestos originales.
+        Reparamos y mantenemos todas las marcas del mercado, sin importar el
+        modelo ni el año. Con diagnóstico computarizado y equipos de última
+        generación, detectamos la falla con precisión y la resolvemos bien la
+        primera vez.
       </p>
       <p>
-        Trabajamos también con todas las demás marcas del mercado. Todos
-        nuestros trabajos cuentan con garantía y te explicamos siempre qué
-        necesita tu vehículo antes de intervenir.
+        Todos nuestros trabajos cuentan con garantía y presupuesto claro: te
+        explicamos siempre qué necesita tu vehículo y por qué, antes de
+        intervenir.
       </p>
     </ServiceLayout>
   );

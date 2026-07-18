@@ -107,7 +107,7 @@ export default function NosotrosPage() {
               Service oficial
             </h2>
             <p className="mt-3 text-gray-600 max-w-xl mx-auto">
-              Somos taller autorizado y service oficial de las marcas:
+              Somos service oficial de las marcas:
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               {site.brands.map((b) => (

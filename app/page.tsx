@@ -31,7 +31,7 @@ const pilares = [
   {
     icon: BadgeCheck,
     title: "Servicio Oficial",
-    text: "Taller autorizado Peugeot, Citroën, BYD y Opel. Diagnóstico conectado a fábrica, repuestos legítimos y procedimientos originales que mantienen la garantía oficial vigente — el respaldo de la marca de tu auto.",
+    text: "Service oficial Peugeot, Citroën, BYD y Opel. Diagnóstico computarizado conectado con la central técnica en Francia, repuestos legítimos y procedimientos originales que mantienen vigente la garantía oficial de tu auto.",
     href: "/servicios/mecanica",
     logos: [
       { src: "/logos/peugeot.png?v=3", alt: "Peugeot" },
@@ -337,19 +337,19 @@ export default function Home() {
               className="space-y-4 text-gray-200 leading-relaxed self-center"
             >
               <p>
-                En nuestro taller realizamos reparaciones de chapa y pintura
-                para aseguradoras privadas y clientes particulares, cuidando
-                cada detalle del proceso.
+                ¿Tu auto sufrió un choque o un rayón? Nos ocupamos de todo:
+                gestionamos el siniestro directamente con tu aseguradora para
+                que vos no tengas que preocuparte por nada.
               </p>
               <p>
                 Desde un rayón superficial hasta una reparación estructural
-                compleja, trabajamos con tecnología de punta, materiales de
-                alta calidad y terminaciones profesionales.
+                compleja, más de 53 años reparando carrocerías nos dan el ojo
+                para igualar cualquier color y la mano para que la reparación
+                simplemente no se note.
               </p>
               <p>
-                Contamos con cabina de pintura climatizada, sistema de
-                igualación exacta de color y garantía en cada trabajo
-                realizado.
+                Te explicamos el proceso antes de empezar y cumplimos los
+                plazos acordados. Nada de sorpresas.
               </p>
               <p className="font-semibold text-white">
                 Precisión, calidad y confianza para que tu auto vuelva a lucir
