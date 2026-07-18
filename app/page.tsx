@@ -72,7 +72,15 @@ const serviciosGarantia = [
   "Distribución",
 ];
 
-const aseguradoras = ["BSE", "Sura", "Mapfre", "Porto Seguro", "SBI", "HDI"];
+const aseguradoras = [
+  { name: "BSE", src: "/aseguradoras/bse.png" },
+  { name: "Sura", src: "/aseguradoras/sura.png" },
+  { name: "Mapfre", src: "/aseguradoras/mapfre.png" },
+  { name: "Porto Seguro", src: "/aseguradoras/porto.png" },
+  { name: "SBI Seguros", src: "/aseguradoras/sbi.png" },
+  { name: "San Cristóbal", src: "/aseguradoras/sancristobal.png" },
+  { name: "Barbuss", src: "/aseguradoras/barbuss.png" },
+];
 
 const testimonios = [
   {
@@ -95,21 +103,32 @@ export default function Home() {
       {/* HERO — carrusel de marcas */}
       <HeroCarousel />
 
-      {/* FRANJA ASEGURADORAS — ticker (Corrección 10) */}
-      <section className="py-10 md:py-12 bg-[#F8F8F8] overflow-hidden border-b border-gray-100">
-        <Reveal className="container-x text-center mb-6">
-          <h2 className="font-heading font-bold text-[clamp(22px,3vw,38px)] text-navy tracking-wide uppercase">
+      {/* FRANJA ASEGURADORAS — siniestros + carrusel de logos */}
+      <section className="py-12 md:py-16 bg-navy overflow-hidden">
+        <Reveal className="container-x text-center mb-8">
+          <p className="text-sm font-bold uppercase tracking-[3px] text-gold mb-2">
+            Siniestros · Chapa y Pintura
+          </p>
+          <h2 className="font-heading font-bold text-[clamp(20px,2.8vw,34px)] text-white tracking-wide uppercase">
             Trabajamos con todas las aseguradoras
           </h2>
         </Reveal>
-        <div className="relative">
-          <div className="flex w-max animate-marquee gap-6 pr-6">
+        {/* Carrusel continuo centrado, con difuminado en los bordes */}
+        <div className="relative [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div className="flex w-max animate-marquee items-center gap-5">
             {[...aseguradoras, ...aseguradoras].map((a, i) => (
               <div
-                key={`${a}-${i}`}
-                className="px-5 py-2 rounded-md bg-white border border-[#E8E8E8] border-l-[3px] border-l-navy text-navy font-semibold whitespace-nowrap"
+                key={`${a.name}-${i}`}
+                className="shrink-0 grid place-items-center h-20 min-w-[150px] px-7 rounded-xl bg-white shadow-lg"
               >
-                {a}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={a.src}
+                  alt={`${a.name} — aseguradora con la que trabaja Aníbal Delisa`}
+                  title={a.name}
+                  className="max-h-11 w-auto object-contain"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
