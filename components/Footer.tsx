@@ -23,7 +23,10 @@ function LocationBlock({
         </li>
         <li className="flex items-center gap-2">
           <Mail size={16} className="shrink-0 text-primary-light" />
-          <a href={`mailto:${data.email}`} className="hover:text-white break-all">
+          <a
+            href={`mailto:${data.email}`}
+            className="inline-block py-1 hover:text-white break-all"
+          >
             {data.email}
           </a>
         </li>
@@ -64,7 +67,10 @@ export default function Footer() {
           <ul className="space-y-2 text-sm text-gray-300">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-white">
+                <Link
+                  href={item.href}
+                  className="inline-block py-1.5 hover:text-white"
+                >
                   {item.label}
                 </Link>
               </li>
