@@ -3,6 +3,14 @@ import {
   SprayCan,
   Gauge,
   ClipboardCheck,
+  BadgeCheck,
+  Disc3,
+  Cog,
+  MoveVertical,
+  Disc,
+  TriangleAlert,
+  Snowflake,
+  CircleDot,
   type LucideProps,
 } from "lucide-react";
 
@@ -12,6 +20,14 @@ const icons = {
   SprayCan,
   Gauge,
   ClipboardCheck,
+  BadgeCheck,
+  Disc3,
+  Cog,
+  MoveVertical,
+  Disc,
+  TriangleAlert,
+  Snowflake,
+  CircleDot,
 } as const;
 
 export type ServiceIconName = keyof typeof icons;

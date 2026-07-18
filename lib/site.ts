@@ -67,6 +67,13 @@ export const nav = [
 
 export const servicios = [
   {
+    slug: "servicio-oficial",
+    title: "Servicio Oficial",
+    icon: "BadgeCheck",
+    short:
+      "Respaldo oficial Peugeot, Citroën, BYD y Opel: diagnóstico de fábrica y repuestos originales.",
+  },
+  {
     slug: "mecanica",
     title: "Mecánica Multimarca",
     icon: "Wrench",
@@ -81,11 +88,60 @@ export const servicios = [
       "Reparaciones para aseguradoras y particulares, con cabina de pintura climatizada.",
   },
   {
+    slug: "frenos",
+    title: "Frenos",
+    icon: "Disc3",
+    short:
+      "Pastillas, discos, líquido y ABS revisados a fondo. Frená seguro.",
+  },
+  {
+    slug: "distribucion",
+    title: "Distribución",
+    icon: "Cog",
+    short:
+      "Correa o cadena: el cambio a tiempo evita una rotura carísima del motor.",
+  },
+  {
+    slug: "suspension-amortiguacion",
+    title: "Suspensión y Amortiguación",
+    icon: "MoveVertical",
+    short:
+      "Amortiguadores y tren delantero para un manejo firme, seguro y confortable.",
+  },
+  {
+    slug: "embrague",
+    title: "Embrague",
+    icon: "Disc",
+    short:
+      "Diagnóstico y reemplazo con repuestos de calidad. Cambios suaves de nuevo.",
+  },
+  {
+    slug: "fallas-diagnostico",
+    title: "Fallas y Diagnóstico",
+    icon: "TriangleAlert",
+    short:
+      "Diagnóstico computarizado para encontrar el origen real de cualquier falla.",
+  },
+  {
+    slug: "aire-acondicionado",
+    title: "Aire Acondicionado",
+    icon: "Snowflake",
+    short:
+      "Carga de gas y reparación del sistema completo. Frío cuando lo necesitás.",
+  },
+  {
     slug: "alineacion-balanceo",
     title: "Alineación y Balanceo",
     icon: "Gauge",
     short:
       "Equipos de última generación para una conducción segura y estable.",
+  },
+  {
+    slug: "neumaticos",
+    title: "Neumáticos",
+    icon: "CircleDot",
+    short:
+      "Montaje, balanceo y asesoramiento para elegir la goma justa para tu auto.",
   },
   {
     slug: "revision-precompra",
