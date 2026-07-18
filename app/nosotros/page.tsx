@@ -10,7 +10,7 @@ import { ChatButton } from "@/components/CTAButtons";
 export const metadata: Metadata = {
   title: "Nuestra Historia",
   description:
-    "La historia de Aníbal Delisa: más de 53 años de trayectoria, una familia y dos generaciones cuidando los autos de los uruguayos. Empresa familiar, Servicio Oficial Peugeot, Citroën, BYD y Opel.",
+    "La historia de Aníbal Delisa: más de 53 años de trayectoria, una familia y dos generaciones cuidando los autos de los Uruguayos. Empresa familiar, Servicio Oficial Peugeot, Citroën, BYD y Opel.",
 };
 
 // Capítulos de la historia de Aníbal Delisa (storytelling con fotos de archivo).
@@ -99,7 +99,7 @@ export default function NosotrosPage() {
             </h1>
             <p className="mt-5 text-lg md:text-xl text-gray-200 leading-relaxed">
               Más que un taller: la historia de una familia que hace más de
-              medio siglo cuida los autos de los uruguayos como si fueran
+              medio siglo cuida los autos de los Uruguayos como si fueran
               propios.
             </p>
           </Reveal>

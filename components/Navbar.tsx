@@ -77,7 +77,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50">
       <nav
-        className={`relative bg-navy text-white border-b border-gold/12 transition-all duration-300 ${
+        className={`relative bg-navy-mid text-white border-b border-gold/12 transition-all duration-300 ${
           scrolled ? "shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur" : ""
         }`}
         onMouseLeave={() => setMegaOpen(false)}
