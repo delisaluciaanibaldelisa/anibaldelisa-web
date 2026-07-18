@@ -47,7 +47,7 @@ export default function Footer() {
           </p>
           <p className="mt-3 text-sm text-gray-400 leading-relaxed">
             Taller mecánico multimarca con más de {site.yearsExperience} años de
-            trayectoria en Montevideo. Service oficial {site.brands.join(", ")}.
+            trayectoria en Uruguay. Service oficial {site.brands.join(", ")}.
             Trabajamos con todas las aseguradoras.
           </p>
         </div>

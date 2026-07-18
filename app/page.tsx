@@ -31,7 +31,7 @@ const pilares = [
   {
     icon: BadgeCheck,
     title: "Servicio Oficial",
-    text: "Diagnóstico en línea conectado directamente con Francia. Repuestos y procedimientos originales para Peugeot, Citroën, BYD y Opel — durante y después de la garantía.",
+    text: "Taller autorizado Peugeot, Citroën, BYD y Opel. Diagnóstico conectado a fábrica, repuestos legítimos y procedimientos originales que mantienen la garantía oficial vigente — el respaldo de la marca de tu auto.",
     href: "/servicios/mecanica",
     logos: [
       { src: "/logos/peugeot.png?v=3", alt: "Peugeot" },
@@ -43,7 +43,7 @@ const pilares = [
   {
     icon: Wrench,
     title: "Mecánica Multimarca",
-    text: "Atendemos todas las marcas del mercado con el compromiso y la calidad que nos caracterizan hace más de 53 años. Diagnóstico preciso, repuestos de calidad y presupuestos transparentes.",
+    text: "¿Tu auto es de otra marca? También lo atendemos. Reparamos y mantenemos todas las marcas del mercado con el compromiso y la calidad que nos respaldan hace más de 53 años. Presupuestos claros, sin sorpresas.",
     href: "/servicios/mecanica",
   },
   {
