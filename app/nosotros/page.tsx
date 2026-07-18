@@ -78,16 +78,17 @@ const valores = [
 export default function NosotrosPage() {
   return (
     <>
-      {/* Hero — Aníbal Delisa */}
+      {/* Hero — Aníbal Delisa (foto de archivo de fondo) */}
       <section className="relative overflow-hidden bg-dark text-white">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/historia/historia-origen.jpg"
-          alt=""
-          aria-hidden
-          className="absolute inset-0 w-full h-full object-cover opacity-25 [filter:sepia(0.35)]"
+          alt="El taller original de Aníbal Delisa"
+          className="absolute inset-0 w-full h-full object-cover [filter:sepia(0.25)_brightness(0.9)]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/75" />
+        {/* Oscurecido a la izquierda para legibilidad del texto; la foto se ve a la derecha */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
         <div className="relative container-x py-20 md:py-28">
           <Reveal className="max-w-3xl">
             <Breadcrumb />
