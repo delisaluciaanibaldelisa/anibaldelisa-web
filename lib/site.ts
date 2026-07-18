@@ -148,7 +148,7 @@ export const servicios = [
     title: "Revisión Pre-Compra",
     icon: "ClipboardCheck",
     short:
-      "Inspección técnica completa antes de comprar un auto usado.",
+      "Antes de comprar un usado, alguien de confianza que mire lo que no se ve.",
   },
 ] as const;
 

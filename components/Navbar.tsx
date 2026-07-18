@@ -4,49 +4,20 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Phone, ChevronDown, Plus, CalendarCheck } from "lucide-react";
+import { Phone, CalendarCheck } from "lucide-react";
 import { site } from "@/lib/site";
 
 const links = [
   { href: "/", label: "Inicio" },
-  { href: "/servicios", label: "Servicios", mega: true },
+  { href: "/servicios", label: "Servicios" },
   { href: "/seguridad-vial", label: "Seguridad Vial", gold: true },
   { href: "/nosotros", label: "Nosotros" },
   { href: "/contacto", label: "Contacto" },
 ];
 
-const megaItems = [
-  {
-    emoji: "⭐",
-    title: "Servicio Oficial",
-    sub: "Peugeot · Citroën · BYD · Opel",
-    href: "/servicios/mecanica",
-  },
-  {
-    emoji: "🔧",
-    title: "Mecánica Multimarca",
-    sub: "Todas las marcas",
-    href: "/servicios/mecanica",
-  },
-  {
-    emoji: "🎨",
-    title: "Chapa y Pintura",
-    sub: "Acabado de fábrica",
-    href: "/servicios/chapa-pintura",
-  },
-  {
-    emoji: "🔍",
-    title: "Revisión Pre-Compra",
-    sub: "Comprá seguro",
-    href: "/servicios/revision-precompra",
-  },
-];
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [megaOpen, setMegaOpen] = useState(false);
-  const [mobileServicios, setMobileServicios] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -56,11 +27,9 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Cierra menús al cambiar de ruta.
+  // Cierra el menú mobile al cambiar de ruta.
   useEffect(() => {
     setMobileOpen(false);
-    setMegaOpen(false);
-    setMobileServicios(false);
   }, [pathname]);
 
   // Bloquea el scroll del body con el overlay mobile abierto.
@@ -80,7 +49,6 @@ export default function Navbar() {
         className={`relative bg-navy text-white border-b border-gold/12 transition-all duration-300 ${
           scrolled ? "shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur" : ""
         }`}
-        onMouseLeave={() => setMegaOpen(false)}
       >
         <div
           className={`container-x flex items-center justify-between transition-all duration-300 ${
@@ -111,39 +79,18 @@ export default function Navbar() {
           <ul className="hidden lg:flex items-center gap-1">
             {links.map((item) => (
               <li key={item.label} className="relative">
-                {item.mega ? (
-                  <button
-                    type="button"
-                    onMouseEnter={() => setMegaOpen(true)}
-                    onClick={() => setMegaOpen((v) => !v)}
-                    className={`inline-flex items-center gap-1 px-3 py-2 text-[13px] font-semibold transition-colors ${
-                      isActive(item.href)
+                <Link
+                  href={item.href}
+                  className={`px-3 py-2 text-[13px] font-semibold transition-colors ${
+                    item.gold
+                      ? "text-gold hover:text-gold-dark"
+                      : isActive(item.href)
                         ? "text-white border-b-2 border-gold"
                         : "text-white/70 hover:text-white"
-                    }`}
-                    aria-expanded={megaOpen}
-                  >
-                    {item.label}
-                    <ChevronDown
-                      size={14}
-                      className={`transition-transform ${megaOpen ? "rotate-180" : ""}`}
-                    />
-                  </button>
-                ) : (
-                  <Link
-                    href={item.href}
-                    onMouseEnter={() => setMegaOpen(false)}
-                    className={`px-3 py-2 text-[13px] font-semibold transition-colors ${
-                      item.gold
-                        ? "text-gold hover:text-gold-dark"
-                        : isActive(item.href)
-                          ? "text-white border-b-2 border-gold"
-                          : "text-white/70 hover:text-white"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                )}
+                  }`}
+                >
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -184,50 +131,6 @@ export default function Navbar() {
             />
           </button>
         </div>
-
-        {/* MEGA MENÚ Servicios (desktop) */}
-        <AnimatePresence>
-          {megaOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 right-0 z-[100] hidden lg:block bg-white border-t-[3px] border-primary shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
-            >
-              <div className="container-x grid grid-cols-5 gap-4 py-6">
-                {megaItems.map((m) => (
-                  <Link
-                    key={m.title}
-                    href={m.href}
-                    className="rounded-lg p-4 border-l-[3px] border-transparent hover:border-primary hover:bg-[#F8F8F8] transition-all"
-                  >
-                    <span className="text-2xl">{m.emoji}</span>
-                    <p className="mt-2 font-heading font-bold text-sm text-charcoal">
-                      {m.title}
-                    </p>
-                    <p className="mt-0.5 text-xs text-[#888]">{m.sub}</p>
-                  </Link>
-                ))}
-                {/* Columna CTA */}
-                <div className="rounded-lg bg-navy text-white p-4 flex flex-col justify-between">
-                  <div>
-                    <p className="font-heading font-bold text-sm">
-                      ¿Necesitás turno?
-                    </p>
-                    <p className="mt-0.5 text-xs text-white/60">Agendá online</p>
-                  </div>
-                  <Link
-                    href="/turnos"
-                    className="mt-3 inline-flex items-center justify-center bg-gold hover:bg-gold-dark text-charcoal text-xs font-bold px-3 py-2 rounded-md transition-colors"
-                  >
-                    Agendá tu turno
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </nav>
 
       {/* OVERLAY MOBILE fullscreen */}
@@ -258,54 +161,14 @@ export default function Navbar() {
                   }}
                   className="border-b border-white/10"
                 >
-                  {item.mega ? (
-                    <>
-                      <button
-                        type="button"
-                        onClick={() => setMobileServicios((v) => !v)}
-                        className="w-full flex items-center justify-between py-4 text-[22px] font-bold text-white"
-                        aria-expanded={mobileServicios}
-                      >
-                        {item.label}
-                        <Plus
-                          size={22}
-                          className={`transition-transform ${
-                            mobileServicios ? "rotate-45" : ""
-                          }`}
-                        />
-                      </button>
-                      <AnimatePresence>
-                        {mobileServicios && (
-                          <motion.ul
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden pl-4"
-                          >
-                            {megaItems.map((m) => (
-                              <li key={m.title}>
-                                <Link
-                                  href={m.href}
-                                  className="block py-2.5 text-base text-white/80"
-                                >
-                                  {m.emoji} {m.title}
-                                </Link>
-                              </li>
-                            ))}
-                          </motion.ul>
-                        )}
-                      </AnimatePresence>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className={`block py-4 text-[22px] font-bold ${
-                        item.gold ? "text-gold" : "text-white"
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={item.href}
+                    className={`block py-4 text-[22px] font-bold ${
+                      item.gold ? "text-gold" : "text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
                 </motion.li>
               ))}
 

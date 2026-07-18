@@ -4,7 +4,7 @@ import ServiceLayout from "@/components/ServiceLayout";
 export const metadata: Metadata = {
   title: "Revisión Pre-Compra de Autos Usados",
   description:
-    "Revisión pre-compra de autos usados en Montevideo: inspección técnica completa de mecánica, chapa, pintura y sistema eléctrico. Comprá seguro.",
+    "Revisión pre-compra de autos usados en Montevideo: inspección técnica completa de mecánica, Chapa y Pintura y sistema eléctrico. Antes de comprar, alguien de confianza que mire lo que no se ve.",
 };
 
 const features = [
@@ -20,17 +20,24 @@ export default function RevisionPrecompraPage() {
   return (
     <ServiceLayout
       title="Revisión Pre-Compra"
-      lead="Comprá seguro, no te lleves sorpresas. Inspeccionamos el auto usado que querés comprar antes de que tomes la decisión."
+      lead="Comprar un auto usado es una de las decisiones más importantes que vas a tomar. Antes de firmar, necesitás a alguien de confianza que mire con ojo experto lo que a simple vista no se ve."
       features={features}
     >
       <p>
-        Analizamos mecánica, chapa, pintura y sistema eléctrico para darte un
-        panorama honesto del estado real del vehículo. Con más de 53 años de
-        experiencia, sabemos dónde mirar.
+        Un auto puede parecer impecable por fuera y esconder un choque mal
+        reparado, un motor cansado o una falla eléctrica que aparece a los pocos
+        meses. Lo revisamos a fondo —mecánica, Chapa y Pintura y sistema
+        eléctrico— y te decimos la verdad, sin intereses de por medio.
       </p>
       <p>
-        Una pequeña inversión antes de comprar te puede ahorrar problemas y
-        gastos importantes a futuro.
+        Con más de 53 años en el oficio sabemos exactamente dónde mirar. Te
+        entregamos un informe claro con nuestra recomendación honesta: comprá
+        tranquilo o seguí buscando.
+      </p>
+      <p className="font-semibold text-dark">
+        Porque una pequeña inversión antes de comprar te puede ahorrar miles de
+        dólares y dolores de cabeza. La decisión sigue siendo tuya; nosotros te
+        damos la información para tomarla con seguridad.
       </p>
     </ServiceLayout>
   );

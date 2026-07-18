@@ -19,12 +19,18 @@ export default function ServiciosPage() {
         <div className="container-x py-16 md:py-20">
           <Reveal className="max-w-3xl">
             <Breadcrumb />
-            <h1 className="font-heading font-extrabold text-3xl md:text-5xl">
-              Nuestros Servicios
+            <p className="text-xs font-bold uppercase tracking-[3px] text-gold mb-3">
+              Servicio Oficial · Mecánica · Chapa y Pintura
+            </p>
+            <h1 className="font-heading font-extrabold text-3xl md:text-5xl leading-tight">
+              Todo lo que tu auto necesita,
+              <span className="text-primary"> en un solo lugar</span>
             </h1>
-            <p className="mt-4 text-lg text-gray-300">
-              Todo lo que tu vehículo necesita, con más de 53 años de
-              experiencia y la confianza de una empresa familiar.
+            <p className="mt-4 text-lg text-gray-300 leading-relaxed">
+              Del Servicio Oficial de tu marca a la reparación más compleja:
+              más de 53 años de experiencia, tecnología de última generación y
+              la confianza de una empresa familiar. Elegí el servicio que
+              necesitás.
             </p>
           </Reveal>
         </div>
