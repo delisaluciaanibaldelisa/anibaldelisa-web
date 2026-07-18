@@ -18,6 +18,9 @@ import {
   Snowflake,
   CircleDot,
   CalendarCheck,
+  Building2,
+  SquareParking,
+  Construction,
 } from "lucide-react";
 import { site } from "@/lib/site";
 import Reveal, { ZoomReveal, SlideReveal } from "@/components/Reveal";
@@ -531,6 +534,71 @@ export default function Home() {
               label="En Google"
               color="#FFE500"
             />
+          </Reveal>
+
+          {/* Presencia e infraestructura — sello premium y expansión */}
+          <Reveal delay={0.2} className="mt-14">
+            <p className="text-xs font-bold uppercase tracking-[3px] text-primary">
+              Nuestra presencia
+            </p>
+            <h3 className="mt-3 font-heading font-extrabold text-2xl md:text-3xl text-dark">
+              Crecemos para atenderte cada día mejor
+            </h3>
+
+            <div className="mt-8 grid gap-5 sm:grid-cols-3 text-left">
+              {/* Talleres propios */}
+              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5">
+                <div className="grid place-items-center w-12 h-12 rounded-xl bg-navy text-white">
+                  <Building2 size={24} />
+                </div>
+                <p className="mt-4 font-heading font-bold text-lg text-dark">
+                  2 talleres propios
+                </p>
+                <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">
+                  Mecánica y Chapa y Pintura, con instalaciones equipadas y
+                  tecnología de última generación en Montevideo.
+                </p>
+              </div>
+
+              {/* Estacionamiento privado */}
+              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5">
+                <div className="grid place-items-center w-12 h-12 rounded-xl bg-navy text-white">
+                  <SquareParking size={24} />
+                </div>
+                <p className="mt-4 font-heading font-bold text-lg text-dark">
+                  Estacionamiento privado
+                </p>
+                <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">
+                  Playas propias y seguras: dejá tu auto resguardado y con total
+                  tranquilidad mientras lo atendemos.
+                </p>
+              </div>
+
+              {/* En expansión — próximamente */}
+              <div className="relative rounded-2xl border border-gold/40 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5">
+                <span className="absolute top-4 right-4 rounded-full bg-gold px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-charcoal">
+                  Próximamente
+                </span>
+                <div className="grid place-items-center w-12 h-12 rounded-xl bg-primary text-white">
+                  <Construction size={24} />
+                </div>
+                <p className="mt-4 font-heading font-bold text-lg text-dark">
+                  2 nuevas instalaciones
+                </p>
+                <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">
+                  Estamos reformando dos propiedades para ampliar nuestra
+                  capacidad y brindarte una atención aún más ágil y cómoda.
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-10 font-heading font-semibold text-lg md:text-xl text-dark max-w-2xl mx-auto">
+              No dejamos de crecer: cada mejora que hacemos persigue un solo
+              objetivo,{" "}
+              <span className="text-primary">
+                cuidar tu auto como se merece.
+              </span>
+            </p>
           </Reveal>
 
           <Reveal delay={0.25} className="mt-8">
