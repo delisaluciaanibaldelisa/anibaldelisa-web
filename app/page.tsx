@@ -150,7 +150,7 @@ export default function Home() {
                     {c.text}
                   </p>
                   {c.logos && (
-                    <div className="mt-5 flex items-center gap-4 flex-wrap">
+                    <div className="mt-5 pt-4 border-t border-gray-100 flex items-center gap-4 flex-wrap">
                       {c.logos.map((l) => (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
@@ -158,7 +158,7 @@ export default function Home() {
                           src={l.src}
                           alt={`Servicio oficial ${l.alt} — Aníbal Delisa Montevideo`}
                           title={`Servicio oficial ${l.alt}`}
-                          className="h-7 w-auto object-contain opacity-80"
+                          className="h-8 w-auto max-w-[70px] object-contain"
                           loading="lazy"
                         />
                       ))}
