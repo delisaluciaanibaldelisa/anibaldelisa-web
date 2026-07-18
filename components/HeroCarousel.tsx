@@ -136,6 +136,20 @@ export default function HeroCarousel() {
             </div>
           </div>
 
+          {/* Banner de texto — fondo negro, letras blancas, se mueve izq→der */}
+          <div className="w-full max-w-md overflow-hidden rounded-md bg-black border border-white/15 mb-6">
+            <div className="flex w-max animate-marquee-reverse whitespace-nowrap py-2">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <span
+                  key={i}
+                  className="px-6 text-xs md:text-sm font-heading font-bold tracking-wider text-white uppercase"
+                >
+                  Servicio Oficial: Peugeot · Citroën · BYD · Opel
+                </span>
+              ))}
+            </div>
+          </div>
+
           <h1 className="font-heading font-extrabold text-[clamp(36px,5vw,64px)] leading-tight max-w-[680px] text-white drop-shadow-lg">
             Tu auto en{" "}
             <br className="hidden sm:block" />

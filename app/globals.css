@@ -92,3 +92,17 @@ h6 {
 @utility animate-marquee {
   animation: marquee 28s linear infinite;
 }
+
+/* Marquee inverso: se mueve de izquierda a derecha */
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@utility animate-marquee-reverse {
+  animation: marquee-reverse 24s linear infinite;
+}
