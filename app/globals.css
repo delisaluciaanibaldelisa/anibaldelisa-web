@@ -9,12 +9,17 @@
   --color-primary-light: #f04438;
   --color-gold: #ffe500; /* amarillo puro */
   --color-gold-dark: #e0c900;
-  --color-dark: #0E2A5E; /* navy */
+  /* Escala de azules (de más profundo a royal) para dar profundidad y
+     ritmo: cada sección oscura usa un tono distinto, no todo el mismo. */
+  --color-navy-deep: #0a1d42; /* el más profundo — footer, bandas base */
+  --color-dark: #0E2A5E; /* navy base */
   --color-navy: #0E2A5E;
-  --color-navy-mid: #16367A;
+  --color-navy-mid: #17408a; /* azul medio — toolbar, gradientes */
+  --color-navy-bright: #2657b5; /* royal — acentos y gradientes vivos */
   --color-accent: #0E2A5E; /* navy (fondos y textos oscuros) */
-  --color-accent-light: #16367A;
+  --color-accent-light: #17408a;
   --color-charcoal: #0E2A5E; /* azul navy (antes negro) */
+  --color-blue-tint: #f2f7fc; /* fondo claro con leve tinte azul */
   --color-silver: #c0c0c0;
 
   /* Fuentes */
@@ -28,7 +33,7 @@
   --foreground: #0E2A5E; /* texto base azul navy */
   /* Custom properties del sistema de diseño */
   --navy: #0E2A5E;
-  --navy-mid: #16367A;
+  --navy-mid: #17408a;
   --red: #e00000; /* rojo del logo */
   --gold: #ffe500;
   --charcoal: #0E2A5E;

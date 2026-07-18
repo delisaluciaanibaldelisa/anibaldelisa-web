@@ -87,7 +87,7 @@ export default function NosotrosPage() {
           aria-hidden
           className="absolute inset-0 w-full h-full object-cover opacity-25 [filter:sepia(0.35)]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy/90 to-navy/70" />
         <div className="relative container-x py-20 md:py-28">
           <Reveal className="max-w-3xl">
             <Breadcrumb />
@@ -107,7 +107,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Nuestra historia — storytelling con fotos de archivo */}
-      <section className="bg-navy text-white py-16 md:py-24">
+      <section className="bg-gradient-to-b from-navy-deep via-navy to-navy-mid text-white py-16 md:py-24">
         <div className="container-x">
           <Reveal className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
             <p className="text-xs font-bold uppercase tracking-[3px] text-gold">
@@ -170,7 +170,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* En los medios — entrevista en Vértigo con Nando Parrado */}
-      <section className="py-16 md:py-24 bg-dark text-white">
+      <section className="py-16 md:py-24 bg-navy-deep text-white">
         <div className="container-x">
           <Reveal className="text-center max-w-2xl mx-auto mb-10">
             <p className="text-xs font-bold uppercase tracking-[3px] text-gold">
@@ -196,7 +196,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Valores */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-blue-tint">
         <div className="container-x">
           <Reveal className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-dark">
@@ -244,7 +244,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Ubicaciones */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-blue-tint">
         <div className="container-x">
           <Reveal className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-dark">

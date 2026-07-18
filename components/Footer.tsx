@@ -38,7 +38,7 @@ function LocationBlock({
 
 export default function Footer() {
   return (
-    <footer className="bg-dark text-white mt-auto">
+    <footer className="bg-navy-deep text-white mt-auto">
       <div className="container-x py-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         {/* Marca */}
         <div className="lg:col-span-1">
