@@ -593,11 +593,8 @@ export default function Home() {
             </div>
 
             <p className="mt-10 font-heading font-semibold text-lg md:text-xl text-dark max-w-2xl mx-auto">
-              No dejamos de crecer: cada mejora que hacemos persigue un solo
-              objetivo,{" "}
-              <span className="text-primary">
-                cuidar tu auto como se merece.
-              </span>
+              Siempre mejorando para{" "}
+              <span className="text-primary">brindarte lo mejor.</span>
             </p>
           </Reveal>
 
