@@ -36,10 +36,10 @@ const cubos: {
     iconClass: "bg-primary/8 text-primary",
     hoverBorder: "hover:border-t-primary",
     logos: [
-      { src: "/logos/peugeot.png", alt: "Peugeot" },
-      { src: "/logos/citroen.png", alt: "Citroën" },
-      { src: "/logos/byd.png", alt: "BYD" },
-      { src: "/logos/opel.png", alt: "Opel" },
+      { src: "/logos/peugeot.png?v=2", alt: "Peugeot" },
+      { src: "/logos/citroen.png?v=2", alt: "Citroën" },
+      { src: "/logos/byd.png?v=2", alt: "BYD" },
+      { src: "/logos/opel.png?v=2", alt: "Opel" },
     ],
   },
   {
@@ -158,7 +158,7 @@ export default function Home() {
                           src={l.src}
                           alt={`Servicio oficial ${l.alt} — Aníbal Delisa Montevideo`}
                           title={`Servicio oficial ${l.alt}`}
-                          className="h-8 w-auto max-w-[70px] object-contain"
+                          className="h-10 w-10 object-cover rounded-md shadow-sm"
                           loading="lazy"
                         />
                       ))}
