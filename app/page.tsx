@@ -350,8 +350,7 @@ export default function Home() {
               </p>
               <p>
                 Gestionamos el siniestro de principio a fin con tu compañía de
-                seguros y entregamos en el plazo acordado, con garantía escrita
-                sobre el trabajo realizado.
+                seguros, con garantía escrita sobre el trabajo realizado.
               </p>
               <p className="font-semibold text-white">
                 Precisión técnica y terminación de fábrica: tu auto vuelve a

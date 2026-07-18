@@ -39,8 +39,8 @@ export default function ChapaPinturaPage() {
       </p>
       <p>
         Trabajamos con todas las compañías de seguros del país y gestionamos el
-        siniestro de principio a fin. Entregamos en el plazo acordado y con
-        garantía escrita sobre cada trabajo realizado.
+        siniestro de principio a fin, con garantía escrita sobre cada trabajo
+        realizado.
       </p>
     </ServiceLayout>
   );
