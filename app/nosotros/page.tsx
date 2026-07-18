@@ -1,16 +1,60 @@
 import type { Metadata } from "next";
 import { GraduationCap, Cpu, Handshake, MapPin } from "lucide-react";
 import { site } from "@/lib/site";
-import Reveal from "@/components/Reveal";
+import Reveal, { SlideReveal } from "@/components/Reveal";
 import Breadcrumb from "@/components/Breadcrumb";
 import MapEmbed from "@/components/MapEmbed";
 import { ChatButton } from "@/components/CTAButtons";
 
 export const metadata: Metadata = {
-  title: "Nosotros",
+  title: "Aníbal Delisa",
   description:
-    "Más de 53 años de trayectoria en Montevideo. Aníbal Delisa es una empresa familiar, atendida por sus propios dueños. Service oficial Peugeot, Citroën, BYD y Opel.",
+    "La historia de Aníbal Delisa: más de 53 años de trayectoria, una familia y dos generaciones cuidando los autos de los uruguayos. Empresa familiar, service oficial Peugeot, Citroën, BYD y Opel.",
 };
+
+// Capítulos de la historia de Aníbal Delisa (storytelling con fotos de archivo).
+const capitulos = [
+  {
+    year: "1974",
+    title: "Los fierros en la sangre",
+    text: "Aníbal Delisa nació el 2 de julio de 1974 en Montevideo. Desde muy chico llevó los fierros en la sangre: mientras otros jugaban, él ya andaba entre motores, descubriendo el oficio que se convertiría en la obra de su vida.",
+    img: "/historia/historia-oficio.jpg",
+    alt: "Aníbal Delisa trabajando de joven en el taller",
+    side: "left" as const,
+  },
+  {
+    year: "El oficio",
+    title: "Nunca supo rendirse",
+    text: "Trabajó desde muy joven, con una responsabilidad y un compromiso fuera de lo común. Quienes lo conocen reconocen esa magia especial del verdadero amante de los fierros. Tenía una resiliencia admirable: cada caída lo fortalecía. No conocía la palabra rendirse; solo sabía ir hacia adelante, con toda su fuerza.",
+    img: "/historia/historia-taller.jpg",
+    alt: "El taller de Aníbal Delisa en sus primeros años",
+    side: "right" as const,
+  },
+  {
+    year: "La familia",
+    title: "Cinco hijos, un mismo engranaje",
+    text: "Amante de su país y de su gente, Aníbal sumaba a su familia y a cada persona que se ganaba su corazón. Junto a Marita formó una hermosa familia y cinco hijos: César, Arturo, Enzo, Lucía y Bruno. Hoy cada uno ocupa un rol fundamental: son el engranaje que mueve a Aníbal Delisa.",
+    img: "/historia/historia-diagnostico.jpg",
+    alt: "La nueva generación de la familia Delisa junto al equipo de diagnóstico",
+    side: "left" as const,
+  },
+  {
+    year: "+53 años",
+    title: "Un legado intachable",
+    text: "Con valores, trabajo y responsabilidad, Aníbal logró lo que para muchos parecía imposible: más de 53 años de trayectoria intachable. Construyó mucho más que un taller: una gran familia en la que los clientes también son parte.",
+    img: "/historia/historia-marca.jpg",
+    alt: "Elevador con la marca Aníbal Delisa en el taller de Charrúa, Montevideo",
+    side: "right" as const,
+  },
+  {
+    year: "Hoy",
+    title: "Tu segunda casa",
+    text: "Ese trato humano y cercano es nuestra esencia: la tranquilidad de saber que todo va a estar bien y el abrazo en los momentos difíciles, después de un siniestro. Aníbal Delisa siempre fue más que un taller: es una segunda casa, donde lo último en tecnología y la capacitación conviven con lo que de verdad importa, las personas.",
+    img: "/historia/historia-hijo.jpg",
+    alt: "El trato cercano y familiar que distingue a Aníbal Delisa",
+    side: "left" as const,
+  },
+];
 
 const valores = [
   {
@@ -33,27 +77,92 @@ const valores = [
 export default function NosotrosPage() {
   return (
     <>
-      {/* Hero / Historia */}
-      <section className="bg-dark text-white">
-        <div className="container-x py-16 md:py-24">
+      {/* Hero — Aníbal Delisa */}
+      <section className="relative overflow-hidden bg-dark text-white">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/historia/historia-origen.jpg"
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover opacity-25 [filter:sepia(0.35)]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/75" />
+        <div className="relative container-x py-20 md:py-28">
           <Reveal className="max-w-3xl">
             <Breadcrumb />
             <p className="inline-block rounded-full bg-primary px-4 py-1 text-sm font-semibold text-white mb-5">
+              Nuestra historia
+            </p>
+            <h1 className="font-heading font-extrabold text-4xl md:text-6xl">
+              Aníbal Delisa
+            </h1>
+            <p className="mt-5 text-lg md:text-xl text-gray-200 leading-relaxed">
+              Más que un taller: la historia de una familia que hace más de
+              medio siglo cuida los autos de los uruguayos como si fueran
+              propios.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Nuestra historia — storytelling con fotos de archivo */}
+      <section className="bg-navy text-white py-16 md:py-24">
+        <div className="container-x">
+          <Reveal className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+            <p className="text-xs font-bold uppercase tracking-[3px] text-gold">
               Desde 1973
             </p>
-            <h1 className="font-heading font-extrabold text-3xl md:text-5xl">
-              Más de {site.yearsExperience} años de trayectoria en Uruguay
-            </h1>
-            <p className="mt-5 text-lg text-gray-300 leading-relaxed">
-              Aníbal Delisa es una empresa familiar de mecánica multimarca,
-              atendida por sus propios dueños. A lo largo de más de cinco décadas nos
-              ganamos la confianza de miles de clientes en Montevideo, cuidando
-              cada auto como si fuera propio.
+            <h2 className="mt-3 font-heading font-extrabold text-3xl md:text-4xl">
+              Detrás de cada auto, una familia
+            </h2>
+            <p className="mt-4 text-white/70 leading-relaxed">
+              Más de medio siglo de historia, escrita por quienes la
+              construyeron día a día.
             </p>
-            <p className="mt-4 text-lg text-gray-300 leading-relaxed">
-              Combinamos la experiencia de toda una vida en el oficio con
-              tecnología de diagnóstico de última generación, para ofrecer un
-              servicio profesional, honesto y confiable.
+          </Reveal>
+
+          <div className="space-y-6 md:space-y-8">
+            {capitulos.map((c) => (
+              <SlideReveal key={c.title} from={c.side}>
+                <article className="relative overflow-hidden rounded-3xl min-h-[380px] md:min-h-[460px] flex items-end border border-white/10 shadow-xl">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={c.img}
+                    alt={c.alt}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover [filter:sepia(0.28)_contrast(1.05)_brightness(0.9)]"
+                  />
+                  <div
+                    className={`absolute inset-0 ${
+                      c.side === "left"
+                        ? "bg-gradient-to-tr"
+                        : "bg-gradient-to-tl"
+                    } from-navy via-navy/80 to-navy/10`}
+                  />
+                  <div
+                    className={`relative p-8 md:p-12 max-w-xl ${
+                      c.side === "right" ? "ml-auto" : ""
+                    }`}
+                  >
+                    <span className="inline-block rounded-full bg-primary px-4 py-1 text-sm font-heading font-bold">
+                      {c.year}
+                    </span>
+                    <h3 className="mt-4 font-heading font-extrabold text-2xl md:text-3xl">
+                      {c.title}
+                    </h3>
+                    <p className="mt-3 text-white/85 leading-relaxed text-[15px] md:text-base">
+                      {c.text}
+                    </p>
+                  </div>
+                </article>
+              </SlideReveal>
+            ))}
+          </div>
+
+          <Reveal className="mt-12 md:mt-16 text-center max-w-2xl mx-auto">
+            <p className="font-heading font-semibold text-xl md:text-2xl">
+              Mejoramos cada día para ustedes, con un trato{" "}
+              <span className="text-gold">cercano y profesional.</span>
             </p>
           </Reveal>
         </div>

@@ -12,7 +12,7 @@ const labels: Record<string, string> = {
   "alineacion-balanceo": "Alineación y Balanceo",
   "revision-precompra": "Revisión Pre-Compra",
   "seguridad-vial": "Seguridad Vial",
-  nosotros: "Nosotros",
+  nosotros: "Aníbal Delisa",
   contacto: "Contacto",
   turnos: "Agendá tu turno",
 };
