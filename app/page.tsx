@@ -486,6 +486,55 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TEASER — Nuestra Historia (adelanto con foto de archivo) */}
+      <section className="py-16 md:py-24 bg-navy text-white overflow-hidden">
+        <div className="container-x grid gap-10 lg:grid-cols-2 items-center">
+          <SlideReveal from="left" className="relative">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/historia/historia-oficio.jpg"
+                alt="Aníbal Delisa trabajando de joven en el taller"
+                loading="lazy"
+                className="w-full h-[300px] md:h-[420px] object-cover [filter:sepia(0.28)_contrast(1.05)_brightness(0.9)]"
+              />
+              <span className="absolute top-4 left-4 rounded-full bg-primary px-4 py-1 text-sm font-heading font-bold shadow-lg">
+                Desde 1974
+              </span>
+            </div>
+          </SlideReveal>
+
+          <SlideReveal from="right">
+            <p className="text-xs font-bold uppercase tracking-[3px] text-gold">
+              Nuestra historia
+            </p>
+            <h2 className="mt-3 font-heading font-extrabold text-3xl md:text-4xl leading-tight">
+              Los fierros en la sangre,
+              <br className="hidden sm:block" /> hace más de medio siglo
+            </h2>
+            <p className="mt-5 text-white/80 leading-relaxed text-[15px] md:text-base">
+              Aníbal Delisa es mucho más que un taller: es la historia de una
+              familia que hace más de 53 años cuida los autos de los uruguayos
+              como si fueran propios.
+            </p>
+            <p className="mt-3 text-white/80 leading-relaxed text-[15px] md:text-base">
+              Dos generaciones, un mismo compromiso y el trato humano de
+              siempre.
+            </p>
+            <Link
+              href="/nosotros"
+              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 font-heading font-bold text-charcoal transition-all hover:scale-[1.04] hover:shadow-[0_10px_30px_rgba(255,229,0,0.4)]"
+            >
+              Conocé nuestra historia
+              <ArrowRight
+                size={18}
+                className="transition-transform group-hover:translate-x-1"
+              />
+            </Link>
+          </SlideReveal>
+        </div>
+      </section>
+
       {/* ATENDIDO POR SUS PROPIOS DUEÑOS — texto original */}
       <section className="py-16 md:py-24 bg-gray-100">
         <div className="container-x max-w-4xl text-center">
