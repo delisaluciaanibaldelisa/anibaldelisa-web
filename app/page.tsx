@@ -9,6 +9,15 @@ import {
   ArrowRight,
   ShieldCheck,
   Users,
+  SprayCan,
+  Disc3,
+  Cog,
+  MoveVertical,
+  Disc,
+  TriangleAlert,
+  Snowflake,
+  CircleDot,
+  CalendarCheck,
 } from "lucide-react";
 import { site } from "@/lib/site";
 import Reveal, { ZoomReveal, SlideReveal } from "@/components/Reveal";
@@ -17,24 +26,13 @@ import StatCounter from "@/components/StatCounter";
 import MediaCarousel from "@/components/MediaCarousel";
 import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
 
-// Textos de la web original anibaldelisa.com — respetar tal cual.
-// Colores por card según el sistema de diseño (Correcciones 3 y 6).
-const cubos: {
-  icon: typeof BadgeCheck;
-  title: string;
-  text: string;
-  href: string;
-  iconClass: string;
-  hoverBorder: string;
-  logos?: { src: string; alt: string }[];
-}[] = [
+// Pilares destacados de la grilla de servicios (bento).
+const pilares = [
   {
     icon: BadgeCheck,
     title: "Servicio Oficial",
-    text: "Formamos un equipo con años de experiencia y tecnología única en el país. Contamos con sistema de diagnóstico en línea conectado directamente con Francia para el seguimiento técnico de PEUGEOT, CITROËN, BYD y OPEL. Esto nos permite realizar servicios y reparaciones con precisión durante y después de la garantía. Garantizamos el mejor servicio con respaldo técnico internacional.",
+    text: "Diagnóstico en línea conectado directamente con Francia. Repuestos y procedimientos originales para Peugeot, Citroën, BYD y Opel — durante y después de la garantía.",
     href: "/servicios/mecanica",
-    iconClass: "bg-primary/8 text-primary",
-    hoverBorder: "hover:border-t-primary",
     logos: [
       { src: "/logos/peugeot.png?v=3", alt: "Peugeot" },
       { src: "/logos/citroen.png?v=3", alt: "Citroën" },
@@ -45,18 +43,73 @@ const cubos: {
   {
     icon: Wrench,
     title: "Mecánica Multimarca",
-    text: "Para todas las marcas del mercado, desde service hasta reparaciones generales. Diagnóstico computarizado, motor, transmisión, frenos, suspensión, sistema eléctrico y más. Repuestos de calidad y asesoramiento transparente en cada trabajo.",
+    text: "Atendemos todas las marcas del mercado con el compromiso y la calidad que nos caracterizan hace más de 53 años. Diagnóstico preciso, repuestos de calidad y presupuestos transparentes.",
     href: "/servicios/mecanica",
-    iconClass: "bg-navy/6 text-navy",
-    hoverBorder: "hover:border-t-navy",
+  },
+  {
+    icon: SprayCan,
+    title: "Chapa y Pintura",
+    text: "Siniestros con todas las compañías de seguros. Cabina climatizada e igualación exacta de color: tu auto vuelve a lucir como de fábrica.",
+    href: "/servicios/chapa-pintura",
+  },
+];
+
+// Servicios especializados (grid compacto). text = micro-copy persuasivo.
+const especializados = [
+  {
+    icon: Disc3,
+    title: "Frenos",
+    text: "Frenás seguro. Pastillas, discos y sistema completo revisados a fondo.",
+    href: "/servicios/mecanica",
+  },
+  {
+    icon: Cog,
+    title: "Distribución",
+    tag: "Correa · Cadena",
+    text: "El corazón del motor. Cambiarla a tiempo te evita una rotura carísima.",
+    href: "/servicios/mecanica",
+  },
+  {
+    icon: MoveVertical,
+    title: "Suspensión y Amortiguación",
+    text: "Manejo firme y confortable. Amortiguadores, rótulas y tren delantero.",
+    href: "/servicios/mecanica",
+  },
+  {
+    icon: Disc,
+    title: "Embrague",
+    text: "Cambios suaves de nuevo. Diagnóstico y reemplazo con repuestos de calidad.",
+    href: "/servicios/mecanica",
+  },
+  {
+    icon: TriangleAlert,
+    title: "Fallas y Diagnóstico",
+    text: "¿Se prendió una luz en el tablero? La detectamos con diagnóstico computarizado.",
+    href: "/servicios/mecanica",
+  },
+  {
+    icon: Snowflake,
+    title: "Aire Acondicionado",
+    text: "Frío cuando lo necesitás. Carga de gas y reparación del sistema completo.",
+    href: "/servicios/mecanica",
   },
   {
     icon: ClipboardCheck,
-    title: "Revisión Pre-Compra de Autos Usados",
-    text: "Antes de comprar un auto usado, asegurate de conocer su estado real. En Aníbal Delisa realizamos una inspección técnica completa de: mecánica, chapa y pintura, sistema eléctrico y más. Evitá sorpresas. Comprá seguro.",
+    title: "Revisión Pre-Compra",
+    text: "Comprá tranquilo. Inspección completa del usado antes de que decidas.",
     href: "/servicios/revision-precompra",
-    iconClass: "bg-[#27AE60]/8 text-[#27AE60]",
-    hoverBorder: "hover:border-t-[#27AE60]",
+  },
+  {
+    icon: Gauge,
+    title: "Alineación y Balanceo",
+    text: "Tus neumáticos duran más y el auto no tira. Precisión milimétrica.",
+    href: "/seguridad-vial",
+  },
+  {
+    icon: CircleDot,
+    title: "Neumáticos",
+    text: "Montaje, balanceo y asesoramiento para elegir la goma justa para tu auto.",
+    href: "/seguridad-vial",
   },
 ];
 
@@ -135,94 +188,131 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MECÁNICA — cubos con los textos originales */}
+      {/* NUESTROS SERVICIOS — bento grid moderno */}
       <section
-        className="py-16 md:py-24 bg-gray-100"
+        className="py-16 md:py-24 bg-gray-50"
         data-wa-msg="Hola! Quiero agendar un service para mi auto"
       >
         <div className="container-x">
-          <Reveal className="mb-10">
-            <p className="text-sm font-bold uppercase tracking-widest text-primary">
-              Nuestros servicios
+          <Reveal className="text-center max-w-2xl mx-auto mb-12">
+            <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[3px] text-primary mb-3">
+              <span className="h-px w-6 bg-primary" />
+              Nuestros Servicios
+              <span className="h-px w-6 bg-primary" />
             </p>
-            <h2 className="mt-1 font-heading font-bold text-3xl md:text-4xl text-dark">
-              Mecánica
+            <h2 className="font-heading font-extrabold text-[clamp(28px,4vw,44px)] text-dark leading-tight">
+              Todo lo que tu auto necesita,
+              <span className="text-primary"> en un solo lugar</span>
             </h2>
+            <p className="mt-4 text-gray-600 text-[15px] leading-[1.7]">
+              Más de 53 años cuidando cada detalle. Desde el service oficial de
+              tu marca hasta la reparación más compleja, con la confianza de un
+              taller familiar.
+            </p>
           </Reveal>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {cubos.map((c, i) => (
-              <Reveal key={c.title} delay={i * 0.1}>
+          {/* Pilares destacados */}
+          <div className="grid gap-6 lg:grid-cols-3">
+            {pilares.map((p, i) => (
+              <Reveal key={p.title} delay={i * 0.1}>
                 <Link
-                  href={c.href}
-                  className={`group flex h-full flex-col bg-white rounded-2xl shadow-sm border-t-[3px] border-t-transparent transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(0,0,0,0.10)] ${c.hoverBorder} p-8`}
+                  href={p.href}
+                  className="group relative flex h-full flex-col overflow-hidden bg-navy text-white rounded-3xl p-8 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
                 >
-                  <div
-                    className={`grid place-items-center w-14 h-14 rounded-2xl mb-5 group-hover:scale-110 transition-transform ${c.iconClass}`}
-                  >
-                    <c.icon size={28} />
+                  {/* Halo decorativo */}
+                  <span className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-primary/20 blur-2xl transition-opacity group-hover:opacity-70" />
+                  <div className="relative grid place-items-center w-14 h-14 rounded-2xl bg-white/10 text-gold mb-5 group-hover:scale-110 transition-transform">
+                    <p.icon size={28} />
                   </div>
-                  <h3 className="font-heading font-bold text-lg text-dark">
-                    {c.title}
+                  <h3 className="relative font-heading font-bold text-xl">
+                    {p.title}
                   </h3>
-                  <p className="mt-3 text-gray-600 text-[15px] leading-[1.7]">
-                    {c.text}
+                  <p className="relative mt-3 text-white/70 text-[15px] leading-[1.7] flex-1">
+                    {p.text}
                   </p>
-                  {c.logos && (
-                    <div className="mt-5 pt-4 border-t border-gray-100 flex items-center gap-4 flex-wrap">
-                      {c.logos.map((l) => (
+                  {p.logos && (
+                    <div className="relative mt-5 pt-4 border-t border-white/10 flex items-center gap-2.5 flex-wrap">
+                      {p.logos.map((l) => (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           key={l.alt}
                           src={l.src}
                           alt={`Servicio oficial ${l.alt} — Aníbal Delisa Montevideo`}
                           title={`Servicio oficial ${l.alt}`}
-                          className="h-10 w-10 object-cover rounded-md shadow-sm"
+                          className="h-9 w-9 object-cover rounded-md ring-1 ring-white/15"
                           loading="lazy"
                         />
                       ))}
                     </div>
                   )}
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                    Ver más
-                    <ArrowRight size={16} />
+                  <span className="relative mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold">
+                    Conocer más
+                    <ArrowRight
+                      size={16}
+                      className="group-hover:translate-x-1 transition-transform"
+                    />
                   </span>
                 </Link>
               </Reveal>
             ))}
           </div>
 
-          {/* Rectángulo largo: Alineación y Balanceo (texto original) */}
-          <ZoomReveal className="mt-6">
-            <Link
-              href="/seguridad-vial"
-              className="group flex flex-col md:flex-row items-start md:items-center gap-5 bg-navy text-white rounded-2xl border-l-4 border-l-gold shadow-sm hover:shadow-xl transition-all p-8"
-              data-wa-msg="Hola! Quiero un turno para alineación y balanceo"
-            >
-              <div className="grid place-items-center w-14 h-14 shrink-0 rounded-2xl bg-white/8 text-gold">
-                <Gauge size={28} />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-heading font-bold text-lg text-white">
-                  Alineación y Balanceo
-                </h3>
-                <p className="mt-1.5 text-white/70 text-[15px] leading-[1.7]">
-                  Equipos de última generación y precisión milimétrica. Tus
-                  neumáticos duran más, tu auto maneja mejor y viajás más
-                  seguro.
-                </p>
-              </div>
-              <span className="inline-flex items-center gap-1.5 font-semibold text-gold whitespace-nowrap opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                Saber más
-                <ArrowRight size={18} />
-              </span>
-            </Link>
-          </ZoomReveal>
+          {/* Servicios especializados */}
+          <Reveal className="mt-12 mb-6 text-center">
+            <p className="text-xs font-bold uppercase tracking-[3px] text-gray-400">
+              Especialistas en cada sistema
+            </p>
+          </Reveal>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {especializados.map((s, i) => (
+              <Reveal key={s.title} delay={(i % 3) * 0.06}>
+                <Link
+                  href={s.href}
+                  className="group flex h-full items-start gap-4 bg-white rounded-2xl p-5 shadow-sm border border-gray-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/30"
+                >
+                  <div className="grid place-items-center w-12 h-12 shrink-0 rounded-xl bg-primary/8 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                    <s.icon size={22} />
+                  </div>
+                  <div>
+                    <div className="flex items-baseline gap-2 flex-wrap">
+                      <h4 className="font-heading font-bold text-[15px] text-dark">
+                        {s.title}
+                      </h4>
+                      {"tag" in s && s.tag && (
+                        <span className="text-[10px] font-bold uppercase tracking-wide text-primary">
+                          {s.tag}
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-1 text-[13px] text-gray-600 leading-snug">
+                      {s.text}
+                    </p>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
 
-          {/* Botones de la sección (como en la original) */}
-          <Reveal className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <WhatsAppButton label="Escribinos por WhatsApp" />
-            <CallButton label="Llamanos" />
+          {/* CTA */}
+          <Reveal className="mt-12 text-center">
+            <Link
+              href="/turnos"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-heading font-bold px-8 py-4 rounded-full shadow-lg transition-all hover:scale-[1.03]"
+            >
+              <CalendarCheck size={18} />
+              Agendá tu turno online
+            </Link>
+            <p className="mt-3 text-sm text-gray-500">
+              ¿Preferís consultarnos primero?{" "}
+              <a
+                href={site.whatsapp.general}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary hover:underline"
+              >
+                Escribinos por WhatsApp
+              </a>
+            </p>
           </Reveal>
         </div>
       </section>
