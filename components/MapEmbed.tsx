@@ -10,7 +10,7 @@ export default function MapEmbed({
   title: string;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border-2 border-navy/10 shadow-[0_12px_32px_rgba(10,22,40,0.14)] aspect-[16/10] w-full">
+    <div className="relative overflow-hidden rounded-2xl border-2 border-navy/10 shadow-[0_12px_32px_rgba(14,42,94,0.14)] aspect-[16/10] w-full">
       <iframe
         title={`Mapa: ${title}`}
         src={mapsEmbedUrl(query)}

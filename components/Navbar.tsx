@@ -238,7 +238,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden fixed inset-0 top-14 z-[200] bg-[rgba(10,22,40,0.97)] overflow-y-auto"
+            className="lg:hidden fixed inset-0 top-14 z-[200] bg-[rgba(14,42,94,0.97)] overflow-y-auto"
           >
             <motion.ul
               initial="hidden"

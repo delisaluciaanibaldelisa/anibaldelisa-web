@@ -60,7 +60,7 @@ export default function ContactoPage() {
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-[rgba(10,22,40,0.78)]" />
+        <div className="absolute inset-0 bg-[rgba(14,42,94,0.78)]" />
         <div className="relative container-x py-16 md:py-20">
           <Reveal className="max-w-3xl">
             <Breadcrumb />

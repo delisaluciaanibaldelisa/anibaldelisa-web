@@ -180,16 +180,14 @@ export default function NosotrosPage() {
               Aníbal Delisa, en Vértigo
             </h2>
             <p className="mt-4 text-white/75 leading-relaxed">
-              Hace más de diez años, Nando Parrado confió su Porsche a Aníbal
-              Delisa para el cambio de neumáticos. Una nota del programa Vértigo
-              que resume lo que somos: pasión por los fierros y la confianza de
-              siempre.
+              Nando Parrado confió su Porsche a Aníbal Delisa para el cambio de
+              neumáticos. Una nota del programa Vértigo que resume lo que somos:
+              pasión por los fierros y la confianza de siempre.
             </p>
           </Reveal>
           <Reveal className="max-w-3xl mx-auto">
             <VideoFeature
               src="/videos/entrevista-vertigo.mp4"
-              poster="/historia/historia-oficio.jpg"
               subtitle="Programa Vértigo · con Nando Parrado"
               title="Mirá la entrevista"
             />

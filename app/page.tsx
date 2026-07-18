@@ -37,10 +37,10 @@ const pilares = [
     text: "Servicio Oficial Peugeot, Citroën, BYD y Opel. Diagnóstico computarizado conectado con la central técnica en Francia, repuestos legítimos y procedimientos originales que mantienen vigente la garantía oficial de tu auto.",
     href: "/servicios/servicio-oficial",
     logos: [
-      { src: "/logos/peugeot.png?v=4", alt: "Peugeot" },
-      { src: "/logos/citroen.png?v=4", alt: "Citroën" },
-      { src: "/logos/byd.png?v=4", alt: "BYD" },
-      { src: "/logos/opel.png?v=4", alt: "Opel" },
+      { src: "/logos/peugeot.png?v=5", alt: "Peugeot" },
+      { src: "/logos/citroen.png?v=5", alt: "Citroën" },
+      { src: "/logos/byd.png?v=5", alt: "BYD" },
+      { src: "/logos/opel.png?v=5", alt: "Opel" },
     ],
   },
   {

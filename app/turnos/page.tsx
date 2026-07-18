@@ -21,7 +21,7 @@ export default function TurnosPage() {
           alt="Recepción de vehículos — Taller Aníbal Delisa"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[rgba(10,22,40,0.75)]" />
+        <div className="absolute inset-0 bg-[rgba(14,42,94,0.75)]" />
         <div className="relative container-x py-16 md:py-20">
           <Reveal className="max-w-3xl">
             <Breadcrumb />

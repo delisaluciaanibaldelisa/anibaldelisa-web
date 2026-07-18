@@ -9,12 +9,12 @@
   --color-primary-light: #f04438;
   --color-gold: #ffe500; /* amarillo puro */
   --color-gold-dark: #e0c900;
-  --color-dark: #0a1628; /* navy */
-  --color-navy: #0a1628;
-  --color-navy-mid: #162040;
-  --color-accent: #0a1628; /* navy (fondos y textos oscuros) */
-  --color-accent-light: #162040;
-  --color-charcoal: #0a1628; /* azul navy (antes negro) */
+  --color-dark: #0E2A5E; /* navy */
+  --color-navy: #0E2A5E;
+  --color-navy-mid: #16367A;
+  --color-accent: #0E2A5E; /* navy (fondos y textos oscuros) */
+  --color-accent-light: #16367A;
+  --color-charcoal: #0E2A5E; /* azul navy (antes negro) */
   --color-silver: #c0c0c0;
 
   /* Fuentes */
@@ -25,17 +25,17 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0a1628; /* texto base azul navy */
+  --foreground: #0E2A5E; /* texto base azul navy */
   /* Custom properties del sistema de diseño */
-  --navy: #0a1628;
-  --navy-mid: #162040;
+  --navy: #0E2A5E;
+  --navy-mid: #16367A;
   --red: #e00000; /* rojo del logo */
   --gold: #ffe500;
-  --charcoal: #0a1628;
+  --charcoal: #0E2A5E;
   --gray: #4a4a4a;
   --gray-light: #f5f5f5;
-  --navy-80: rgba(10, 22, 40, 0.8);
-  --navy-20: rgba(10, 22, 40, 0.2);
+  --navy-80: rgba(14, 42, 94, 0.8);
+  --navy-20: rgba(14, 42, 94, 0.2);
   --gold-40: rgba(255, 229, 0, 0.4);
   --gold-10: rgba(255, 229, 0, 0.1);
 }
