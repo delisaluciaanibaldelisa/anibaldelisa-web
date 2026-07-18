@@ -539,10 +539,10 @@ export default function Home() {
           {/* Presencia e infraestructura — sello premium y expansión */}
           <Reveal delay={0.2} className="mt-14">
             <p className="text-xs font-bold uppercase tracking-[3px] text-primary">
-              Nuestra presencia
+              La red Aníbal Delisa
             </p>
             <h3 className="mt-3 font-heading font-extrabold text-2xl md:text-3xl text-dark">
-              Crecemos para atenderte cada día mejor
+              Cada vez más cerca tuyo
             </h3>
 
             <div className="mt-8 grid gap-5 sm:grid-cols-3 text-left">
@@ -552,11 +552,11 @@ export default function Home() {
                   <Building2 size={24} />
                 </div>
                 <p className="mt-4 font-heading font-bold text-lg text-dark">
-                  2 talleres propios
+                  Dos sedes especializadas
                 </p>
                 <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">
-                  Mecánica y Chapa y Pintura, con instalaciones equipadas y
-                  tecnología de última generación en Montevideo.
+                  Un taller dedicado a Mecánica y otro a Chapa y Pintura, cada
+                  uno equipado con tecnología de última generación.
                 </p>
               </div>
 
@@ -566,11 +566,11 @@ export default function Home() {
                   <SquareParking size={24} />
                 </div>
                 <p className="mt-4 font-heading font-bold text-lg text-dark">
-                  Estacionamiento privado
+                  2 estacionamientos privados
                 </p>
                 <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">
-                  Playas propias y seguras: dejá tu auto resguardado y con total
-                  tranquilidad mientras lo atendemos.
+                  Playas propias y seguras: dejá tu auto resguardado, sin
+                  buscar lugar en la calle ni preocuparte por nada.
                 </p>
               </div>
 
@@ -583,11 +583,11 @@ export default function Home() {
                   <Construction size={24} />
                 </div>
                 <p className="mt-4 font-heading font-bold text-lg text-dark">
-                  2 nuevas instalaciones
+                  2 nuevos talleres a la red
                 </p>
                 <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">
-                  Estamos reformando dos propiedades para ampliar nuestra
-                  capacidad y brindarte una atención aún más ágil y cómoda.
+                  Estamos reformando dos nuevas propiedades que muy pronto se
+                  suman a la red Aníbal Delisa.
                 </p>
               </div>
             </div>
