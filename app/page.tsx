@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 import Reveal, { ZoomReveal, SlideReveal } from "@/components/Reveal";
 import HeroCarousel from "@/components/HeroCarousel";
 import StatCounter from "@/components/StatCounter";
-import AutoVideo from "@/components/AutoVideo";
+import MediaCarousel from "@/components/MediaCarousel";
 import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
 
 // Textos de la web original anibaldelisa.com — respetar tal cual.
@@ -268,20 +268,30 @@ export default function Home() {
             </SlideReveal>
 
             <SlideReveal from="right">
-              <AutoVideo
-                src="/videos/hero-byd-seal.mp4"
-                poster="/autos/chapa-citroen-screen.jpg"
-                preload="metadata"
-                className="w-full h-[220px] lg:h-72 object-cover rounded-xl [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)]"
+              <MediaCarousel
+                imgMs={2500}
+                videoMs={3500}
+                items={[
+                  { type: "video", src: "/videos/hero-byd-seal.mp4", poster: "/autos/chapa-citroen-screen.jpg" },
+                  { type: "img", src: "/autos/chapa-508.jpg", alt: "Reparación de chapa y pintura — Aníbal Delisa Montevideo" },
+                  { type: "video", src: "/videos/chapa-byd-tang.mp4", poster: "/autos/chapa-brandvision.jpg" },
+                  { type: "img", src: "/autos/chapa-partner.jpg", alt: "Cabina de pintura climatizada — Aníbal Delisa" },
+                ]}
+                className="w-full h-[220px] lg:h-72 rounded-xl [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)]"
               />
             </SlideReveal>
 
             <SlideReveal from="left">
-              <AutoVideo
-                src="/videos/chapa-byd-yuan.mp4"
-                poster="/autos/chapa-brandvision.jpg"
-                preload="metadata"
-                className="w-full h-[220px] lg:h-72 object-cover rounded-xl [clip-path:polygon(0%_0%,92%_0%,100%_100%,0%_100%)]"
+              <MediaCarousel
+                imgMs={2500}
+                videoMs={3500}
+                items={[
+                  { type: "img", src: "/autos/chapa-brandvision.jpg", alt: "Terminación profesional de pintura — Aníbal Delisa" },
+                  { type: "video", src: "/videos/chapa-byd-yuan.mp4", poster: "/autos/chapa-508sw.jpg" },
+                  { type: "img", src: "/autos/chapa-concept.jpg", alt: "Igualación exacta de color — Aníbal Delisa Montevideo" },
+                  { type: "img", src: "/autos/chapa-508sw.jpg", alt: "Chapa y pintura con acabado de fábrica — Aníbal Delisa" },
+                ]}
+                className="w-full h-[220px] lg:h-72 rounded-xl [clip-path:polygon(0%_0%,92%_0%,100%_100%,0%_100%)]"
               />
             </SlideReveal>
 
