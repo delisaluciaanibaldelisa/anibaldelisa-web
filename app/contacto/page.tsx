@@ -52,24 +52,33 @@ function ContactCard({
 export default function ContactoPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-dark text-white">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/autos/turnos-taller.jpg"
-          alt="Atención al cliente — Taller Aníbal Delisa Montevideo"
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-[rgba(10,22,40,0.78)]" />
-        <div className="relative container-x py-16 md:py-20">
-          <Reveal className="max-w-3xl">
+      <section className="bg-dark text-white">
+        <div className="container-x py-16 md:py-24 grid gap-10 lg:gap-14 lg:grid-cols-2 lg:items-center">
+          <Reveal>
             <Breadcrumb />
-            <h1 className="font-heading font-extrabold text-3xl md:text-5xl">
+            <p className="text-xs font-bold uppercase tracking-[3px] text-gold mb-3">
+              Estamos para ayudarte
+            </p>
+            <h1 className="font-heading font-extrabold text-4xl md:text-6xl leading-tight">
               Contacto
             </h1>
-            <p className="mt-4 text-lg text-gray-300">
-              Encontranos en nuestras dos ubicaciones en Montevideo.
+            <p className="mt-5 text-lg text-gray-300 leading-relaxed max-w-xl">
+              Encontranos en nuestras dos ubicaciones en Montevideo. Escribinos,
+              llamanos o acercate: te atienden los propios dueños, con el trato
+              cercano de siempre.
             </p>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-video">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/autos/turnos-taller.jpg"
+                alt="Diagnóstico con Service Pad oficial Peugeot — Aníbal Delisa Montevideo"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-3xl" />
+            </div>
           </Reveal>
         </div>
       </section>
