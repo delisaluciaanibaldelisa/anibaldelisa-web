@@ -29,7 +29,7 @@ export const serviciosDetalle: Record<string, ServicioDetalle> = {
       "Historial de servicio oficial de tu vehículo",
     ],
     paragraphs: [
-      "Como servicio oficial Peugeot, Citroën, BYD y Opel trabajamos con la misma información técnica, las mismas herramientas y los mismos repuestos que la marca de tu auto. Eso nos permite detectar y resolver cada falla con la precisión que un vehículo moderno exige.",
+      "Como servicio oficial Peugeot, Citroën, BYD y Opel trabajamos con la misma información técnica, las mismas herramientas y los mismos repuestos que la marca de tu auto. Eso nos permite detectar y resolver cada falla con la precisión que tu vehículo exige.",
       "Hacer los mantenimientos con nosotros mantiene vigente la garantía oficial y protege el valor de tu auto. Y el día que quieras venderlo, un historial de servicio oficial es la mejor carta de presentación.",
       "El respaldo y los estándares de la marca, con el trato humano y la confianza de más de 53 años en el oficio: esa combinación es la que nos posiciona como referentes del servicio automotriz en Uruguay.",
     ],
