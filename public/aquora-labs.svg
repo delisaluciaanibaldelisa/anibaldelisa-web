@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" width="720" height="200" fill="none" role="img" aria-label="Aquora Labs">
+  <title>Aquora Labs — lockup horizontal</title>
+  <defs>
+    <linearGradient id="gM" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#FF2E9A"/></linearGradient>
+    <linearGradient id="gV" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4C8DFF"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient>
+    <linearGradient id="gA" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#35E0D2"/><stop offset="1" stop-color="#4C8DFF"/></linearGradient>
+  </defs>
+
+  <g stroke-linecap="round" stroke-linejoin="round" transform="translate(10,10) scale(0.9)">
+    <path d="M 28 40 L 142 100 L 28 160" stroke="url(#gM)" stroke-width="22"/>
+    <path d="M 56 44 L 166 100 L 56 156" stroke="url(#gV)" stroke-width="15"/>
+    <path d="M 82 48 L 186 100 L 82 152" stroke="url(#gA)" stroke-width="9"/>
+  </g>
+
+  <line x1="212" y1="66" x2="212" y2="134" stroke="#1B2536" stroke-width="2"/>
+
+  <text x="248" y="118" font-family="Montserrat, 'Segoe UI', Arial, sans-serif" font-size="46" letter-spacing="12.9" fill="#E8EDF5"><tspan font-weight="600">AQUORA</tspan><tspan font-weight="200"> LABS</tspan></text>
+</svg>
