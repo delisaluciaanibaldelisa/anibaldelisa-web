@@ -130,9 +130,7 @@ const serviciosGarantia = [
 
 const aseguradoras = [
   { name: "BSE", src: "/aseguradoras/bse.png" },
-  { name: "Sura", src: "/aseguradoras/sura.png" },
   { name: "Mapfre", src: "/aseguradoras/mapfre.png" },
-  { name: "Porto Seguro", src: "/aseguradoras/porto.png?v=2" },
   { name: "SBI Seguros", src: "/aseguradoras/sbi.png" },
   { name: "San Cristóbal", src: "/aseguradoras/sancristobal.png" },
   { name: "Barbuss", src: "/aseguradoras/barbuss.png" },
