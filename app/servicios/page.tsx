@@ -23,14 +23,12 @@ export default function ServiciosPage() {
               Servicio Oficial · Mecánica · Chapa y Pintura
             </p>
             <h1 className="font-heading font-extrabold text-3xl md:text-5xl leading-tight">
-              Todo lo que tu auto necesita,
-              <span className="text-primary"> en un solo lugar</span>
+              Nuestros Servicios
             </h1>
             <p className="mt-4 text-lg text-gray-300 leading-relaxed">
-              Del Servicio Oficial de tu marca a la reparación más compleja:
-              más de 53 años de experiencia, tecnología de última generación y
-              la confianza de una empresa familiar. Elegí el servicio que
-              necesitás.
+              Servicio Oficial Peugeot, Citroën, BYD y Opel, Mecánica
+              Multimarca, Chapa y Pintura, alineación y balanceo y revisión
+              pre-compra. Más de 53 años de trayectoria en Montevideo.
             </p>
           </Reveal>
         </div>

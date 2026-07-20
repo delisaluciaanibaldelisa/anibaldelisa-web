@@ -202,13 +202,13 @@ export default function Home() {
               <span className="h-px w-6 bg-primary" />
             </p>
             <h2 className="font-heading font-extrabold text-[clamp(28px,4vw,44px)] text-dark leading-tight">
-              Todo lo que tu auto necesita,
-              <span className="text-primary"> en un solo lugar</span>
+              Servicio integral
+              <span className="text-primary"> para tu vehículo</span>
             </h2>
             <p className="mt-4 text-gray-600 text-[15px] leading-[1.7]">
-              Más de 53 años cuidando cada detalle. Desde el Servicio Oficial de
-              tu marca hasta la reparación más compleja, con la confianza de una
-              empresa familiar.
+              Servicio Oficial Peugeot, Citroën, BYD y Opel, Mecánica
+              Multimarca y Chapa y Pintura. Más de 53 años de trayectoria en
+              Montevideo.
             </p>
           </Reveal>
 
@@ -221,7 +221,6 @@ export default function Home() {
                   className="group relative flex h-full flex-col overflow-hidden bg-navy text-white rounded-3xl p-8 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
                 >
                   {/* Halo decorativo */}
-                  <span className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-primary/20 blur-2xl transition-opacity group-hover:opacity-70" />
                   <div className="relative grid place-items-center w-14 h-14 rounded-2xl bg-white/10 text-gold mb-5 group-hover:scale-110 transition-transform">
                     <p.icon size={28} />
                   </div>
@@ -446,9 +445,8 @@ export default function Home() {
                 todas las marcas, con garantía en cada trabajo realizado.
               </p>
               <p className="font-semibold text-dark">
-                Porque la confianza no se improvisa, se construye reparación
-                tras reparación. Tu auto en manos de quienes saben lo que
-                hacen.
+                Trabajamos con presupuesto previo y garantía escrita en cada
+                reparación.
               </p>
             </div>
             <div className="mt-7 flex flex-col sm:flex-row gap-4">

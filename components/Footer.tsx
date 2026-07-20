@@ -48,11 +48,14 @@ export default function Footer() {
           <p className="font-logo text-2xl text-white tracking-wide">
             Aníbal Delisa
           </p>
-          <p className="mt-3 text-sm text-gray-400 leading-relaxed">
-            Servicio Oficial Peugeot · Citroën · BYD · Opel · Chapa y Pintura ·
-            Mecánica Multimarca. Más de {site.yearsExperience} años de
-            trayectoria en Uruguay. Trabajamos con todas las aseguradoras.
-          </p>
+          <div className="mt-4 space-y-2 text-sm text-gray-400">
+            <p>
+              <span className="font-semibold text-white">Servicio Oficial:</span>{" "}
+              PEUGEOT · CITROËN · BYD · OPEL
+            </p>
+            <p>Mecánica Multimarca</p>
+            <p>Chapa y Pintura · Siniestros</p>
+          </div>
         </div>
 
         {/* Contactos */}

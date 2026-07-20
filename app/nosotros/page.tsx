@@ -42,7 +42,7 @@ const capitulos = [
   {
     year: "+53 años",
     title: "Un legado intachable",
-    text: "Con valores, trabajo y responsabilidad, Aníbal logró lo que para muchos parecía imposible: más de 53 años de trayectoria intachable. Construyó mucho más que un taller: una gran familia en la que los clientes también son parte.",
+    text: "Con valores, trabajo y responsabilidad, Aníbal sostuvo más de 53 años de trayectoria intachable. Construyó una empresa donde los clientes terminan siendo parte de la casa.",
     img: "/historia/historia-marca.jpg",
     alt: "Elevador con la marca Aníbal Delisa en el taller de Charrúa, Montevideo",
     side: "right" as const,
@@ -50,7 +50,7 @@ const capitulos = [
   {
     year: "Hoy",
     title: "Tu segunda casa",
-    text: "Ese trato humano y cercano es nuestra esencia: la tranquilidad de saber que todo va a estar bien y el abrazo en los momentos difíciles, después de un siniestro. Aníbal Delisa siempre fue más que un taller: es una segunda casa, donde lo último en tecnología y la capacitación conviven con lo que de verdad importa, las personas.",
+    text: "El trato cercano sigue siendo nuestra forma de trabajar: explicar con claridad, dar tranquilidad y acompañar al cliente incluso en los momentos difíciles, después de un siniestro. En Aníbal Delisa conviven la tecnología de diagnóstico más actual y la capacitación permanente con algo que no se compra: el trato personal.",
     img: "/historia/historia-hijo.jpg",
     alt: "El trato cercano y familiar que distingue a Aníbal Delisa",
     side: "left" as const,
@@ -99,9 +99,8 @@ export default function NosotrosPage() {
               Aníbal Delisa
             </h1>
             <p className="mt-5 text-lg md:text-xl text-gray-200 leading-relaxed">
-              Más que un taller: la historia de una familia que hace más de
-              medio siglo cuida los autos de los Uruguayos como si fueran
-              propios.
+              La historia de una familia que hace más de medio siglo repara y
+              mantiene los autos de los Uruguayos.
             </p>
           </Reveal>
         </div>

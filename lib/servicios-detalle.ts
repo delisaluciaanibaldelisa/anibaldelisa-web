@@ -91,7 +91,7 @@ export const serviciosDetalle: Record<string, ServicioDetalle> = {
       "Diagnóstico de ruidos y vibraciones",
     ],
     paragraphs: [
-      "Una suspensión en buen estado no es solo confort: es seguridad. Los amortiguadores gastados alargan la distancia de frenado, desgastan los neumáticos de forma despareja y hacen que el auto 'flote' en la ruta.",
+      "La suspensión incide directamente en la seguridad: los amortiguadores gastados alargan la distancia de frenado, desgastan los neumáticos de forma despareja y restan estabilidad en ruta.",
       "Revisamos el sistema completo, identificamos el origen de cada ruido o vibración y te explicamos qué conviene cambiar y por qué. Nada de reemplazar piezas que están sanas.",
       "El resultado es un auto que se siente firme, seguro y cómodo, como tiene que ser.",
     ],
@@ -153,7 +153,7 @@ export const serviciosDetalle: Record<string, ServicioDetalle> = {
       "Revisión de la calefacción",
     ],
     paragraphs: [
-      "El aire acondicionado no es solo confort en verano: mantiene el parabrisas desempañado y el habitáculo sano durante todo el año. Cuando enfría menos de lo normal, casi siempre hay una fuga o falta de gas.",
+      "El aire acondicionado se usa todo el año: además de refrigerar, desempaña el parabrisas y filtra el aire del habitáculo. Cuando enfría menos de lo normal, casi siempre hay una fuga o falta de gas.",
       "Revisamos el sistema completo, detectamos las pérdidas y reparamos lo que corresponda, desde una simple recarga hasta el cambio de compresor. También renovamos el filtro de habitáculo para que respires aire limpio.",
       "Viajá cómodo y seguro en cualquier estación del año.",
     ],
