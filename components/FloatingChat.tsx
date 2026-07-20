@@ -11,7 +11,7 @@ import { trackEvent } from "@/lib/analytics";
 type Msg = { from: "bot" | "user"; text: string };
 
 const WELCOME =
-  "¡Hola! Soy el asistente de Aníbal Delisa 🔧 ¿En qué te puedo ayudar? Podés preguntarme sobre precios, turnos, servicios o dejame tu consulta y te respondemos a la brevedad.";
+  "Hola, soy el asistente de Aníbal Delisa. ¿En qué te puedo ayudar? Podés preguntarme sobre precios, turnos y servicios, o dejarnos tu consulta y te respondemos a la brevedad.";
 
 export default function FloatingChat() {
   const pathname = usePathname();

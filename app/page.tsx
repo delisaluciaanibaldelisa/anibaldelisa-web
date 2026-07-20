@@ -28,6 +28,8 @@ import HeroCarousel from "@/components/HeroCarousel";
 import StatCounter from "@/components/StatCounter";
 import MediaCarousel from "@/components/MediaCarousel";
 import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
+import GoogleReviews from "@/components/GoogleReviews";
+import { getGoogleReviews } from "@/lib/google-reviews";
 
 // Pilares destacados de la grilla de servicios (bento).
 const pilares = [
@@ -136,22 +138,12 @@ const aseguradoras = [
   { name: "Barbuss", src: "/aseguradoras/barbuss.png" },
 ];
 
-const testimonios = [
-  {
-    name: "Gabriela M.",
-    text: "Llevo mi Peugeot hace años. Siempre honestos, te explican todo y los precios son justos. Un lujo de taller.",
-  },
-  {
-    name: "Fernando R.",
-    text: "Me resolvieron un choque con el seguro sin que tuviera que preocuparme por nada. La pintura quedó impecable.",
-  },
-  {
-    name: "Lucía P.",
-    text: "Hice la revisión pre-compra antes de comprar un usado y me salvaron de una mala inversión. Recomendadísimos.",
-  },
-];
+export default async function Home() {
+  // Reseñas reales de la ficha de Google (null si no hay API key configurada).
+  const google = await getGoogleReviews();
+  const rating = google?.rating ?? site.google.rating;
+  const totalReviews = google?.total ?? site.google.reviewCount;
 
-export default function Home() {
   return (
     <>
       {/* HERO — carrusel de marcas */}
@@ -526,7 +518,7 @@ export default function Home() {
             <StatCounter
               value={4.8}
               decimals={1}
-              suffix=" ⭐"
+              suffix=""
               label="En Google"
               color="#FFE500"
             />
@@ -620,7 +612,7 @@ export default function Home() {
               className="mt-5 inline-flex flex-col items-center gap-1 group"
             >
               <span className="font-heading font-black text-[72px] leading-none text-gold">
-                {site.google.rating}
+                {rating}
               </span>
               <span className="flex gap-0.5 text-gold">
                 {Array.from({ length: 5 }).map((_, j) => (
@@ -628,30 +620,21 @@ export default function Home() {
                 ))}
               </span>
               <span className="text-sm text-white/60 group-hover:text-white/80 transition-colors">
-                {site.google.reviewCount} reseñas en Google
+                {totalReviews} reseñas en Google
               </span>
             </a>
           </Reveal>
-          <div className="grid gap-6 md:grid-cols-3">
-            {testimonios.map((t, i) => (
-              <Reveal key={t.name} delay={i * 0.1}>
-                <figure className="h-full rounded-xl bg-white/5 border border-white/8 p-6 flex flex-col">
-                  <span
-                    className="font-heading font-black text-4xl leading-none text-primary select-none"
-                    aria-hidden="true"
-                  >
-                    “
-                  </span>
-                  <blockquote className="text-white/85 flex-1 mt-1">
-                    {t.text}
-                  </blockquote>
-                  <figcaption className="mt-4 font-heading font-bold text-white">
-                    {t.name}
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
+
+          {/* Visor de reseñas reales traídas de Google */}
+          {google && google.reviews.length > 0 && (
+            <Reveal>
+              <GoogleReviews
+                reviews={google.reviews}
+                mapsUrl={site.google.mapsUrl}
+              />
+            </Reveal>
+          )}
+
           <Reveal className="mt-10 text-center">
             <a
               href={site.google.writeReviewUrl}
@@ -659,7 +642,8 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-md border-[1.5px] border-white/30 hover:bg-white/8 text-white font-semibold px-6 py-3 transition-colors"
             >
-              ⭐ Dejanos tu reseña en Google
+              <Star size={18} className="text-gold" fill="currentColor" />
+              Dejanos tu reseña en Google
             </a>
           </Reveal>
         </div>

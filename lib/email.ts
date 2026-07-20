@@ -30,7 +30,7 @@ const pie = `
   <p style="color:#003366;font-weight:bold;margin:0">Aníbal Delisa — Taller Mecánico Multimarca</p>
   <p style="color:#555;margin:4px 0 0">Canelones 2308 esq. Bvar Artigas, Montevideo · Tel: 2408 4755 / 099 680 555</p>
   <p style="margin:12px 0 0">
-    <a href="https://search.google.com/local/writereview?placeid=ChIJKW6LU6-Bn5URR8LW7U52gyI" style="color:#003366">⭐ ¿Cómo fue tu experiencia? Dejanos tu reseña en Google</a>
+    <a href="https://search.google.com/local/writereview?placeid=ChIJKW6LU6-Bn5URR8LW7U52gyI" style="color:#003366">¿Cómo fue tu experiencia? Dejanos tu reseña en Google</a>
   </p>`;
 
 export function emailConfirmacionCliente(datos: {
