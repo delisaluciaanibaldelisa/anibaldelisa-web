@@ -57,6 +57,25 @@ const capitulos = [
   },
 ];
 
+// Álbum familiar — fotos de archivo originales, sin retocar el relato.
+const album = [
+  {
+    src: "/historia/historia-escritorio.jpg",
+    alt: "Aníbal Delisa en el escritorio del taller, años 70",
+    caption: "Años 70",
+  },
+  {
+    src: "/historia/historia-equipo.jpg",
+    alt: "Trabajo de alineación en el taller original",
+    caption: "El oficio de siempre",
+  },
+  {
+    src: "/historia/historia-elevador.jpg",
+    alt: "Auto en el elevador del taller original",
+    caption: "El taller original",
+  },
+];
+
 const valores = [
   {
     icon: GraduationCap,
@@ -160,7 +179,34 @@ export default function NosotrosPage() {
             ))}
           </div>
 
-          <Reveal className="mt-12 md:mt-16 text-center max-w-2xl mx-auto">
+          {/* Álbum familiar — fotos de archivo originales del taller */}
+          <Reveal className="mt-14 md:mt-20">
+            <p className="text-center text-xs font-bold uppercase tracking-[3px] text-gold">
+              Del álbum familiar
+            </p>
+            <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
+              {album.map((a) => (
+                <div
+                  key={a.src}
+                  className="group relative aspect-square overflow-hidden rounded-2xl border border-white/10"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={a.src}
+                    alt={a.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover [filter:sepia(0.28)_contrast(1.05)_brightness(0.9)] transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
+                  <p className="absolute bottom-3 left-3 right-3 text-xs font-semibold text-white/85">
+                    {a.caption}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal className="mt-14 md:mt-16 text-center max-w-2xl mx-auto">
             <p className="font-heading font-semibold text-xl md:text-2xl">
               Mejoramos cada día para ustedes, con un trato{" "}
               <span className="text-gold">cercano y profesional.</span>
