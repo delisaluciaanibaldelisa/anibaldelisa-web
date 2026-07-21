@@ -51,8 +51,8 @@ const capitulos = [
     year: "Hoy",
     title: "Tu segunda casa",
     text: "El trato cercano sigue siendo nuestra forma de trabajar: explicar con claridad, dar tranquilidad y acompañar al cliente incluso en los momentos difíciles, después de un siniestro. En Aníbal Delisa conviven la tecnología de diagnóstico más actual y la capacitación permanente con algo que no se compra: el trato personal.",
-    img: "/historia/historia-hijo.jpg",
-    alt: "El trato cercano y familiar que distingue a Aníbal Delisa",
+    img: "/historia/historia-equipo.jpg",
+    alt: "Trabajo de alineación en el taller de Aníbal Delisa",
     side: "left" as const,
   },
 ];
@@ -63,11 +63,6 @@ const album = [
     src: "/historia/historia-escritorio.jpg",
     alt: "Aníbal Delisa en el escritorio del taller, años 70",
     caption: "Años 70",
-  },
-  {
-    src: "/historia/historia-equipo.jpg",
-    alt: "Trabajo de alineación en el taller original",
-    caption: "El oficio de siempre",
   },
   {
     src: "/historia/historia-elevador.jpg",
