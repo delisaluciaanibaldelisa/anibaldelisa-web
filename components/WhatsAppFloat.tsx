@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackAdsConversion, ADS_CONVERSIONS } from "@/lib/analytics";
 
 // Botón flotante de WhatsApp contextual: arma el mensaje según la sección
 // visible (elementos con data-wa-msg) o, si la página no marca secciones,
@@ -76,7 +76,10 @@ export default function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escribinos por WhatsApp"
-      onClick={() => trackEvent("whatsapp_click", { source: "flotante" })}
+      onClick={() => {
+        trackEvent("whatsapp_click", { source: "flotante" });
+        trackAdsConversion(ADS_CONVERSIONS.whatsapp);
+      }}
       className="fixed bottom-20 lg:bottom-5 left-5 z-50 grid place-items-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1eb555] text-white shadow-lg transition-all hover:scale-105"
     >
       <WhatsAppIcon />

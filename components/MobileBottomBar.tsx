@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Home, CalendarCheck, Phone, MessageCircle } from "lucide-react";
 import { site } from "@/lib/site";
 import { openChat } from "@/lib/chat";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackAdsConversion, ADS_CONVERSIONS } from "@/lib/analytics";
 
 // Barra de navegación inferior fija, solo en mobile (estilo app).
 // 4 accesos: Inicio · Turnos · Chat · Llamar.
@@ -53,7 +53,10 @@ export default function MobileBottomBar() {
 
         <a
           href={site.locations.mecanica.telHref}
-          onClick={() => trackEvent("call_click", { source: "barra_mobile" })}
+          onClick={() => {
+            trackEvent("call_click", { source: "barra_mobile" });
+            trackAdsConversion(ADS_CONVERSIONS.llamada, 1.0);
+          }}
           className={itemClass(false)}
         >
           <Phone size={22} />

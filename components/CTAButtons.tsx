@@ -3,7 +3,7 @@
 import { Phone, MessageCircle } from "lucide-react";
 import { site } from "@/lib/site";
 import { openChat } from "@/lib/chat";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackAdsConversion, ADS_CONVERSIONS } from "@/lib/analytics";
 
 // Ícono de WhatsApp inline (lucide no incluye la marca).
 function WhatsAppIcon({ size = 20 }: { size?: number }) {
@@ -37,7 +37,10 @@ export function WhatsAppButton({
       rel="noopener noreferrer"
       aria-label={label}
       title={label}
-      onClick={() => trackEvent("whatsapp_click", { source: "boton" })}
+      onClick={() => {
+        trackEvent("whatsapp_click", { source: "boton" });
+        trackAdsConversion(ADS_CONVERSIONS.whatsapp);
+      }}
       className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#25D366] hover:bg-[#1eb555] text-white transition-all hover:scale-[1.06] active:scale-[0.98] ${className}`}
     >
       <WhatsAppIcon />
@@ -80,7 +83,10 @@ export function CallButton({
       href={href}
       aria-label={label}
       title={label}
-      onClick={() => trackEvent("call_click", { source: "boton" })}
+      onClick={() => {
+        trackEvent("call_click", { source: "boton" });
+        trackAdsConversion(ADS_CONVERSIONS.llamada, 1.0);
+      }}
       className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary hover:bg-primary-dark text-white transition-all hover:scale-[1.06] active:scale-[0.98] ${className}`}
     >
       <Phone size={20} />

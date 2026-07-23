@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Montserrat, Open_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -219,6 +220,19 @@ export default function RootLayout({
         <WhatsAppFloat />
         <MobileBottomBar />
         <GoogleAnalytics gaId={site.ga4Id} />
+        {/* Google Ads: conversiones (llamadas y WhatsApp) — cuenta 4435627274 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17722010991"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-conversion" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17722010991');
+          `}
+        </Script>
       </body>
     </html>
   );
