@@ -5,8 +5,7 @@ export const site = {
   name: "Aníbal Delisa",
   legalName: "Aníbal Delisa SRL",
   yearsExperience: 53,
-  // TODO: cambiar a https://www.anibaldelisa.com cuando el dominio apunte a Vercel.
-  url: "https://anibaldelisa-web.vercel.app",
+  url: "https://www.anibaldelisa.com",
   // Ficha de Google Maps (Place ID derivado del link oficial de la ficha).
   google: {
     placeId: "ChIJKW6LU6-Bn5URR8LW7U52gyI",
