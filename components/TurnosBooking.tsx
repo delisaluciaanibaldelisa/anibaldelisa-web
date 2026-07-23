@@ -13,7 +13,7 @@ import {
   fechaDisplay,
   horaDisplay,
 } from "@/lib/turnos";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackAdsConversion, ADS_CONVERSIONS } from "@/lib/analytics";
 
 const schema = z.object({
   nombre: z.string().min(2, "Ingresá tu nombre y apellido"),
@@ -87,6 +87,7 @@ export default function TurnosBooking() {
         return;
       }
       trackEvent("turno_agendado", { fecha, hora });
+      trackAdsConversion(ADS_CONVERSIONS.turnoAgendado, 10);
       setConfirmado({ fecha, hora });
     } catch {
       setErrorMsg("Error de conexión. Probá de nuevo o llamanos al 2408 4755.");

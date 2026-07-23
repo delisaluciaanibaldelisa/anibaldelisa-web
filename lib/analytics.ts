@@ -44,4 +44,5 @@ export function trackAdsConversion(sendTo: string, value?: number) {
 export const ADS_CONVERSIONS = {
   llamada: "AW-17722010991/dgjkCOrP5b0cEO_awYJC",
   whatsapp: "AW-17722010991/dJslCK-sxtAcEO_awYJC",
+  turnoAgendado: "AW-17722010991/CuG-CJnaxdUcEO_awYJC",
 } as const;
