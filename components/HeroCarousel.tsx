@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { CalendarCheck } from "lucide-react";
@@ -9,10 +10,10 @@ import AutoVideo from "@/components/AutoVideo";
 // Logos de marca para la franja "Servicio Oficial" (en movimiento continuo).
 // Se usan las imágenes originales con su fondo negro, sin recorte.
 const marcas = [
-  { name: "Peugeot", src: "/logos/peugeot.png?v=6" },
-  { name: "Citroën", src: "/logos/citroen.png?v=6" },
-  { name: "BYD", src: "/logos/byd.png?v=6" },
-  { name: "Opel", src: "/logos/opel.png?v=6" },
+  { name: "Peugeot", src: "/logos/peugeot.png" },
+  { name: "Citroën", src: "/logos/citroen.png" },
+  { name: "BYD", src: "/logos/byd.png" },
+  { name: "Opel", src: "/logos/opel.png" },
 ];
 
 // Diapositivas del hero. Si existe la foto en public/autos/, se muestra;
@@ -75,13 +76,13 @@ export default function HeroCarousel() {
               className="absolute inset-0 w-full h-full object-cover"
             />
           ) : !failed[slide.id] ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={slide.img}
               alt={`Servicio Oficial ${slide.brand} en Montevideo — Taller Aníbal Delisa`}
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="eager"
-              fetchPriority="high"
+              fill
+              sizes="100vw"
+              priority={index === 0}
+              className="object-cover"
               onError={() =>
                 setFailed((f) => ({ ...f, [slide.id]: true }))
               }
@@ -123,11 +124,12 @@ export default function HeroCarousel() {
                   key={`${m.name}-${i}`}
                   className="shrink-0 w-14 h-14 rounded-lg overflow-hidden border border-white/20 shadow-md"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={m.src}
                     alt={`Servicio Oficial ${m.name} — Aníbal Delisa Montevideo`}
                     title={`Servicio Oficial ${m.name}`}
+                    width={56}
+                    height={56}
                     className="w-full h-full object-cover"
                     loading={i < marcas.length ? "eager" : "lazy"}
                   />

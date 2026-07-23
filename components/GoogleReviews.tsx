@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import type { GoogleReview } from "@/lib/google-reviews";
@@ -46,12 +47,12 @@ export default function GoogleReviews({
           >
             <div className="flex items-center gap-4">
               {review.photo ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <Image
                   src={review.photo}
                   alt={review.author}
+                  width={48}
+                  height={48}
                   className="h-12 w-12 shrink-0 rounded-full object-cover"
-                  loading="lazy"
                   referrerPolicy="no-referrer"
                 />
               ) : (

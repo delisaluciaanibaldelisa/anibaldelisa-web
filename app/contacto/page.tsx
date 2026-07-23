@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock, CalendarCheck } from "lucide-react";
 import { site } from "@/lib/site";
@@ -71,11 +72,13 @@ export default function ContactoPage() {
 
           <Reveal delay={0.1}>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-video">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/autos/turnos-taller.jpg"
                 alt="Diagnóstico con Service Pad oficial Peugeot — Aníbal Delisa Montevideo"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+                className="object-cover"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-3xl" />
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -57,10 +58,12 @@ export default function Navbar() {
         >
           {/* IZQUIERDA — Logo + tagline */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/logo.png"
               alt="Aníbal Delisa"
+              width={512}
+              height={512}
+              priority
               className={`w-auto drop-shadow transition-all duration-300 ${
                 scrolled ? "h-10 md:h-11" : "h-12 md:h-14"
               }`}

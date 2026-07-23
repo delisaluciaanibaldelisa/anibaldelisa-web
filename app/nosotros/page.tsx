@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { GraduationCap, Cpu, Handshake, MapPin } from "lucide-react";
 import { site } from "@/lib/site";
 import Reveal, { SlideReveal } from "@/components/Reveal";
@@ -94,11 +95,13 @@ export default function NosotrosPage() {
     <>
       {/* Hero — Aníbal Delisa (foto de archivo de fondo) */}
       <section className="relative overflow-hidden bg-dark text-white">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/historia/historia-origen.jpg"
           alt="El taller original de Aníbal Delisa"
-          className="absolute inset-0 w-full h-full object-cover [filter:sepia(0.25)_brightness(0.9)]"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover [filter:sepia(0.25)_brightness(0.9)]"
         />
         {/* Oscurecido a la izquierda para legibilidad del texto; la foto se ve a la derecha */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/40" />
@@ -140,12 +143,12 @@ export default function NosotrosPage() {
             {capitulos.map((c) => (
               <SlideReveal key={c.title} from={c.side}>
                 <article className="relative overflow-hidden rounded-3xl min-h-[380px] md:min-h-[460px] flex items-end border border-white/10 shadow-xl">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={c.img}
                     alt={c.alt}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover [filter:sepia(0.28)_contrast(1.05)_brightness(0.9)]"
+                    fill
+                    sizes="100vw"
+                    className="object-cover [filter:sepia(0.28)_contrast(1.05)_brightness(0.9)]"
                   />
                   <div
                     className={`absolute inset-0 ${
@@ -185,12 +188,12 @@ export default function NosotrosPage() {
                   key={a.src}
                   className="group relative aspect-square overflow-hidden rounded-2xl border border-white/10"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={a.src}
                     alt={a.alt}
-                    loading="lazy"
-                    className="h-full w-full object-cover [filter:sepia(0.28)_contrast(1.05)_brightness(0.9)] transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-cover [filter:sepia(0.28)_contrast(1.05)_brightness(0.9)] transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
                   <p className="absolute bottom-3 left-3 right-3 text-xs font-semibold text-white/85">

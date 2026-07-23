@@ -83,21 +83,21 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-x py-5 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4 text-xs text-gray-500">
+        <div className="container-x py-6 flex flex-col items-center justify-center gap-3 text-center text-xs text-gray-500">
           <p>Copyright © 2026, {site.name}, Todos los derechos reservados.</p>
           <a
             href="https://aquoralabs.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Desarrollado por Aquora Labs — visitar sitio"
-            className="inline-flex items-center gap-2 opacity-70 transition-opacity hover:opacity-100"
+            className="inline-flex items-center gap-2.5 opacity-80 transition-opacity hover:opacity-100"
           >
             <span>Desarrollado por</span>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/aquora-labs.svg"
               alt="Aquora Labs"
-              className="h-6 w-auto"
+              className="h-9 w-auto"
               loading="lazy"
             />
           </a>

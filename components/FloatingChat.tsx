@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Send } from "lucide-react";
 import { site } from "@/lib/site";
@@ -154,10 +155,11 @@ export default function FloatingChat() {
             AD
           </span>
         ) : (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src="/logo.png"
             alt="Asistente Aníbal Delisa"
+            width={512}
+            height={512}
             className="w-20 h-auto md:w-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
             onError={() => setLogoError(true)}
           />

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Clock, MapPin, Phone } from "lucide-react";
 import { site } from "@/lib/site";
 import Reveal from "@/components/Reveal";
@@ -15,11 +16,13 @@ export default function TurnosPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-dark text-white">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/autos/turnos-header.jpg"
           alt="Recepción de vehículos — Taller Aníbal Delisa"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-[rgba(10,22,40,0.75)]" />
         <div className="relative container-x py-16 md:py-20">

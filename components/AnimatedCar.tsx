@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // Peugeot 308 real (recorte transparente) cruzando la sección de lado a lado.
 export default function AnimatedCar({
@@ -29,10 +30,11 @@ export default function AnimatedCar({
           ease: "linear",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/autos/308.png"
           alt=""
+          width={900}
+          height={506}
           className="w-full h-auto drop-shadow-[0_10px_12px_rgba(0,0,0,0.45)]"
         />
       </motion.div>

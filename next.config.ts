@@ -6,6 +6,13 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    // Fotos de perfil de reseñas reales de Google (Places API).
+    remotePatterns: [
+      { protocol: "https", hostname: "lh3.googleusercontent.com" },
+    ],
+  },
   // Cache largo para assets estáticos (fotos/videos de public/) — mejora
   // velocidad de carga en visitas repetidas sin afectar el deploy (el
   // hash de build invalida el cache cuando cambian los archivos JS/CSS).

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   BadgeCheck,
@@ -39,10 +40,10 @@ const pilares = [
     text: "Servicio Oficial Peugeot, Citroën, BYD y Opel. Diagnóstico computarizado conectado con la central técnica en Francia, repuestos legítimos y procedimientos originales que mantienen vigente la garantía oficial de tu auto.",
     href: "/servicios/servicio-oficial",
     logos: [
-      { src: "/logos/peugeot.png?v=6", alt: "Peugeot" },
-      { src: "/logos/citroen.png?v=6", alt: "Citroën" },
-      { src: "/logos/byd.png?v=6", alt: "BYD" },
-      { src: "/logos/opel.png?v=6", alt: "Opel" },
+      { src: "/logos/peugeot.png", alt: "Peugeot" },
+      { src: "/logos/citroen.png", alt: "Citroën" },
+      { src: "/logos/byd.png", alt: "BYD" },
+      { src: "/logos/opel.png", alt: "Opel" },
     ],
   },
   {
@@ -131,11 +132,11 @@ const serviciosGarantia = [
 ];
 
 const aseguradoras = [
-  { name: "BSE", src: "/aseguradoras/bse.png" },
-  { name: "Mapfre", src: "/aseguradoras/mapfre.png" },
-  { name: "SBI Seguros", src: "/aseguradoras/sbi.png" },
-  { name: "San Cristóbal", src: "/aseguradoras/sancristobal.png" },
-  { name: "Barbuss", src: "/aseguradoras/barbuss.png" },
+  { name: "BSE", src: "/aseguradoras/bse.png", w: 327, h: 120 },
+  { name: "Mapfre", src: "/aseguradoras/mapfre.png", w: 795, h: 120 },
+  { name: "SBI Seguros", src: "/aseguradoras/sbi.png", w: 730, h: 120 },
+  { name: "San Cristóbal", src: "/aseguradoras/sancristobal.png", w: 592, h: 120 },
+  { name: "Barbuss", src: "/aseguradoras/barbuss.png", w: 533, h: 120 },
 ];
 
 export default async function Home() {
@@ -167,13 +168,13 @@ export default async function Home() {
                 key={`${a.name}-${i}`}
                 className="shrink-0 grid place-items-center h-20 min-w-[150px] px-7 rounded-xl bg-white shadow-lg"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={a.src}
                   alt={`${a.name} — aseguradora con la que trabaja Aníbal Delisa`}
                   title={a.name}
+                  width={a.w}
+                  height={a.h}
                   className="max-h-11 w-auto object-contain"
-                  loading="lazy"
                 />
               </div>
             ))}
@@ -225,14 +226,14 @@ export default async function Home() {
                   {p.logos && (
                     <div className="relative mt-5 pt-4 border-t border-white/10 flex items-center gap-2.5 flex-wrap">
                       {p.logos.map((l) => (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
+                        <Image
                           key={l.alt}
                           src={l.src}
                           alt={`Servicio Oficial ${l.alt} — Aníbal Delisa Montevideo`}
                           title={`Servicio Oficial ${l.alt}`}
+                          width={36}
+                          height={36}
                           className="h-9 w-9 object-cover rounded-md ring-1 ring-white/15"
-                          loading="lazy"
                         />
                       ))}
                     </div>
