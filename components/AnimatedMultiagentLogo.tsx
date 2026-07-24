@@ -163,15 +163,24 @@ export default function AnimatedMultiagentLogo({
     if (onTouch) window.setTimeout(onTouch, 2800);
     if (onDone) window.setTimeout(onDone, KING_ANIMATION_CONFIG.durationMs);
 
-    // @ts-expect-error — la secuencia se arma dinámicamente; el shape es
-    // el correcto (AnimationSequence) en runtime.
-    await animate(seq);
-    playingRef.current = false;
+    try {
+      // @ts-expect-error — la secuencia se arma dinámicamente; el shape es
+      // el correcto (AnimationSequence) en runtime.
+      await animate(seq);
+    } finally {
+      // Pase lo que pase (incluso un error a mitad de camino), no queda
+      // trabado bloqueando futuros intentos de reproducirla de nuevo.
+      playingRef.current = false;
+    }
   };
 
   // Reproducción automática al entrar en pantalla.
   useEffect(() => {
-    if (!autoPlay || prefersReducedMotion) return;
+    // En validationMode ignoramos "reducir movimiento" del sistema operativo
+    // a propósito: el cliente pidió verla reproducirse sí o sí para aprobarla.
+    const skipForReducedMotion =
+      prefersReducedMotion && !KING_ANIMATION_CONFIG.validationMode;
+    if (!autoPlay || skipForReducedMotion) return;
     if (typeof window === "undefined") return;
     if (!KING_ANIMATION_CONFIG.validationMode && sessionStorage.getItem(SESSION_KEY)) {
       return;
