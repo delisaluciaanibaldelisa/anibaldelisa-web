@@ -62,6 +62,33 @@ const maletinContenido = [
   "2 chalecos retro-reflectivos",
 ];
 
+const preguntas = [
+  {
+    q: "¿Cada cuánto hay que alinear y balancear el auto?",
+    a: "Se recomienda revisar la alineación cada 10.000 km o ante cualquier golpe fuerte (pozo, cordón). El balanceo conviene hacerlo al montar neumáticos nuevos o apenas se sienta una vibración en el volante.",
+  },
+  {
+    q: "¿Cómo sé si necesito alineación o balanceo?",
+    a: "Si el volante vibra a cierta velocidad, generalmente es balanceo. Si el auto se va hacia un lado o la goma se desgasta solo de un costado, es alineación. Un aumento de consumo de nafta sin razón aparente también puede indicar desalineación.",
+  },
+  {
+    q: "¿Es obligatorio llevar matafuego en el auto en Uruguay?",
+    a: "Sí. Todo vehículo de 4 o más ruedas debe llevar un matafuego tipo ABC de polvo químico seco, cargado, con vencimiento vigente y accesible (Art. 29, Ley 18.191).",
+  },
+  {
+    q: "¿Qué debe llevar el maletín de primeros auxilios obligatorio?",
+    a: "Debe ser blanco con cruz verde, material impermeable, con los teléfonos 911, 108 y 104 impresos, y contener como mínimo apósitos y gasas estériles, guantes, linterna, cinta hipoalergénica, tijera de punta roma, vendas, bolsa para residuos biológicos y chalecos retro-reflectivos.",
+  },
+  {
+    q: "¿Es obligatorio llevar sillita para niños en el auto?",
+    a: "Sí, es obligatorio para viajar con niños: silla homologada según su peso y talla, además de protector solar lateral en la ventanilla.",
+  },
+  {
+    q: "¿Qué más conviene llevar además de lo obligatorio para un viaje largo?",
+    a: "Rueda de auxilio en buen estado con gato y llave de ruedas, cables de arranque, agua potable, manta térmica de emergencia, herramientas básicas y cargador USB para el celular.",
+  },
+];
+
 const recomendados = [
   "Rueda de auxilio en buen estado + gato hidráulico + llave de ruedas",
   "Cables de arranque (para batería descargada)",
@@ -109,9 +136,26 @@ function BenefitList({ items }: { items: readonly string[] }) {
   );
 }
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: preguntas.map((p) => ({
+    "@type": "Question",
+    name: p.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: p.a,
+    },
+  })),
+};
+
 export default function SeguridadVialPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero */}
       <section className="bg-dark text-white">
         <div className="container-x py-16 md:py-20">
@@ -347,6 +391,31 @@ export default function SeguridadVialPage() {
             Según la Ley 18.191 y UNASEV — gub.uy. Esta información es
             orientativa; verificá siempre la normativa vigente.
           </p>
+        </div>
+      </section>
+
+      {/* SECCIÓN 4: Preguntas Frecuentes */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container-x max-w-3xl">
+          <Reveal>
+            <SectionTitle kicker="Sección 4" title="Preguntas Frecuentes" />
+          </Reveal>
+          <div className="space-y-4">
+            {preguntas.map((p, i) => (
+              <Reveal key={p.q} delay={i * 0.05}>
+                <details className="group rounded-2xl border border-gray-200 bg-white p-6">
+                  <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-heading font-bold text-dark">
+                    {p.q}
+                    <ChevronDown
+                      size={20}
+                      className="shrink-0 transition-transform group-open:rotate-180"
+                    />
+                  </summary>
+                  <p className="mt-3 text-gray-700">{p.a}</p>
+                </details>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </>
