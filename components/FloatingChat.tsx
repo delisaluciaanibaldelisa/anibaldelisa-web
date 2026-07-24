@@ -179,7 +179,7 @@ export default function FloatingChat() {
             className="fixed bottom-36 lg:bottom-24 right-5 z-50 w-[calc(100vw-2.5rem)] max-w-sm h-[30rem] max-h-[70vh] flex flex-col rounded-xl overflow-hidden bg-white shadow-2xl border border-gray-200"
           >
             {/* Header */}
-            <div className="bg-primary text-white px-4 py-3 shrink-0">
+            <div className="bg-navy text-white px-4 py-3 shrink-0">
               <p className="font-heading font-bold">Hablá con nosotros</p>
               <p className="text-xs text-white/80">
                 Aníbal Delisa · respondemos rápido
