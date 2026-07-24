@@ -64,28 +64,44 @@ const maletinContenido = [
 
 const preguntas = [
   {
-    q: "¿Cada cuánto hay que alinear y balancear el auto?",
-    a: "Se recomienda revisar la alineación cada 10.000 km o ante cualquier golpe fuerte (pozo, cordón). El balanceo conviene hacerlo al montar neumáticos nuevos o apenas se sienta una vibración en el volante.",
+    q: "¿Qué controles de seguridad debo realizar periódicamente en mi vehículo?",
+    a: "Es importante revisar frenos, neumáticos, luces, dirección, suspensión, batería, limpiaparabrisas y niveles de fluidos. El mantenimiento preventivo permite detectar desgastes antes de que provoquen una falla o comprometan la seguridad.",
   },
   {
-    q: "¿Cómo sé si necesito alineación o balanceo?",
-    a: "Si el volante vibra a cierta velocidad, generalmente es balanceo. Si el auto se va hacia un lado o la goma se desgasta solo de un costado, es alineación. Un aumento de consumo de nafta sin razón aparente también puede indicar desalineación.",
+    q: "¿Cada cuánto tiempo se deben revisar los frenos?",
+    a: "Los frenos deben controlarse en cada mantenimiento programado y ante cualquier señal de alerta. Ruidos, vibraciones, un pedal demasiado blando o una mayor distancia de frenado requieren una revisión inmediata.",
   },
   {
-    q: "¿Es obligatorio llevar matafuego en el auto en Uruguay?",
-    a: "Sí. Todo vehículo de 4 o más ruedas debe llevar un matafuego tipo ABC de polvo químico seco, cargado, con vencimiento vigente y accesible (Art. 29, Ley 18.191).",
+    q: "¿Cómo sé si los neumáticos necesitan ser reemplazados?",
+    a: "Hay que controlar la profundidad del dibujo, la fecha de fabricación y la presencia de grietas, deformaciones o desgaste desparejo. Un neumático deteriorado pierde adherencia, especialmente sobre pavimento mojado.",
   },
   {
-    q: "¿Qué debe llevar el maletín de primeros auxilios obligatorio?",
-    a: "Debe ser blanco con cruz verde, material impermeable, con los teléfonos 911, 108 y 104 impresos, y contener como mínimo apósitos y gasas estériles, guantes, linterna, cinta hipoalergénica, tijera de punta roma, vendas, bolsa para residuos biológicos y chalecos retro-reflectivos.",
+    q: "¿Por qué es importante controlar la presión de los neumáticos?",
+    a: "Una presión incorrecta afecta la estabilidad, la capacidad de frenado, el consumo de combustible y la duración de los neumáticos. Debe controlarse con los neumáticos fríos, respetando la presión indicada por el fabricante.",
   },
   {
-    q: "¿Es obligatorio llevar sillita para niños en el auto?",
-    a: "Sí, es obligatorio para viajar con niños: silla homologada según su peso y talla, además de protector solar lateral en la ventanilla.",
+    q: "¿Qué señales indican problemas en la suspensión o los amortiguadores?",
+    a: "Rebotes excesivos, ruidos, inestabilidad en las curvas, desgaste irregular de los neumáticos o una mayor distancia de frenado pueden indicar fallas. Ante cualquiera de estas señales, recomendamos revisar el vehículo.",
   },
   {
-    q: "¿Qué más conviene llevar además de lo obligatorio para un viaje largo?",
-    a: "Rueda de auxilio en buen estado con gato y llave de ruedas, cables de arranque, agua potable, manta térmica de emergencia, herramientas básicas y cargador USB para el celular.",
+    q: "¿Qué debo hacer si se enciende un testigo en el tablero?",
+    a: "No conviene ignorarlo. Algunos testigos permiten circular con precaución hasta el taller, mientras que otros indican una falla grave. Si el testigo es rojo, aumenta la temperatura o el vehículo pierde potencia, detenete en un lugar seguro y solicitá asistencia.",
+  },
+  {
+    q: "¿Cómo influyen la alineación y el balanceo en la seguridad?",
+    a: "Una alineación correcta mejora la estabilidad y evita que el vehículo se desvíe. El balanceo previene vibraciones y favorece el contacto uniforme de los neumáticos con el pavimento. Un auto mal alineado desgasta los neumáticos de forma irregular y acorta considerablemente su vida útil.",
+  },
+  {
+    q: "¿Qué precauciones debo tomar antes de realizar un viaje largo?",
+    a: "Recomendamos revisar frenos, neumáticos y rueda de auxilio, presión, alineación, luces, batería, limpiaparabrisas y niveles de fluidos. También comprobá la documentación y los elementos de seguridad. Realizá el control con anticipación para poder solucionar cualquier inconveniente antes de viajar.",
+  },
+  {
+    q: "¿Qué precauciones debo tomar al conducir con lluvia?",
+    a: "Reducí la velocidad, aumentá la distancia con el vehículo de adelante y evitá maniobras bruscas. Verificá el estado de los neumáticos, las luces y las escobillas. Si el vehículo pierde adherencia, soltá suavemente el acelerador y mantené firme el volante.",
+  },
+  {
+    q: "¿Por qué el mantenimiento preventivo ayuda a evitar accidentes?",
+    a: "Porque permite detectar piezas desgastadas y fallas antes de que afecten el control del vehículo. Frenos, neumáticos, suspensión, dirección y luces en buenas condiciones ayudan a responder correctamente ante una situación inesperada.",
   },
 ];
 
