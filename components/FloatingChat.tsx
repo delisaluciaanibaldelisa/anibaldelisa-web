@@ -197,7 +197,7 @@ export default function FloatingChat() {
                   <div
                     className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-snug whitespace-pre-line ${
                       m.from === "user"
-                        ? "bg-primary text-white rounded-br-sm"
+                        ? "bg-[#25D366] text-white rounded-br-sm"
                         : "bg-white border border-gray-200 text-dark rounded-bl-sm"
                     }`}
                   >
