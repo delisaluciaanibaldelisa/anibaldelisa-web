@@ -254,7 +254,7 @@ export default function NosotrosPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {valores.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.08} className="text-center">
-                <div className="grid place-items-center w-16 h-16 rounded-full bg-primary text-white mx-auto mb-4">
+                <div className="grid place-items-center w-16 h-16 rounded-full bg-navy text-white mx-auto mb-4">
                   <v.icon size={28} />
                 </div>
                 <h3 className="font-heading font-bold text-lg text-dark">
