@@ -122,7 +122,7 @@ export default function FloatingChat() {
             initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="fixed bottom-[10.5rem] lg:bottom-28 right-5 z-50 max-w-[16rem] rounded-2xl rounded-br-sm bg-white shadow-xl border border-gray-200 px-4 py-3 text-left"
+            className="fixed bottom-[12.5rem] lg:bottom-32 right-5 z-50 max-w-[16rem] rounded-2xl rounded-br-sm bg-white shadow-xl border border-gray-200 px-4 py-3 text-left"
           >
             <span className="block font-heading font-bold text-base text-accent">
               ¿Necesitás ayuda? 👋

@@ -115,13 +115,13 @@ export default function AnimatedMultiagentLogo({
           alt="Asistente Aníbal Delisa"
           width={512}
           height={512}
-          className="w-20 h-auto md:w-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
+          className="h-20 w-auto md:h-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
           priority
         />
       ) : (
         <video
           ref={videoRef}
-          className="w-20 h-auto md:w-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
+          className="h-20 w-auto md:h-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
           width={512}
           height={512}
           muted
