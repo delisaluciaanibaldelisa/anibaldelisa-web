@@ -23,6 +23,7 @@ import {
   SquareParking,
   Construction,
   ChevronDown,
+  Siren,
 } from "lucide-react";
 import { site } from "@/lib/site";
 import Reveal, { ZoomReveal, SlideReveal } from "@/components/Reveal";
@@ -739,6 +740,31 @@ export default async function Home() {
               </Reveal>
             ))}
           </div>
+
+          {/* Tarjeta destacada — guía de emergencias viales */}
+          <Reveal className="mt-10">
+            <Link
+              href="/seguridad-vial/emergencias-en-ruta"
+              className="group flex items-center gap-5 rounded-2xl border-t-[3px] border-t-primary bg-white p-6 md:p-7 shadow-sm transition-all hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(0,0,0,0.10)]"
+            >
+              <span className="grid place-items-center w-14 h-14 shrink-0 rounded-full bg-primary/10 text-primary">
+                <Siren size={26} />
+              </span>
+              <span className="flex-1">
+                <span className="block font-heading font-bold text-lg text-dark">
+                  Qué hacer ante una emergencia vial
+                </span>
+                <span className="block mt-1 text-sm text-gray-600">
+                  Guía completa: neumático reventado, pérdida de frenos,
+                  choque, incendio y más. Para todos, sean o no clientes.
+                </span>
+              </span>
+              <ArrowRight
+                size={22}
+                className="shrink-0 text-primary transition-transform group-hover:translate-x-1"
+              />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
