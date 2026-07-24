@@ -22,6 +22,7 @@ import {
   Building2,
   SquareParking,
   Construction,
+  ChevronDown,
 } from "lucide-react";
 import { site } from "@/lib/site";
 import Reveal, { ZoomReveal, SlideReveal } from "@/components/Reveal";
@@ -138,6 +139,63 @@ const aseguradoras = [
   { name: "San Cristóbal", src: "/aseguradoras/sancristobal.png", w: 592, h: 120 },
   { name: "Barbuss", src: "/aseguradoras/barbuss.png", w: 533, h: 120 },
 ];
+
+// Preguntas frecuentes sobre Servicio Oficial (home, debajo de "Nuestros Clientes").
+const preguntasFrecuentes = [
+  {
+    q: "¿Aníbal Delisa es servicio oficial Peugeot, Citroën, BYD y Opel?",
+    a: "Sí. Somos Servicio Oficial de Peugeot, Citroën, BYD y Opel. Trabajamos conforme a los procedimientos de cada fabricante, con técnicos capacitados, equipamiento específico y repuestos homologados.",
+  },
+  {
+    q: "¿Por qué conviene realizar el mantenimiento en un servicio oficial?",
+    a: "Porque permite mantener el historial del vehículo, cumplir el plan indicado por el fabricante y conservar la garantía vigente. Además, el diagnóstico se realiza con tecnología específica para cada marca.",
+  },
+  {
+    q: "¿Cada cuántos kilómetros debo realizar el service?",
+    a: "Depende de la marca, el modelo, la motorización y la antigüedad del vehículo. También puede establecerse por tiempo, aunque no se haya alcanzado el kilometraje. En Aníbal Delisa verificamos el plan correspondiente a tu vehículo.",
+  },
+  {
+    q: "¿Cuándo se realiza la primera revisión de un Peugeot / Citroën?",
+    a: "La primera revisión de los vehículos Peugeot se realiza a los 2.500 km y no tiene costo. La primera revisión de los vehículos Citroën se realiza a los 1.000 km; consultá por WhatsApp por costos. Luego deben cumplirse los mantenimientos periódicos indicados para cada modelo.",
+  },
+  {
+    q: "¿Qué incluye un service? ¿Es solamente cambiar aceite y filtros?",
+    a: "No. Un service oficial es mucho más que un cambio de aceite y filtros. Además de realizar los reemplazos indicados para el kilometraje de tu vehículo, nuestros técnicos controlan los principales sistemas de seguridad y funcionamiento: frenos, neumáticos, dirección, suspensión, batería, luces, niveles de fluidos, posibles pérdidas y componentes electrónicos. También se realiza el diagnóstico con equipos específicos de cada marca, se reinicia el indicador de mantenimiento y se verifica si existen actualizaciones o campañas técnicas pendientes. Cada vehículo recibe los controles establecidos por Peugeot, Citroën, BYD u Opel según su modelo, motor, antigüedad y kilometraje. Si detectamos alguna reparación o repuesto adicional, te informamos y solicitamos tu autorización antes de realizarla.",
+  },
+  {
+    q: "¿Utilizan repuestos originales?",
+    a: "Sí. Utilizamos repuestos originales o productos expresamente homologados por el fabricante, garantizando compatibilidad, seguridad y buen funcionamiento.",
+  },
+  {
+    q: "¿Por qué es importante realizar la alineación y el balanceo cada 10.000 km?",
+    a: "La alineación y el balanceo ayudan a que el vehículo circule de forma estable, segura y sin vibraciones. Realizarlos cada 10.000 km permite prevenir el desgaste irregular de los neumáticos, mejorar el control del vehículo y prolongar la vida útil de cubiertas y componentes de la suspensión. La alineación corrige la posición y los ángulos de las ruedas para que el vehículo mantenga correctamente su trayectoria. El balanceo distribuye el peso de cada rueda de manera uniforme, evitando vibraciones en el volante y la carrocería. También recomendamos revisarlos antes de los 10.000 km si el vehículo recibió un golpe fuerte contra un pozo o cordón, si el volante vibra, si el auto se desvía hacia un lado o si los neumáticos se desgastan de manera despareja.",
+  },
+  {
+    q: "¿Realizan diagnósticos electrónicos y reparación de fallas?",
+    a: "Sí. Contamos con equipos de diagnóstico específicos para Peugeot, Citroën, BYD y Opel. Podemos identificar fallas electrónicas, testigos encendidos, problemas de funcionamiento y necesidades de actualización.",
+  },
+  {
+    q: "¿Atienden vehículos que ya no están en garantía?",
+    a: "Sí. Atendemos tanto vehículos nuevos con garantía vigente como unidades que ya finalizaron su período de garantía, siempre aplicando los procedimientos recomendados por cada marca.",
+  },
+  {
+    q: "¿Atienden vehículos de otras marcas?",
+    a: "Sí. Además de ser Servicio Oficial Peugeot, Citroën, BYD y Opel, en Aníbal Delisa contamos con un taller multimarca para realizar el mantenimiento y la reparación de vehículos de otras marcas. Ofrecemos service programado, cambio de aceite y filtros, diagnóstico electrónico, frenos, suspensión, alineación, balanceo y mecánica general, con técnicos especializados y equipamiento profesional. No importa qué vehículo tengas: consultanos indicando la marca, el modelo, el año y el kilometraje. Revisaremos sus necesidades y te entregaremos un presupuesto antes de comenzar cualquier trabajo.",
+  },
+] as const;
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: preguntasFrecuentes.map((p) => ({
+    "@type": "Question",
+    name: p.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: p.a,
+    },
+  })),
+};
 
 export default async function Home() {
   // Reseñas reales de la ficha de Google (null si no hay API key configurada).
@@ -647,6 +705,40 @@ export default async function Home() {
               Dejanos tu reseña en Google
             </a>
           </Reveal>
+        </div>
+      </section>
+
+      {/* PREGUNTAS FRECUENTES — Servicio Oficial */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container-x max-w-3xl">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          />
+          <Reveal className="text-center mb-12">
+            <p className="text-sm font-bold uppercase tracking-wide text-primary">
+              Servicio Oficial
+            </p>
+            <h2 className="mt-1 font-heading font-bold text-[clamp(22px,3vw,38px)] text-dark">
+              Preguntas Frecuentes
+            </h2>
+          </Reveal>
+          <div className="space-y-4">
+            {preguntasFrecuentes.map((p, i) => (
+              <Reveal key={p.q} delay={i * 0.03}>
+                <details className="group rounded-2xl border border-gray-200 bg-white p-6">
+                  <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-heading font-bold text-dark">
+                    {p.q}
+                    <ChevronDown
+                      size={20}
+                      className="shrink-0 transition-transform group-open:rotate-180"
+                    />
+                  </summary>
+                  <p className="mt-3 text-gray-700 leading-relaxed">{p.a}</p>
+                </details>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
