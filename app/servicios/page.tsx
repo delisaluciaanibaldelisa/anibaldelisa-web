@@ -5,11 +5,15 @@ import { servicios } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 import Breadcrumb from "@/components/Breadcrumb";
 import ServiceIcon from "@/components/ServiceIcon";
+import { pageOg } from "@/lib/seo";
+
+const description =
+  "Mecánica multimarca, Chapa y Pintura, alineación y balanceo y revisión pre-compra en Montevideo. Servicio Oficial Peugeot, Citroën, BYD y Opel.";
 
 export const metadata: Metadata = {
   title: "Servicios",
-  description:
-    "Mecánica multimarca, Chapa y Pintura, alineación y balanceo y revisión pre-compra en Montevideo. Servicio Oficial Peugeot, Citroën, BYD y Opel.",
+  description,
+  ...pageOg("Servicios", description),
 };
 
 export default function ServiciosPage() {

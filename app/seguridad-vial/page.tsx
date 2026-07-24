@@ -13,11 +13,15 @@ import Reveal from "@/components/Reveal";
 import Breadcrumb from "@/components/Breadcrumb";
 import ChecklistViaje from "@/components/ChecklistViaje";
 import { ChatButton } from "@/components/CTAButtons";
+import { pageOg } from "@/lib/seo";
+
+const description =
+  "Guía completa de seguridad vial para conductores en Uruguay: qué llevar en tu auto según la ley, controles antes de viajes largos e importancia de la alineación y balanceo.";
 
 export const metadata: Metadata = {
   title: "Recomendaciones de Seguridad Vial",
-  description:
-    "Guía completa de seguridad vial para conductores en Uruguay: qué llevar en tu auto según la ley, controles antes de viajes largos e importancia de la alineación y balanceo.",
+  description,
+  ...pageOg("Recomendaciones de Seguridad Vial", description),
 };
 
 const beneficiosAlineacion = [

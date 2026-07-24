@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import ServiceLayout from "@/components/ServiceLayout";
+import { pageOg } from "@/lib/seo";
+
+const description =
+  "Chapa y pintura en Montevideo para aseguradoras y particulares: enderezado en bancada, colorimetría computarizada, cabina climatizada con horno de secado y garantía escrita.";
 
 export const metadata: Metadata = {
   title: "Chapa y Pintura",
-  description:
-    "Chapa y pintura en Montevideo para aseguradoras y particulares: enderezado en bancada, colorimetría computarizada, cabina climatizada con horno de secado y garantía escrita.",
+  description,
+  ...pageOg("Chapa y Pintura", description),
 };
 
 const features = [

@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import ServiceLayout from "@/components/ServiceLayout";
+import { pageOg } from "@/lib/seo";
+
+const description =
+  "Mecánica multimarca en Montevideo: reparación y mantenimiento para todas las marcas con diagnóstico computarizado y más de 53 años de experiencia. Garantía en todos los trabajos.";
 
 export const metadata: Metadata = {
   title: "Mecánica Multimarca",
-  description:
-    "Mecánica multimarca en Montevideo: reparación y mantenimiento para todas las marcas con diagnóstico computarizado y más de 53 años de experiencia. Garantía en todos los trabajos.",
+  description,
+  ...pageOg("Mecánica Multimarca", description),
 };
 
 const features = [

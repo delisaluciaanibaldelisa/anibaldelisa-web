@@ -6,11 +6,15 @@ import { site } from "@/lib/site";
 import Reveal, { ZoomReveal } from "@/components/Reveal";
 import Breadcrumb from "@/components/Breadcrumb";
 import MapEmbed from "@/components/MapEmbed";
+import { pageOg } from "@/lib/seo";
+
+const description =
+  "Contactá a Aníbal Delisa en Montevideo. Mecánica: Canelones 2308. Chapa y pintura: Charrúa 2293. Teléfonos, email y horarios de atención.";
 
 export const metadata: Metadata = {
   title: "Contacto",
-  description:
-    "Contactá a Aníbal Delisa en Montevideo. Mecánica: Canelones 2308. Chapa y pintura: Charrúa 2293. Teléfonos, email y horarios de atención.",
+  description,
+  ...pageOg("Contacto", description),
 };
 
 function ContactCard({

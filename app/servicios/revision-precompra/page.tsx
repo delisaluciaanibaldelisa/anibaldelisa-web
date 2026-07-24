@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import ServiceLayout from "@/components/ServiceLayout";
+import { pageOg } from "@/lib/seo";
+
+const description =
+  "Revisión pre-compra de autos usados en Montevideo: inspección técnica completa de mecánica, Chapa y Pintura y sistema eléctrico. Antes de comprar, alguien de confianza que mire lo que no se ve.";
 
 export const metadata: Metadata = {
   title: "Revisión Pre-Compra de Autos Usados",
-  description:
-    "Revisión pre-compra de autos usados en Montevideo: inspección técnica completa de mecánica, Chapa y Pintura y sistema eléctrico. Antes de comprar, alguien de confianza que mire lo que no se ve.",
+  description,
+  ...pageOg("Revisión Pre-Compra de Autos Usados", description),
 };
 
 const features = [

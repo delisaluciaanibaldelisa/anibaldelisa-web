@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ServiceLayout from "@/components/ServiceLayout";
+import { pageOg } from "@/lib/seo";
+
+const description =
+  "Alineación y balanceo en Montevideo con equipos de última generación y precisión milimétrica. Prolongá la vida de tus neumáticos y viajá seguro.";
 
 export const metadata: Metadata = {
   title: "Alineación y Balanceo",
-  description:
-    "Alineación y balanceo en Montevideo con equipos de última generación y precisión milimétrica. Prolongá la vida de tus neumáticos y viajá seguro.",
+  description,
+  ...pageOg("Alineación y Balanceo", description),
 };
 
 const features = [

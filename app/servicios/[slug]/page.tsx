@@ -5,6 +5,7 @@ import {
   serviciosDetalle,
   serviciosDetalleSlugs,
 } from "@/lib/servicios-detalle";
+import { pageOg } from "@/lib/seo";
 
 export function generateStaticParams() {
   return serviciosDetalleSlugs.map((slug) => ({ slug }));
@@ -21,6 +22,7 @@ export async function generateMetadata({
   return {
     title: data.metaTitle,
     description: data.metaDescription,
+    ...pageOg(data.metaTitle, data.metaDescription),
   };
 }
 

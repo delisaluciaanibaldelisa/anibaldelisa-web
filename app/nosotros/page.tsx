@@ -7,11 +7,15 @@ import Breadcrumb from "@/components/Breadcrumb";
 import MapEmbed from "@/components/MapEmbed";
 import VideoFeature from "@/components/VideoFeature";
 import { ChatButton } from "@/components/CTAButtons";
+import { pageOg } from "@/lib/seo";
+
+const description =
+  "La historia de Aníbal Delisa: más de 53 años de trayectoria, una familia y dos generaciones cuidando los autos de los Uruguayos. Empresa familiar, Servicio Oficial Peugeot, Citroën, BYD y Opel.";
 
 export const metadata: Metadata = {
   title: "Nuestra Historia",
-  description:
-    "La historia de Aníbal Delisa: más de 53 años de trayectoria, una familia y dos generaciones cuidando los autos de los Uruguayos. Empresa familiar, Servicio Oficial Peugeot, Citroën, BYD y Opel.",
+  description,
+  ...pageOg("Nuestra Historia", description),
 };
 
 // Capítulos de la historia de Aníbal Delisa (storytelling con fotos de archivo).
