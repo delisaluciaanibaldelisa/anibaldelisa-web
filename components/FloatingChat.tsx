@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Send } from "lucide-react";
 import { site } from "@/lib/site";
 import { OPEN_CHAT_EVENT } from "@/lib/chat";
 import { trackEvent } from "@/lib/analytics";
+import AnimatedMultiagentLogo from "@/components/AnimatedMultiagentLogo";
 
 type Msg = { from: "bot" | "user"; text: string };
 
@@ -18,7 +18,7 @@ export default function FloatingChat() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [greeting, setGreeting] = useState(false);
-  const [logoError, setLogoError] = useState(false);
+  const [kingReplayKey, setKingReplayKey] = useState(0);
   const [messages, setMessages] = useState<Msg[]>([
     { from: "bot", text: WELCOME },
   ]);
@@ -36,16 +36,15 @@ export default function FloatingChat() {
     return () => window.removeEventListener(OPEN_CHAT_EVENT, openHandler);
   }, []);
 
-  // El rey saluda apenas carga la página y queda visible hasta que abran el chat.
-  useEffect(() => {
-    const t = setTimeout(() => {
-      setOpen((isOpen) => {
-        if (!isOpen) setGreeting(true);
-        return isOpen;
-      });
-    }, 1200);
-    return () => clearTimeout(t);
-  }, []);
+  // El cartel de saludo aparece justo cuando el rey "toca la pantalla"
+  // en su animación de entrada (ver AnimatedMultiagentLogo), y se queda
+  // visible hasta que abran el chat.
+  const handleKingTouch = () => {
+    setOpen((isOpen) => {
+      if (!isOpen) setGreeting(true);
+      return isOpen;
+    });
+  };
 
   useEffect(() => {
     scrollRef.current?.scrollTo({
@@ -138,7 +137,14 @@ export default function FloatingChat() {
       {/* El rey flotante — sin círculo, fondo transparente */}
       <motion.button
         type="button"
-        onClick={() => (open ? setOpen(false) : openPanel())}
+        onClick={() => {
+          if (open) {
+            setOpen(false);
+            setKingReplayKey((k) => k + 1);
+          } else {
+            openPanel();
+          }
+        }}
         aria-label={open ? "Cerrar chat" : "Abrir chat"}
         animate={open ? { y: 0 } : { y: [0, -8, 0] }}
         transition={
@@ -152,18 +158,10 @@ export default function FloatingChat() {
           <span className="grid place-items-center w-12 h-12 rounded-full bg-accent text-white shadow-lg hover:bg-accent-light transition-colors">
             <X size={24} />
           </span>
-        ) : logoError ? (
-          <span className="grid place-items-center w-14 h-14 rounded-full bg-primary text-white font-heading font-extrabold text-xl shadow-lg">
-            AD
-          </span>
         ) : (
-          <Image
-            src="/logo.png"
-            alt="Asistente Aníbal Delisa"
-            width={512}
-            height={512}
-            className="w-20 h-auto md:w-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
-            onError={() => setLogoError(true)}
+          <AnimatedMultiagentLogo
+            onTouch={handleKingTouch}
+            replayTrigger={kingReplayKey}
           />
         )}
       </motion.button>
