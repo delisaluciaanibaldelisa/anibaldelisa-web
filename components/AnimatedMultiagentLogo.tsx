@@ -2,193 +2,75 @@
 
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import Image from "next/image";
-import { useAnimate, useReducedMotion } from "framer-motion";
 
 // ─────────────────────────────────────────────────────────────────────────
-// Animación "cobra vida" del rey (multiagente). public/logo.png NUNCA se
-// modifica: se superpone una capa SVG transparente (ojos, DOS brazos, mano,
-// sombra, onda de contacto) alineada sobre coordenadas reales del logo
-// (extraídas analizando el canal alfa del PNG, no a ojo).
-//
-// Cabeza del logo: x 33%-58%, y 15%-32% del canvas 512x512.
-// Brazo/mano ya dibujados en el PNG original: x 62%-76%, y 34%-46%.
-// Torso: x 30%-73%, y 40%-62%. Todo lo demás (x<30% e y>62% a los costados)
-// está vacío/transparente — ahí se dibujan las extremidades nuevas para que
-// nunca se mezclen con el rojo sólido del cuerpo.
+// El rey "cobra vida": reproduce public/multiagent-logo-alive.webm (con
+// mp4 de respaldo), un video de 6s renderizado frame-a-frame a partir de
+// public/logo.png (que NUNCA se modifica). El primer y último frame son el
+// logo original en reposo, así que arranca y termina idéntico al logo fijo.
+//   - Autoplay 1 vez por sesión al entrar (validationMode = en cada carga).
+//   - Se reproduce de nuevo al tocar el ícono.
+//   - muted + playsInline (requisito para autoplay en móvil).
+//   - Respeta prefers-reduced-motion (queda en el logo estático).
+// Fallback: si el video no carga, muestra logo.png fijo (idéntico al reposo).
 // ─────────────────────────────────────────────────────────────────────────
 
 export const KING_ANIMATION_CONFIG = {
-  /** Duración total de la secuencia, en milisegundos (spec: 5-6s). */
-  durationMs: 6000,
-  /** Espera desde que el ícono entra en pantalla hasta que arranca sola. */
   autoPlayDelayMs: 800,
-  /** Cuántas veces saluda con el brazo izquierdo. */
-  waveCount: 2,
-  /** Cuánto crece la mano al acercarse a la pantalla (efecto de perspectiva). */
-  handReachScale: 2.2,
-  /**
-   * Etapa de validación: si es true, NO se limita a una vez por sesión y
-   * tocar el ícono reproduce de nuevo en vez de abrir el chat. Poner en
-   * false para el comportamiento definitivo (abre el chat al instante,
-   * saluda una vez por sesión, y se repite al cerrar el chat).
-   */
+  /** true = se reproduce en cada carga y al tocar (etapa de aprobación).
+   *  false = 1 vez por sesión y replay controlado por el padre. */
   validationMode: true,
+  webm: "/multiagent-logo-alive.webm",
+  mp4: "/multiagent-logo-alive.mp4",
 };
 
-const SESSION_KEY = "anibal_king_greeted_v2";
+const SESSION_KEY = "anibal_king_greeted_v3";
 
 type Props = {
   className?: string;
-  /** Se llama en el instante en que la mano "toca" la pantalla. */
   onTouch?: () => void;
-  /** Se llama cuando termina toda la secuencia. */
-  onDone?: () => void;
   autoPlay?: boolean;
-  /** Cambiá este número para forzar una repetición manual (modo no-validación). */
   replayTrigger?: number;
 };
 
 export default function AnimatedMultiagentLogo({
   className,
   onTouch,
-  onDone,
   autoPlay = true,
   replayTrigger,
 }: Props) {
-  const [scope, animate] = useAnimate();
-  const [imgError, setImgError] = useState(false);
-  const playingRef = useRef(false);
-  const prefersReducedMotion = useReducedMotion();
+  const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [videoError, setVideoError] = useState(false);
+  const isFirstReplay = useRef(true);
+  const touchTimer = useRef<number | null>(null);
 
-  const play = async () => {
-    if (playingRef.current || !scope.current) return;
-    playingRef.current = true;
-
-    const S = (seconds: number) => seconds; // legibilidad
-    const ease = [0.22, 1, 0.36, 1] as const;
-
-    const seq = [
-      // ── 0.8–1.5s: despertar — ojos aparecen y parpadean ──────────────
-      [".king-eyes", { opacity: [0, 1] }, { at: S(0.8), duration: 0.25 }],
-      [
-        ".king-eye-l, .king-eye-r",
-        { scaleY: [1, 1, 0.12, 1, 1] },
-        { at: S(1.05), duration: 0.35 },
-      ],
-      [".king-head-wobble", { rotate: [0, -2.5, 2, 0] }, { at: S(0.85), duration: 0.5, ease }],
-
-      // ── 1.5–2.8s: el brazo derecho aparece y se extiende hacia la cámara ──
-      [
-        ".king-arm-reach",
-        { opacity: [0, 1] },
-        { at: S(1.5), duration: 0.2 },
-      ],
-      [
-        ".king-arm-reach",
-        {
-          scale: [0.5, 1, KING_ANIMATION_CONFIG.handReachScale],
-          x: ["0%", "-6%", "-24%"],
-          y: ["0%", "6%", "22%"],
-          rotate: [0, -6, -14],
-        },
-        { at: S(1.5), duration: 1.3, ease },
-      ],
-      [
-        ".king-hand-shadow",
-        { opacity: [0, 0.4], scale: [0.4, 1.6] },
-        { at: S(1.9), duration: 0.9, ease },
-      ],
-
-      // ── 2.8–3.2s: contacto con el vidrio + onda ──────────────────────
-      [
-        ".king-ripple",
-        { opacity: [0, 1, 0], scale: [0.15, 1, 2.6] },
-        { at: S(2.8), duration: 0.4, ease: "easeOut" },
-      ],
-      [
-        ".king-arm-reach",
-        { scale: [KING_ANIMATION_CONFIG.handReachScale, KING_ANIMATION_CONFIG.handReachScale * 0.94, KING_ANIMATION_CONFIG.handReachScale] },
-        { at: S(2.8), duration: 0.18 },
-      ],
-      [".king-head-wobble", { rotate: [0, -1.5, 0] }, { at: S(2.85), duration: 0.2 }],
-
-      // ── 3.2–4.0s: retira la mano ──────────────────────────────────────
-      [
-        ".king-arm-reach",
-        {
-          opacity: [1, 0],
-          scale: [KING_ANIMATION_CONFIG.handReachScale, 0.5],
-          x: ["-24%", "0%"],
-          y: ["22%", "0%"],
-          rotate: [-14, 0],
-        },
-        { at: S(3.2), duration: 0.8, ease },
-      ],
-      [
-        ".king-hand-shadow",
-        { opacity: [0.4, 0] },
-        { at: S(3.2), duration: 0.6 },
-      ],
-
-      // ── 4.0–5.2s: levanta el otro brazo y saluda dos veces ───────────
-      [
-        ".king-arm-wave",
-        { opacity: [0, 1], scale: [0.4, 1] },
-        { at: S(4.0), duration: 0.25, ease },
-      ],
-      [
-        ".king-arm-wave",
-        { rotate: [0, -35, 0] },
-        { at: S(4.0), duration: 0.35, ease },
-      ],
-      [
-        ".king-hand-wave",
-        {
-          rotate: waveKeyframes(KING_ANIMATION_CONFIG.waveCount),
-        },
-        { at: S(4.35), duration: 0.65, ease: "easeInOut" },
-      ],
-      [
-        ".king-arm-wave",
-        { rotate: [-35, 0], opacity: [1, 0], scale: [1, 0.4] },
-        { at: S(5.0), duration: 0.2, ease },
-      ],
-
-      // ── 5.2–6.0s: todo desaparece, vuelve el logo original ───────────
-      [".king-eyes", { opacity: [1, 0] }, { at: S(5.2), duration: 0.4 }],
-      [".king-head-wobble", { rotate: [0, 0] }, { at: S(5.2), duration: 0.4 }],
-    ];
-
-    if (onTouch) window.setTimeout(onTouch, 2800);
-    if (onDone) window.setTimeout(onDone, KING_ANIMATION_CONFIG.durationMs);
-
+  const play = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
     try {
-      // @ts-expect-error — la secuencia se arma dinámicamente; el shape es
-      // el correcto (AnimationSequence) en runtime.
-      await animate(seq);
-    } finally {
-      // Pase lo que pase (incluso un error a mitad de camino), no queda
-      // trabado bloqueando futuros intentos de reproducirla de nuevo.
-      playingRef.current = false;
+      v.currentTime = 0;
+      const p = v.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    } catch {
+      /* noop */
+    }
+    // El cartel "¿Necesitás ayuda?" aparece cuando la mano toca el vidrio (~2.8s).
+    if (onTouch) {
+      if (touchTimer.current) window.clearTimeout(touchTimer.current);
+      touchTimer.current = window.setTimeout(onTouch, 2800);
     }
   };
 
-  // Reproducción automática al entrar en pantalla.
+  // Autoplay al entrar en pantalla.
   useEffect(() => {
-    // En validationMode ignoramos "reducir movimiento" del sistema operativo
-    // a propósito: el cliente pidió verla reproducirse sí o sí para aprobarla.
-    const skipForReducedMotion =
-      prefersReducedMotion && !KING_ANIMATION_CONFIG.validationMode;
-    if (!autoPlay || skipForReducedMotion) return;
-    if (typeof window === "undefined") return;
+    if (!autoPlay || typeof window === "undefined") return;
     if (!KING_ANIMATION_CONFIG.validationMode && sessionStorage.getItem(SESSION_KEY)) {
       return;
     }
-
     const el = containerRef.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting) {
@@ -204,10 +86,9 @@ export default function AnimatedMultiagentLogo({
     observer.observe(el);
     return () => observer.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoPlay, prefersReducedMotion]);
+  }, [autoPlay]);
 
-  // Repetición manual (modo no-validación): el padre sube replayTrigger.
-  const isFirstReplay = useRef(true);
+  // Replay manual desde el padre (modo no-validación).
   useEffect(() => {
     if (isFirstReplay.current) {
       isFirstReplay.current = false;
@@ -218,159 +99,42 @@ export default function AnimatedMultiagentLogo({
   }, [replayTrigger]);
 
   const handleClick = (e: MouseEvent) => {
-    if (KING_ANIMATION_CONFIG.validationMode) {
-      // Etapa de validación: tocar el rey solo repite la animación,
-      // no abre el chat (para poder verla completa sin que la tape el panel).
-      e.stopPropagation();
-      play();
-    }
+    if (KING_ANIMATION_CONFIG.validationMode) e.stopPropagation();
+    play();
   };
 
   return (
     <div
       ref={containerRef}
-      className={`relative inline-block overflow-visible ${className ?? ""}`}
+      className={`relative inline-block ${className ?? ""}`}
       onClick={handleClick}
-      style={{ perspective: 500 }}
     >
-      <div ref={scope} className="relative overflow-visible">
-        {imgError ? (
-          <span className="grid place-items-center w-14 h-14 rounded-full bg-primary text-white font-heading font-extrabold text-xl shadow-lg">
-            AD
-          </span>
-        ) : (
-          <div className="king-head-wobble" style={{ transformOrigin: "50% 60%" }}>
-            <Image
-              src="/logo.png"
-              alt="Asistente Aníbal Delisa"
-              width={512}
-              height={512}
-              className="w-20 h-auto md:w-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
-              onError={() => setImgError(true)}
-              priority
-            />
-          </div>
-        )}
-
-        {/* Overlay SVG transparente — ojos y extremidades nuevas. */}
-        {!imgError && (
-          <svg
-            viewBox="0 0 100 100"
-            className="pointer-events-none absolute inset-0 w-full h-full overflow-visible"
-            style={{ overflow: "visible" }}
-            aria-hidden="true"
-          >
-            {/* ── Ojos estilo anime, sobre la zona real de la cabeza ── */}
-            <g className="king-eyes" style={{ opacity: 0 }}>
-              <g className="king-eye-l" style={{ transformOrigin: "40px 24px" }}>
-                <ellipse cx="40" cy="24" rx="3.4" ry="4" fill="#ffffff" stroke="#0A1628" strokeWidth="0.6" />
-                <circle cx="41" cy="24.6" r="1.7" fill="#0A1628" />
-                <circle cx="41.6" cy="23.7" r="0.55" fill="#ffffff" />
-              </g>
-              <g className="king-eye-r" style={{ transformOrigin: "52px 23px" }}>
-                <ellipse cx="52" cy="23" rx="3.4" ry="4" fill="#ffffff" stroke="#0A1628" strokeWidth="0.6" />
-                <circle cx="53" cy="23.6" r="1.7" fill="#0A1628" />
-                <circle cx="53.6" cy="22.7" r="0.55" fill="#ffffff" />
-              </g>
-            </g>
-
-            {/* ── Sombra de profundidad bajo la mano que se acerca ── */}
-            <ellipse
-              className="king-hand-shadow"
-              cx="48"
-              cy="72"
-              rx="13"
-              ry="4"
-              fill="#0A1628"
-              style={{ opacity: 0, transformOrigin: "48px 72px", filter: "blur(1.5px)" }}
-            />
-
-            {/* ── Onda de contacto contra el "vidrio" ── */}
-            <circle
-              className="king-ripple"
-              cx="48"
-              cy="58"
-              r="7"
-              fill="none"
-              stroke="#FFE500"
-              strokeWidth="1.8"
-              style={{ opacity: 0, transformOrigin: "48px 58px" }}
-            />
-
-            {/* ── Brazo derecho: se extiende y toca la pantalla ──
-                Nace cerca de la mano ya dibujada en el logo (66,40) y
-                crece/avanza hacia el centro-frente (48,58). */}
-            <g
-              className="king-arm-reach"
-              style={{ opacity: 0, transformOrigin: "66px 40px" }}
-            >
-              <path
-                d="M66 40 Q80 42 86 54 Q90 62 84 70 L74 66 Q78 58 74 50 Q70 44 62 44 Z"
-                fill="#E00000"
-                stroke="#0A1628"
-                strokeWidth="1.4"
-                strokeLinejoin="round"
-              />
-              <ellipse
-                cx="84"
-                cy="70"
-                rx="9"
-                ry="10"
-                fill="#E00000"
-                stroke="#0A1628"
-                strokeWidth="1.4"
-              />
-              {/* dedos, para que se lea claramente como mano */}
-              <path
-                d="M78 62 L76 56 M84 60 L84 54 M90 62 L92 56"
-                stroke="#0A1628"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-              />
-            </g>
-
-            {/* ── Brazo izquierdo: aparece y saluda dos veces ──
-                Nace en el costado vacío del cuerpo (28,52) y sube hacia
-                (14,32), bien afuera de la silueta roja original. */}
-            <g
-              className="king-arm-wave"
-              style={{ opacity: 0, transformOrigin: "28px 52px" }}
-            >
-              <path
-                d="M28 52 Q16 48 12 36 L20 32 Q24 42 32 46 Z"
-                fill="#E00000"
-                stroke="#0A1628"
-                strokeWidth="1.4"
-                strokeLinejoin="round"
-              />
-              <g className="king-hand-wave" style={{ transformOrigin: "13px 32px" }}>
-                <ellipse cx="13" cy="32" rx="8" ry="9" fill="#E00000" stroke="#0A1628" strokeWidth="1.4" />
-                <path
-                  d="M7 27 L5 21 M12 25 L11 18 M18 27 L19 20"
-                  stroke="#0A1628"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                />
-              </g>
-            </g>
-          </svg>
-        )}
-      </div>
-
-      {prefersReducedMotion && (
-        <style jsx global>{`
-          .king-head-wobble {
-            filter: brightness(1.03);
-          }
-        `}</style>
+      {videoError ? (
+        <Image
+          src="/logo.png"
+          alt="Asistente Aníbal Delisa"
+          width={512}
+          height={512}
+          className="w-20 h-auto md:w-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
+          priority
+        />
+      ) : (
+        <video
+          ref={videoRef}
+          className="w-20 h-auto md:w-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
+          width={512}
+          height={512}
+          muted
+          playsInline
+          preload="auto"
+          poster="/logo.png"
+          onError={() => setVideoError(true)}
+          aria-label="Asistente Aníbal Delisa"
+        >
+          <source src={KING_ANIMATION_CONFIG.webm} type="video/webm" />
+          <source src={KING_ANIMATION_CONFIG.mp4} type="video/mp4" />
+        </video>
       )}
     </div>
   );
-}
-
-function waveKeyframes(count: number): number[] {
-  const frames: number[] = [0];
-  for (let i = 0; i < count; i++) frames.push(-30, 15);
-  frames.push(0);
-  return frames;
 }
