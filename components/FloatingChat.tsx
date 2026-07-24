@@ -12,7 +12,7 @@ import { trackEvent } from "@/lib/analytics";
 type Msg = { from: "bot" | "user"; text: string };
 
 const WELCOME =
-  "Hola, soy el asistente de Aníbal Delisa. ¿En qué te puedo ayudar? Podés preguntarme sobre precios, turnos y servicios, o dejarnos tu consulta y te respondemos a la brevedad.";
+  "Hola, bienvenido a Aníbal Delisa. Tu taller de confianza en Uruguay.\nServicio Oficial Peugeot, Citroën, BYD y Opel.\n¿En qué podemos ayudarte?";
 
 export default function FloatingChat() {
   const pathname = usePathname();
@@ -58,6 +58,7 @@ export default function FloatingChat() {
     const text = input.trim();
     if (!text || loading) return;
 
+    const historial = messages;
     setMessages((m) => [...m, { from: "user", text }]);
     setInput("");
     setLoading(true);
@@ -72,6 +73,7 @@ export default function FloatingChat() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: text,
+          history: historial,
           timestamp: Date.now(),
           source: "web",
         }),
@@ -195,7 +197,7 @@ export default function FloatingChat() {
                   className={`flex ${m.from === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-snug ${
+                    className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-snug whitespace-pre-line ${
                       m.from === "user"
                         ? "bg-primary text-white rounded-br-sm"
                         : "bg-white border border-gray-200 text-dark rounded-bl-sm"
