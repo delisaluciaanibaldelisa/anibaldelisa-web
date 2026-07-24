@@ -197,6 +197,33 @@ const jsonLd = {
   ],
 };
 
+// Schema.org Organization + WebSite — ayuda al Knowledge Panel de Google
+// (separado del AutoRepair de arriba, que describe el negocio físico).
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+      logo: `${site.url}/logo.png`,
+      sameAs: [site.google.mapsUrl],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+59824084755",
+        contactType: "customer service",
+        areaServed: "UY",
+        availableLanguage: "Spanish",
+      },
+    },
+    {
+      "@type": "WebSite",
+      name: site.name,
+      url: site.url,
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -211,6 +238,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
         <TopBar />
         <Navbar />
