@@ -234,7 +234,7 @@ export default function FloatingChat() {
                   onClick={send}
                   disabled={loading || !input.trim()}
                   aria-label="Enviar"
-                  className="grid place-items-center w-10 h-10 rounded-full bg-primary text-white disabled:opacity-40 hover:bg-primary-dark transition-colors"
+                  className="grid place-items-center w-10 h-10 rounded-full bg-[#25D366] text-white disabled:opacity-40 hover:bg-[#1eb555] transition-colors"
                 >
                   <Send size={18} />
                 </button>
