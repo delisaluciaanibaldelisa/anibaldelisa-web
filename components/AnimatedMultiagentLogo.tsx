@@ -1,33 +1,24 @@
 "use client";
 
-import { useEffect, useRef, useState, type MouseEvent } from "react";
-import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 // ─────────────────────────────────────────────────────────────────────────
-// El rey "cobra vida": reproduce public/multiagent-logo-alive.webm (con
-// mp4 de respaldo), un video de 6s renderizado frame-a-frame a partir de
-// public/logo.png (que NUNCA se modifica). El primer y último frame son el
-// logo original en reposo, así que arranca y termina idéntico al logo fijo.
-//   - Autoplay 1 vez por sesión al entrar (validationMode = en cada carga).
-//   - Se reproduce de nuevo al tocar el ícono.
-//   - muted + playsInline (requisito para autoplay en móvil).
-//   - Respeta prefers-reduced-motion (queda en el logo estático).
-// Fallback: si el video no carga, muestra logo.png fijo (idéntico al reposo).
+// El rey "cobra vida": WebP animado transparente (public/multiagent-logo-alive.webp),
+// derivado del video provisto. Se usa vía <img> — así funciona con fondo
+// transparente en TODOS los navegadores, incluido iOS Safari (que no soporta
+// WebM transparente y por eso antes mostraba fondo blanco en el celular).
+// public/logo.png queda como fallback estático si el WebP no cargara.
 // ─────────────────────────────────────────────────────────────────────────
 
 export const KING_ANIMATION_CONFIG = {
   autoPlayDelayMs: 800,
-  /** true = se reproduce en cada carga y al tocar (etapa de aprobación).
-   *  false = 1 vez por sesión y replay controlado por el padre. */
-  validationMode: true,
-  webm: "/multiagent-logo-alive.webm",
-  mp4: "/multiagent-logo-alive.mp4",
+  webp: "/multiagent-logo-alive.webp",
+  fallback: "/logo.png",
 };
-
-const SESSION_KEY = "anibal_king_greeted_v3";
 
 type Props = {
   className?: string;
+  /** Se llama ~1s después de entrar en pantalla (para mostrar el cartel de saludo). */
   onTouch?: () => void;
   autoPlay?: boolean;
   replayTrigger?: number;
@@ -39,46 +30,27 @@ export default function AnimatedMultiagentLogo({
   autoPlay = true,
   replayTrigger,
 }: Props) {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [videoError, setVideoError] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const [imgError, setImgError] = useState(false);
+  const [cacheBust, setCacheBust] = useState(0);
+  const firedRef = useRef(false);
   const isFirstReplay = useRef(true);
-  const touchTimer = useRef<number | null>(null);
 
-  const play = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
-    try {
-      v.currentTime = 0;
-      const p = v.play();
-      if (p && typeof p.catch === "function") p.catch(() => {});
-    } catch {
-      /* noop */
-    }
-    // El cartel "¿Necesitás ayuda?" aparece cuando la mano toca el vidrio (~2.8s).
-    if (onTouch) {
-      if (touchTimer.current) window.clearTimeout(touchTimer.current);
-      touchTimer.current = window.setTimeout(onTouch, 2800);
-    }
-  };
+  // Reinicia la animación recargando el WebP (útil para "repetir al tocar").
+  const replay = () => setCacheBust((c) => c + 1);
 
-  // Autoplay al entrar en pantalla.
+  // Dispara onTouch (aparición del cartel) una vez al entrar en pantalla.
   useEffect(() => {
     if (!autoPlay || typeof window === "undefined") return;
-    if (!KING_ANIMATION_CONFIG.validationMode && sessionStorage.getItem(SESSION_KEY)) {
-      return;
-    }
     const el = containerRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0]?.isIntersecting) {
+        if (entries[0]?.isIntersecting && !firedRef.current) {
+          firedRef.current = true;
           observer.disconnect();
-          window.setTimeout(() => {
-            sessionStorage.setItem(SESSION_KEY, "1");
-            play();
-          }, KING_ANIMATION_CONFIG.autoPlayDelayMs);
+          if (onTouch) window.setTimeout(onTouch, KING_ANIMATION_CONFIG.autoPlayDelayMs + 1600);
         }
       },
       { threshold: 0.1 },
@@ -88,53 +60,29 @@ export default function AnimatedMultiagentLogo({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoPlay]);
 
-  // Replay manual desde el padre (modo no-validación).
+  // Replay manual desde el padre (ej. al cerrar el chat).
   useEffect(() => {
     if (isFirstReplay.current) {
       isFirstReplay.current = false;
       return;
     }
-    if (replayTrigger) play();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (replayTrigger) replay();
   }, [replayTrigger]);
 
-  const handleClick = (e: MouseEvent) => {
-    if (KING_ANIMATION_CONFIG.validationMode) e.stopPropagation();
-    play();
-  };
+  const src = imgError
+    ? KING_ANIMATION_CONFIG.fallback
+    : `${KING_ANIMATION_CONFIG.webp}${cacheBust ? `?r=${cacheBust}` : ""}`;
 
   return (
-    <div
-      ref={containerRef}
-      className={`relative inline-block ${className ?? ""}`}
-      onClick={handleClick}
-    >
-      {videoError ? (
-        <Image
-          src="/logo.png"
-          alt="Asistente Aníbal Delisa"
-          width={512}
-          height={512}
-          className="h-20 w-auto md:h-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
-          priority
-        />
-      ) : (
-        <video
-          ref={videoRef}
-          className="h-20 w-auto md:h-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
-          width={512}
-          height={512}
-          muted
-          playsInline
-          preload="auto"
-          poster="/logo.png"
-          onError={() => setVideoError(true)}
-          aria-label="Asistente Aníbal Delisa"
-        >
-          <source src={KING_ANIMATION_CONFIG.webm} type="video/webm" />
-          <source src={KING_ANIMATION_CONFIG.mp4} type="video/mp4" />
-        </video>
-      )}
+    <div ref={containerRef} className={`relative inline-block ${className ?? ""}`}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        ref={imgRef}
+        src={src}
+        alt="Asistente Aníbal Delisa"
+        className="h-20 w-auto md:h-24 drop-shadow-[0_8px_10px_rgba(0,0,0,0.35)]"
+        onError={() => setImgError(true)}
+      />
     </div>
   );
 }
