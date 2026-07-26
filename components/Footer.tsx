@@ -84,6 +84,15 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-x py-6 flex flex-col items-center justify-center gap-3 text-center text-xs text-gray-500">
+          <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <Link href="/privacy-policy" className="hover:text-white">
+              Política de Privacidad
+            </Link>
+            <span className="text-white/20">·</span>
+            <Link href="/terms-and-conditions" className="hover:text-white">
+              Términos y Condiciones
+            </Link>
+          </nav>
           <p>Copyright © 2026, {site.name}, Todos los derechos reservados.</p>
           <a
             href="https://aquoralabs.com"

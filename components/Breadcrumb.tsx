@@ -16,6 +16,8 @@ const labels: Record<string, string> = {
   nosotros: "Nuestra Historia",
   contacto: "Contacto",
   turnos: "Agendá tu turno",
+  "privacy-policy": "Política de Privacidad",
+  "terms-and-conditions": "Términos y Condiciones",
 };
 
 export default function Breadcrumb() {

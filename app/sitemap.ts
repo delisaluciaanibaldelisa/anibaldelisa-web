@@ -11,14 +11,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/nosotros",
     "/contacto",
     "/turnos",
+    "/privacy-policy",
+    "/terms-and-conditions",
   ];
 
   const lastModified = new Date();
 
+  const legal = new Set(["/privacy-policy", "/terms-and-conditions"]);
+
   return routes.map((route) => ({
     url: `${site.url}${route}`,
     lastModified,
-    changeFrequency: "monthly",
-    priority: route === "" ? 1 : route === "/seguridad-vial" ? 0.9 : 0.8,
+    changeFrequency: legal.has(route) ? "yearly" : "monthly",
+    priority: route === ""
+      ? 1
+      : route === "/seguridad-vial"
+        ? 0.9
+        : legal.has(route)
+          ? 0.3
+          : 0.8,
   }));
 }
