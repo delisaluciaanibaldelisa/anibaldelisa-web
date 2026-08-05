@@ -48,7 +48,7 @@ export default function MobileBottomBar() {
           className={itemClass(false)}
         >
           <MessageCircle size={22} />
-          Chat
+          WhatsApp
         </button>
 
         <a
