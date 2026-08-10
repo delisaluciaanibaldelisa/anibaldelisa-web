@@ -30,7 +30,7 @@ import Reveal, { ZoomReveal, SlideReveal } from "@/components/Reveal";
 import HeroCarousel from "@/components/HeroCarousel";
 import StatCounter from "@/components/StatCounter";
 import MediaCarousel from "@/components/MediaCarousel";
-import { WhatsAppButton, CallButton } from "@/components/CTAButtons";
+import { WhatsAppButton, WhatsAppTextLink, CallButton } from "@/components/CTAButtons";
 import GoogleReviews from "@/components/GoogleReviews";
 import { getGoogleReviews } from "@/lib/google-reviews";
 
@@ -356,14 +356,7 @@ export default async function Home() {
             </Link>
             <p className="mt-3 text-sm text-gray-500">
               ¿Preferís consultarnos primero?{" "}
-              <a
-                href={site.whatsapp.general}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-primary hover:underline"
-              >
-                Escribinos por WhatsApp
-              </a>
+              <WhatsAppTextLink className="font-semibold text-primary hover:underline" />
             </p>
           </Reveal>
         </div>

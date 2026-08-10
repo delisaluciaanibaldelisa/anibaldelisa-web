@@ -59,12 +59,40 @@ export function ChatButton({
   return (
     <button
       type="button"
-      onClick={openChat}
+      onClick={() => {
+        trackEvent("whatsapp_click", { source: "chat_button" });
+        trackAdsConversion(ADS_CONVERSIONS.whatsapp);
+        openChat();
+      }}
       className={`inline-flex items-center justify-center gap-2 rounded-md bg-accent hover:bg-accent-light text-white font-semibold px-6 py-3 transition-all hover:scale-[1.03] active:scale-[0.98] ${className}`}
     >
       <MessageCircle size={20} />
       {label}
     </button>
+  );
+}
+
+// Link de texto simple a WhatsApp, con tracking (para usar dentro de párrafos).
+export function WhatsAppTextLink({
+  label = "Escribinos por WhatsApp",
+  className = "",
+}: {
+  label?: string;
+  className?: string;
+}) {
+  return (
+    <a
+      href={site.whatsapp.general}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() => {
+        trackEvent("whatsapp_click", { source: "link_texto" });
+        trackAdsConversion(ADS_CONVERSIONS.whatsapp);
+      }}
+      className={className}
+    >
+      {label}
+    </a>
   );
 }
 

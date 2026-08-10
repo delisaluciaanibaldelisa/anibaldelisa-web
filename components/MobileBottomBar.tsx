@@ -43,6 +43,7 @@ export default function MobileBottomBar() {
           type="button"
           onClick={() => {
             trackEvent("chat_open", { source: "barra_mobile" });
+            trackAdsConversion(ADS_CONVERSIONS.whatsapp);
             openChat();
           }}
           className={itemClass(false)}
