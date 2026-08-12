@@ -12,7 +12,6 @@ const links = [
   { href: "/", label: "Inicio" },
   { href: "/servicios", label: "Servicios" },
   { href: "/seguridad-vial", label: "Seguridad Vial", gold: true },
-  { href: "/nosotros", label: "Nosotros" },
   { href: "/contacto", label: "Contacto" },
 ];
 

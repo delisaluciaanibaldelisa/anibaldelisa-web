@@ -19,7 +19,6 @@ const porRuta: [string, string][] = [
   ["/seguridad-vial", "Hola! Quiero un turno para alineación y balanceo"],
   ["/turnos", "Hola! Necesito ayuda para agendar un turno"],
   ["/contacto", "Hola! Quiero comunicarme con el taller"],
-  ["/nosotros", "Hola! Quiero hacer una consulta sobre el taller"],
 ];
 
 function WhatsAppIcon({ size = 28 }: { size?: number }) {

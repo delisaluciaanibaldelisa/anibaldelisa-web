@@ -13,7 +13,6 @@ const labels: Record<string, string> = {
   "revision-precompra": "Revisión Pre-Compra",
   "seguridad-vial": "Seguridad Vial",
   "emergencias-en-ruta": "Emergencias en Ruta",
-  nosotros: "Nuestra Historia",
   contacto: "Contacto",
   turnos: "Agendá tu turno",
   "privacy-policy": "Política de Privacidad",

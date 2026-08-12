@@ -8,7 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...servicios.map((s) => `/servicios/${s.slug}`),
     "/seguridad-vial",
     "/seguridad-vial/emergencias-en-ruta",
-    "/nosotros",
     "/contacto",
     "/turnos",
     "/privacy-policy",
