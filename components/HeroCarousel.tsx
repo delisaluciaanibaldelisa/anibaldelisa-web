@@ -45,8 +45,9 @@ export default function HeroCarousel() {
   const [failed, setFailed] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    // El slide con video dura más para que se aprecie (2s más rápido de nuevo).
-    const dur = slides[index].video ? 5000 : 800;
+    // El slide con video dura más para que se aprecie. Ritmo 1.5x más lento
+    // que la versión anterior, a pedido de la dueña.
+    const dur = slides[index].video ? 7500 : 1200;
     const t = setTimeout(() => setIndex((i) => (i + 1) % slides.length), dur);
     return () => clearTimeout(t);
   }, [index]);
