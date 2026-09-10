@@ -569,7 +569,7 @@ export default async function Home() {
             <StatCounter value={4} label="Marcas oficiales" color="#e00000" />
             <StatCounter value={2} label="Talleres" color="#0A1628" />
             <StatCounter
-              value={4.8}
+              value={site.google.rating}
               decimals={1}
               suffix=""
               label="En Google"

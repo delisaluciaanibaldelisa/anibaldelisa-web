@@ -9,8 +9,8 @@ export const site = {
   // Ficha de Google Maps (Place ID derivado del link oficial de la ficha).
   google: {
     placeId: "ChIJKW6LU6-Bn5URR8LW7U52gyI",
-    rating: 4.8,
-    reviewCount: 459,
+    rating: 4.9,
+    reviewCount: 485,
     mapsUrl:
       "https://www.google.com/maps/place/?q=place_id:ChIJKW6LU6-Bn5URR8LW7U52gyI",
     writeReviewUrl:
