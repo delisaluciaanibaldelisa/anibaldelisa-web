@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import MobileBottomBar from "@/components/MobileBottomBar";
+import { getGoogleReviews } from "@/lib/google-reviews";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -84,8 +85,10 @@ export const metadata: Metadata = {
   },
 };
 
-// Schema.org LocalBusiness con las dos ubicaciones.
-const jsonLd = {
+// Schema.org LocalBusiness con las dos ubicaciones. La calificación llega
+// desde la ficha real de Google; si esa API no responde, cae a site.ts.
+function buildJsonLd(rating: number, reviewCount: number) {
+  return {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
   name: site.name,
@@ -104,8 +107,8 @@ const jsonLd = {
   },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: site.google.rating,
-    reviewCount: site.google.reviewCount,
+    ratingValue: rating,
+    reviewCount,
   },
   // Marcas para las que somos Servicio Oficial (SEO: "Servicio Oficial Peugeot/Citroën/BYD/Opel").
   brand: [
@@ -194,7 +197,8 @@ const jsonLd = {
       },
     },
   ],
-};
+  };
+}
 
 // Schema.org Organization + WebSite — ayuda al Knowledge Panel de Google
 // (separado del AutoRepair de arriba, que describe el negocio físico).
@@ -223,11 +227,18 @@ const orgJsonLd = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Calificación real de la ficha de Google, compartida por la barra superior
+  // y los datos estructurados. Si la API no está configurada, usa site.ts.
+  const google = await getGoogleReviews();
+  const rating = google?.rating ?? site.google.rating;
+  const reviewCount = google?.total ?? site.google.reviewCount;
+  const jsonLd = buildJsonLd(rating, reviewCount);
+
   return (
     <html
       lang="es-UY"
@@ -242,7 +253,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
-        <TopBar />
+        <TopBar rating={rating} reviewCount={reviewCount} />
         <Navbar />
         <main className="flex-1 pb-16 lg:pb-0">{children}</main>
         <Footer />

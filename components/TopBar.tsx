@@ -2,8 +2,15 @@ import { Phone, MapPin, Star } from "lucide-react";
 import { site } from "@/lib/site";
 
 // Barra superior de dos niveles: contacto a la izquierda, Google a la derecha.
-// Solo visible en desktop.
-export default function TopBar() {
+// Solo visible en desktop. La calificación llega desde la ficha real de Google
+// (layout la consulta); si esa API no responde, cae a los valores de site.ts.
+export default function TopBar({
+  rating = site.google.rating,
+  reviewCount = site.google.reviewCount,
+}: {
+  rating?: number;
+  reviewCount?: number;
+} = {}) {
   return (
     <div className="hidden md:flex items-center justify-between h-8 px-10 bg-navy-mid">
       <p className="flex items-center gap-2 text-[11px] text-white/55">
@@ -22,7 +29,7 @@ export default function TopBar() {
         className="inline-flex items-center gap-1.5 text-[11px] text-gold hover:underline"
       >
         <Star size={12} fill="currentColor" className="shrink-0" />
-        {site.google.rating} en Google · {site.google.reviewCount} reseñas
+        {rating} en Google · {reviewCount} reseñas
       </a>
     </div>
   );
